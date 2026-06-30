@@ -118,6 +118,18 @@
             }
         }
 
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .5
+            }
+        }
+
         .fade-in {
             animation: fadeIn .3s ease
         }
@@ -1137,12 +1149,6 @@
             padding: 4px
         }
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px
-        }
-
         .toggle-wrap {
             display: flex;
             align-items: center;
@@ -1626,7 +1632,8 @@
         .admin-pkg-img {
             height: 180px;
             position: relative;
-            overflow: hidden
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--rust), var(--maroon))
         }
 
         .admin-pkg-img img {
@@ -1811,6 +1818,229 @@
             line-height: 1
         }
 
+        .code-block {
+            background: #1a1a2e;
+            color: #e0e0e0;
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+            font-family: 'Fira Code', monospace, Consolas;
+            font-size: 12.5px;
+            line-height: 1.7;
+            overflow-x: auto;
+            margin: 12px 0;
+            position: relative;
+            border: 1px solid #2a2a4a
+        }
+
+        .code-block .kw {
+            color: #c792ea
+        }
+
+        .code-block .str {
+            color: #c3e88d
+        }
+
+        .code-block .fn {
+            color: #82aaff
+        }
+
+        .code-block .cm {
+            color: #546e7a;
+            font-style: italic
+        }
+
+        .code-block .num {
+            color: #f78c6c
+        }
+
+        .code-block .var {
+            color: #ffcb6b
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .15);
+            color: #aaa;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: all .15s
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, .2);
+            color: #fff
+        }
+
+        .warning-box {
+            background: var(--orange-light);
+            border: 1px solid var(--orange);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start
+        }
+
+        .warning-box svg {
+            flex-shrink: 0;
+            color: var(--orange);
+            margin-top: 2px
+        }
+
+        .warning-box p {
+            font-size: 13px;
+            color: var(--text);
+            line-height: 1.6
+        }
+
+        .warning-box strong {
+            color: var(--orange)
+        }
+
+        .info-box {
+            background: var(--blue-light);
+            border: 1px solid var(--blue);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start
+        }
+
+        .info-box svg {
+            flex-shrink: 0;
+            color: var(--blue);
+            margin-top: 2px
+        }
+
+        .info-box p {
+            font-size: 13px;
+            color: var(--text);
+            line-height: 1.6
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: steps
+        }
+
+        .step-list li {
+            counter-increment: steps;
+            padding: 14px 14px 14px 56px;
+            position: relative;
+            border-left: 2px solid var(--light-gray);
+            margin-left: 20px;
+            margin-bottom: 0
+        }
+
+        .step-list li::before {
+            content: counter(steps);
+            position: absolute;
+            left: -15px;
+            top: 10px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--maroon);
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .step-list li strong {
+            display: block;
+            font-size: 14px;
+            color: var(--text);
+            margin-bottom: 4px
+        }
+
+        .step-list li p {
+            font-size: 12.5px;
+            color: var(--medium-gray);
+            line-height: 1.6
+        }
+
+        .api-endpoint {
+            background: var(--ivory);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .api-method {
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .05em;
+            flex-shrink: 0
+        }
+
+        .api-method.get {
+            background: var(--green-light);
+            color: var(--green)
+        }
+
+        .api-method.post {
+            background: var(--blue-light);
+            color: var(--blue)
+        }
+
+        .api-method.put {
+            background: var(--orange-light);
+            color: var(--orange)
+        }
+
+        .api-method.delete {
+            background: var(--red-light);
+            color: var(--red)
+        }
+
+        .api-path {
+            font-family: monospace;
+            font-size: 13px;
+            color: var(--text);
+            font-weight: 600
+        }
+
+        .api-desc {
+            font-size: 12px;
+            color: var(--medium-gray);
+            margin-left: auto
+        }
+
+        .db-status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px
+        }
+
+        .db-status-dot.offline {
+            background: var(--red);
+            animation: pulse 2s infinite
+        }
+
+        .db-status-dot.online {
+            background: var(--green)
+        }
+
         @media(max-width:1100px) {
             .charts-grid {
                 grid-template-columns: 1fr
@@ -1882,10 +2112,6 @@
             .features-grid {
                 grid-template-columns: 1fr
             }
-
-            .pricing-grid {
-                grid-template-columns: 1fr
-            }
         }
 
         @media(max-width:480px) {
@@ -1935,38 +2161,31 @@
                     </svg>
                     Dashboard
                 </button>
-                <button class="nav-item" data-section="bookings">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
-                    </svg>
-                    Bookings
-                </button>
                 <button class="nav-item" data-section="vehicles">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="18" cy="18" r="3" />
-                        <circle cx="6" cy="18" r="3" />
-                        <path d="M6 12h12M3 6h18v6H3z" />
+                        <rect x="1" y="3" width="15" height="13" rx="2" />
+                        <path d="M16 8h4l3 3v5a1 1 0 01-1 1h-1" />
+                        <circle cx="5.5" cy="18.5" r="2.5" />
+                        <circle cx="18.5" cy="18.5" r="2.5" />
                     </svg>
                     Vehicles
                 </button>
-                <div class="nav-section-label">Management</div>
                 <button class="nav-item" data-section="packages">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
-                        <line x1="7" y1="7" x2="7.01" y2="7" />
+                        <path d="M20 12V8H6a2 2 0 01-2-2c0-1.1.9-2 2-2h12v4" />
+                        <path d="M4 6v12a2 2 0 002 2h14v-4" />
+                        <path d="M18 12a2 2 0 00-2 2c0 1.1.9 2 2 2h4v-4h-4z" />
                     </svg>
                     Packages
                 </button>
-                <button class="nav-item" data-section="users">
+                <button class="nav-item" data-section="bookings">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                        <circle cx="9" cy="7" r="4" />
-                        <path d="M23 21v-2a4 4 0 00-3-3.87" />
-                        <path d="M16 3.13a4 4 0 010 7.75" />
+                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                        <path d="M16 2v4M8 2v4M3 10h18" />
                     </svg>
-                    Users
+                    Bookings
                 </button>
+                <div class="nav-section-label">System</div>
                 <button class="nav-item" data-section="settings">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="3" />
@@ -1977,17 +2196,18 @@
                 </button>
             </nav>
             <div class="sidebar-foot">
-                <div class="sidebar-avatar">AR</div>
+                <div class="sidebar-avatar">A</div>
                 <div>
-                    <div class="sidebar-user-name">Admin Rajesh</div>
+                    <div class="sidebar-user-name">Admin</div>
                     <div class="sidebar-user-role">Super Admin</div>
                 </div>
             </div>
         </aside>
+
         <div class="main">
             <header class="header">
                 <div class="header-left">
-                    <button class="hamburger" id="hamburgerBtn">
+                    <button class="hamburger" id="hamburger" aria-label="Menu">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <line x1="3" y1="6" x2="21" y2="6" />
@@ -1995,389 +2215,1441 @@
                             <line x1="3" y1="18" x2="21" y2="18" />
                         </svg>
                     </button>
-                    <h2 class="header-title" id="headerTitle">Dashboard</h2>
+                    <h1 class="header-title" id="headerTitle">Dashboard</h1>
                 </div>
                 <div class="header-right">
                     <span class="header-time" id="headerTime"></span>
                     <button class="header-btn" aria-label="Notifications">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
                             <path d="M13.73 21a2 2 0 01-3.46 0" />
                         </svg>
-                        <span class="notif-badge">3</span>
+                        <span class="notif-badge" id="notifBadge">0</span>
                     </button>
                 </div>
             </header>
-            <main class="content" id="contentArea">
-                <section id="sec-dashboard" class="section active"></section>
-                <section id="sec-bookings" class="section"></section>
-                <section id="sec-vehicles" class="section"></section>
-                <section id="sec-packages" class="section"></section>
-                <section id="sec-users" class="section"></section>
-                <section id="sec-settings" class="section"></section>
-            </main>
-        </div>
-    </div>
-    <div class="modal-backdrop" id="modalBackdrop">
-        <div class="modal" id="modalBox">
-            <div class="modal-head">
-                <h3 id="modalTitle">Modal</h3><button class="modal-close" id="modalClose">&times;</button>
+
+            <div class="content">
+                <!-- ========== DASHBOARD ========== -->
+                <div class="section active" id="sec-dashboard">
+                    <div class="stats-grid" id="statsGrid"></div>
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                                </svg>Monthly Overview</h3>
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path
+                                        d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                                    <path d="M2 12h20" />
+                                </svg>Distribution</h3>
+                            <canvas id="doughnutChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <h3>Recent Activity</h3>
+                        <div class="activity-list" id="activityList"></div>
+                    </div>
+                </div>
+
+                <!-- ========== VEHICLES ========== -->
+                <div class="section" id="sec-vehicles">
+                    <div class="filters-bar">
+                        <input class="filter-input" id="vSearch" placeholder="Search vehicles...">
+                        <select class="filter-select" id="vTypeFilter">
+                            <option value="">All Types</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Van">Van</option>
+                            <option value="Bus">Bus</option>
+                            <option value="Luxury">Luxury</option>
+                            <option value="Motorcycle">Motorcycle</option>
+                        </select>
+                        <select class="filter-select" id="vStatusFilter">
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="maintenance">Maintenance</option>
+                            <option value="disabled">Disabled</option>
+                        </select>
+                        <div style="flex:1"></div>
+                        <button class="btn btn-primary" id="addVehicleBtn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                            Add Vehicle
+                        </button>
+                    </div>
+                    <div class="admin-vehicles-grid" id="vehiclesGrid"></div>
+                </div>
+
+                <!-- ========== PACKAGES ========== -->
+                <div class="section" id="sec-packages">
+                    <div class="filters-bar">
+                        <input class="filter-input" id="pSearch" placeholder="Search packages...">
+                        <select class="filter-select" id="pCatFilter">
+                            <option value="">All Categories</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Cultural">Cultural</option>
+                            <option value="Beach">Beach</option>
+                            <option value="Mountain">Mountain</option>
+                            <option value="City">City</option>
+                            <option value="Wildlife">Wildlife</option>
+                        </select>
+                        <div style="flex:1"></div>
+                        <button class="btn btn-primary" id="addPkgBtn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                            Add Package
+                        </button>
+                    </div>
+                    <div class="pkg-grid" id="packagesGrid"></div>
+                </div>
+
+                <!-- ========== BOOKINGS ========== -->
+                <div class="section" id="sec-bookings">
+                    <div class="filters-bar">
+                        <input class="filter-input" id="bSearch" placeholder="Search bookings...">
+                        <select class="filter-select" id="bStatusFilter">
+                            <option value="">All Status</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="pending">Pending</option>
+                            <option value="cancelled">Cancelled</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="data-table-wrap">
+                        <div class="table-responsive">
+                            <table class="data-table" id="bookingsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>Customer</th>
+                                        <th>Package / Vehicle</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bookingsBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== SETTINGS ========== -->
+                <div class="section" id="sec-settings">
+                    <div class="warning-box">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        <p><strong>Frontend cannot connect to MongoDB directly.</strong> Browsers don't support
+                            MongoDB's wire protocol. You need a backend server (Node.js + Express + Mongoose) between
+                            your frontend and MongoDB. Below is a complete guide with code.</p>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Database Connection Status</h3>
+                        <div class="settings-row">
+                            <div class="settings-row-info">
+                                <h4><span class="db-status-dot offline" id="dbStatusDot"></span>In-Memory Store (No Real
+                                    DB)</h4>
+                                <p>Data lives only in this browser tab's memory. Refreshing the page clears everything.
+                                </p>
+                            </div>
+                            <span class="badge badge-orange">Simulation</span>
+                        </div>
+                        <div class="settings-row">
+                            <div class="settings-row-info">
+                                <h4>MongoDB Connection</h4>
+                                <p>Requires a backend API server to bridge frontend and MongoDB.</p>
+                            </div>
+                            <span class="badge badge-red">Not Connected</span>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>How to Connect to MongoDB (Step by Step)</h3>
+                        <ol class="step-list">
+                            <li>
+                                <strong>Set up MongoDB Atlas (Cloud) or Local MongoDB</strong>
+                                <p>Create a free cluster at <strong>mongodb.com/cloud/atlas</strong> or install MongoDB
+                                    locally. Get your connection string like:
+                                    <code>mongodb+srv://user:pass@cluster.mongodb.net/voyago</code></p>
+                            </li>
+                            <li>
+                                <strong>Create a Node.js + Express Backend</strong>
+                                <p>This backend will expose REST API endpoints that your frontend calls with
+                                    <code>fetch()</code>.</p>
+                            </li>
+                            <li>
+                                <strong>Define Mongoose Models</strong>
+                                <p>Create schemas for Vehicles, Packages, and Bookings that map to MongoDB collections.
+                                </p>
+                            </li>
+                            <li>
+                                <strong>Build CRUD API Endpoints</strong>
+                                <p>GET, POST, PUT, DELETE routes for each resource. Add JWT auth for security.</p>
+                            </li>
+                            <li>
+                                <strong>Update This Frontend to Call the API</strong>
+                                <p>Replace the in-memory <code>DB</code> object calls with
+                                    <code>fetch('http://localhost:3000/api/vehicles')</code> etc.</p>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Backend Server Code (server.js)</h3>
+                        <p style="font-size:13px;color:var(--medium-gray);margin-bottom:8px">Save this as
+                            <code>server.js</code> and run
+                            <code>npm init -y && npm install express mongoose cors dotenv</code> then
+                            <code>node server.js</code></p>
+                        <div class="code-block" id="codeServer">
+                            <button class="copy-btn" onclick="copyCode('codeServer')">Copy</button>
+                            <span class="cm">// server.js — Backend API for Voyago</span>
+                            <span class="kw">const</span> express = <span class="fn">require</span>(<span
+                                class="str">'express'</span>);
+                            <span class="kw">const</span> mongoose = <span class="fn">require</span>(<span
+                                class="str">'mongoose'</span>);
+                            <span class="kw">const</span> cors = <span class="fn">require</span>(<span
+                                class="str">'cors'</span>);
+                            <span class="kw">const</span> app = <span class="fn">express</span>();
+
+                            app.<span class="fn">use</span>(<span class="fn">cors</span>());
+                            app.<span class="fn">use</span>(express.<span class="fn">json</span>());
+
+                            <span class="cm">// Connect to MongoDB</span>
+                            mongoose.<span class="fn">connect</span>(<span
+                                class="str">'mongodb+srv://user:pass@cluster.mongodb.net/voyago'</span>)
+                            .<span class="fn">then</span>(() => console.<span class="fn">log</span>(<span
+                                class="str">'MongoDB connected'</span>))
+                            .<span class="fn">catch</span>(err => console.<span class="fn">error</span>(err));
+
+                            <span class="cm">// Vehicle Schema</span>
+                            <span class="kw">const</span> vehicleSchema = <span class="kw">new</span> mongoose.<span
+                                class="fn">Schema</span>({
+                            name: String, type: String, brand: String,
+                            year: Number, seats: Number, fuel: String,
+                            transmission: String, pricePerDay: Number,
+                            status: { type: String, default: <span class="str">'active'</span> },
+                            images: [String], features: [String],
+                            routes: [{ name: String, emoji: String }],
+                            createdAt: { type: Date, default: Date.now }
+                            });
+                            <span class="kw">const</span> Vehicle = mongoose.<span class="fn">model</span>(<span
+                                class="str">'Vehicle'</span>, vehicleSchema);
+
+                            <span class="cm">// CRUD Endpoints</span>
+                            app.<span class="fn">get</span>(<span class="str">'/api/vehicles'</span>, <span
+                                class="kw">async</span> (req, res) => {
+                            <span class="kw">const</span> vehicles = <span class="kw">await</span> Vehicle.<span
+                                class="fn">find</span>();
+                            res.<span class="fn">json</span>(vehicles);
+                            });
+
+                            app.<span class="fn">post</span>(<span class="str">'/api/vehicles'</span>, <span
+                                class="kw">async</span> (req, res) => {
+                            <span class="kw">const</span> vehicle = <span class="kw">new</span> <span
+                                class="fn">Vehicle</span>(req.body);
+                            <span class="kw">await</span> vehicle.<span class="fn">save</span>();
+                            res.<span class="fn">status</span>(<span class="num">201</span>).<span
+                                class="fn">json</span>(vehicle);
+                            });
+
+                            app.<span class="fn">put</span>(<span class="str">'/api/vehicles/:id'</span>, <span
+                                class="kw">async</span> (req, res) => {
+                            <span class="kw">const</span> vehicle = <span class="kw">await</span> Vehicle.<span
+                                class="fn">findByIdAndUpdate</span>(
+                            req.params.id, req.body, { new: <span class="kw">true</span> }
+                            );
+                            res.<span class="fn">json</span>(vehicle);
+                            });
+
+                            app.<span class="fn">delete</span>(<span class="str">'/api/vehicles/:id'</span>, <span
+                                class="kw">async</span> (req, res) => {
+                            <span class="kw">await</span> Vehicle.<span
+                                class="fn">findByIdAndDelete</span>(req.params.id);
+                            res.<span class="fn">json</span>({ success: <span class="kw">true</span> });
+                            });
+
+                            app.<span class="fn">listen</span>(<span class="num">3000</span>, () => console.<span
+                                class="fn">log</span>(<span class="str">'API running on port 3000'</span>));
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Frontend API Calls (Replace In-Memory DB)</h3>
+                        <p style="font-size:13px;color:var(--medium-gray);margin-bottom:12px">Once your backend is
+                            running, replace the <code>DB.vehicles.find()</code> calls in this dashboard with these:</p>
+
+                        <div class="api-endpoint">
+                            <span class="api-method get">GET</span>
+                            <span class="api-path">/api/vehicles</span>
+                            <span class="api-desc">List all vehicles</span>
+                        </div>
+                        <div class="code-block" id="codeGet">
+                            <button class="copy-btn" onclick="copyCode('codeGet')">Copy</button>
+                            <span class="cm">// Replace: DB.vehicles.find()</span>
+                            <span class="kw">const</span> res = <span class="kw">await</span> <span
+                                class="fn">fetch</span>(<span class="str">'http://localhost:3000/api/vehicles'</span>);
+                            <span class="kw">const</span> vehicles = <span class="kw">await</span> res.<span
+                                class="fn">json</span>();
+                        </div>
+
+                        <div class="api-endpoint">
+                            <span class="api-method post">POST</span>
+                            <span class="api-path">/api/vehicles</span>
+                            <span class="api-desc">Create new vehicle</span>
+                        </div>
+                        <div class="code-block" id="codePost">
+                            <button class="copy-btn" onclick="copyCode('codePost')">Copy</button>
+                            <span class="cm">// Replace: DB.vehicles.insert(data)</span>
+                            <span class="kw">const</span> res = <span class="kw">await</span> <span
+                                class="fn">fetch</span>(<span class="str">'http://localhost:3000/api/vehicles'</span>, {
+                            method: <span class="str">'POST'</span>,
+                            headers: { <span class="str">'Content-Type'</span>: <span
+                                class="str">'application/json'</span> },
+                            body: JSON.<span class="fn">stringify</span>(vehicleData)
+                            });
+                            <span class="kw">const</span> vehicle = <span class="kw">await</span> res.<span
+                                class="fn">json</span>();
+                        </div>
+
+                        <div class="api-endpoint">
+                            <span class="api-method put">PUT</span>
+                            <span class="api-path">/api/vehicles/:id</span>
+                            <span class="api-desc">Update a vehicle</span>
+                        </div>
+                        <div class="code-block" id="codePut">
+                            <button class="copy-btn" onclick="copyCode('codePut')">Copy</button>
+                            <span class="cm">// Replace: DB.vehicles.update(id, data)</span>
+                            <span class="kw">const</span> res = <span class="kw">await</span> <span
+                                class="fn">fetch</span>(<span
+                                class="str">`http://localhost:3000/api/vehicles/${id}`</span>, {
+                            method: <span class="str">'PUT'</span>,
+                            headers: { <span class="str">'Content-Type'</span>: <span
+                                class="str">'application/json'</span> },
+                            body: JSON.<span class="fn">stringify</span>(updatedData)
+                            });
+                        </div>
+
+                        <div class="api-endpoint">
+                            <span class="api-method delete">DELETE</span>
+                            <span class="api-path">/api/vehicles/:id</span>
+                            <span class="api-desc">Delete a vehicle</span>
+                        </div>
+                        <div class="code-block" id="codeDel">
+                            <button class="copy-btn" onclick="copyCode('codeDel')">Copy</button>
+                            <span class="cm">// Replace: DB.vehicles.remove(id)</span>
+                            <span class="kw">await</span> <span class="fn">fetch</span>(<span
+                                class="str">`http://localhost:3000/api/vehicles/${id}`</span>, {
+                            method: <span class="str">'DELETE'</span>
+                            });
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="16" x2="12" y2="12" />
+                            <line x1="12" y1="8" x2="12.01" y2="8" />
+                        </svg>
+                        <p><strong>Why not MongoDB Realm / Stitch?</strong> MongoDB does offer a client-side SDK
+                            (Realm), but it requires a MongoDB Atlas App Services backend configuration, has its own
+                            auth system, and still isn't a "direct connection" from pure frontend code. A proper Express
+                            API is simpler, more standard, and gives you full control.</p>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body" id="modalBody"></div>
-            <div class="modal-foot" id="modalFoot"></div>
         </div>
     </div>
+
+    <!-- Vehicle Detail Panel -->
     <div class="panel-overlay" id="panelOverlay"></div>
-    <div class="slide-panel" id="slidePanel">
+    <div class="slide-panel" id="vehiclePanel">
         <div class="slide-panel-head">
-            <h3 id="panelTitle">Details</h3><button class="modal-close" id="panelClose">&times;</button>
+            <h3>Vehicle Details</h3>
+            <button class="modal-close" id="panelClose">&times;</button>
         </div>
         <div class="slide-panel-body" id="panelBody"></div>
     </div>
+
+    <!-- Vehicle Form Modal -->
+    <div class="modal-backdrop" id="vehicleModal">
+        <div class="modal">
+            <div class="modal-head">
+                <h3 id="vehicleModalTitle">Add Vehicle</h3>
+                <button class="modal-close" id="vehicleModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-tabs" id="vFormTabs">
+                    <button class="form-tab-btn active" data-tab="vtab-basic">Basic Info</button>
+                    <button class="form-tab-btn" data-tab="vtab-specs">Specifications</button>
+                    <button class="form-tab-btn" data-tab="vtab-media">Media & Routes</button>
+                    <button class="form-tab-btn" data-tab="vtab-pricing">Pricing & Status</button>
+                </div>
+                <form id="vehicleForm" novalidate>
+                    <div class="form-tab-pane active" id="vtab-basic">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Vehicle Name <span class="req">*</span></label>
+                                <input class="form-control" name="name" placeholder="e.g. Toyota Land Cruiser" required>
+                                <div class="form-error">Vehicle name is required</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Type <span class="req">*</span></label>
+                                <select class="form-control" name="type" required>
+                                    <option value="">Select type...</option>
+                                    <option>Sedan</option>
+                                    <option>SUV</option>
+                                    <option>Van</option>
+                                    <option>Bus</option>
+                                    <option>Luxury</option>
+                                    <option>Motorcycle</option>
+                                </select>
+                                <div class="form-error">Type is required</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Brand <span class="req">*</span></label>
+                                <input class="form-control" name="brand" placeholder="e.g. Toyota" required>
+                                <div class="form-error">Brand is required</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Year</label>
+                                <input class="form-control" name="year" type="number" min="2000" max="2026"
+                                    placeholder="2024">
+                            </div>
+                        </div>
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" name="description"
+                                    placeholder="Brief description of the vehicle..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-tab-pane" id="vtab-specs">
+                        <div class="form-row triple">
+                            <div class="form-group">
+                                <label>Seats</label>
+                                <input class="form-control" name="seats" type="number" min="1" max="60" placeholder="5">
+                            </div>
+                            <div class="form-group">
+                                <label>Fuel Type</label>
+                                <select class="form-control" name="fuel">
+                                    <option value="">Select...</option>
+                                    <option>Petrol</option>
+                                    <option>Diesel</option>
+                                    <option>Electric</option>
+                                    <option>Hybrid</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Transmission</label>
+                                <select class="form-control" name="transmission">
+                                    <option value="">Select...</option>
+                                    <option>Automatic</option>
+                                    <option>Manual</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom:16px">
+                            <label>Features</label>
+                            <div class="features-grid" id="featuresGrid"></div>
+                        </div>
+                    </div>
+                    <div class="form-tab-pane" id="vtab-media">
+                        <div class="form-group" style="margin-bottom:16px">
+                            <label>Images</label>
+                            <div class="img-list" id="imgList"></div>
+                            <button type="button" class="btn btn-ghost btn-sm" style="margin-top:8px" id="addImgBtn">+
+                                Add Image URL</button>
+                        </div>
+                        <div class="form-group">
+                            <label>Available Routes</label>
+                            <div class="routes-list" id="routesList"></div>
+                            <button type="button" class="btn btn-ghost btn-sm" style="margin-top:8px" id="addRouteBtn">+
+                                Add Route</button>
+                        </div>
+                    </div>
+                    <div class="form-tab-pane" id="vtab-pricing">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Price Per Day ($) <span class="req">*</span></label>
+                                <input class="form-control" name="pricePerDay" type="number" min="0" step="0.01"
+                                    placeholder="85.00" required>
+                                <div class="form-error">Price is required</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select class="form-control" name="status">
+                                    <option value="active">Active</option>
+                                    <option value="maintenance">Maintenance</option>
+                                    <option value="disabled">Disabled</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-foot">
+                <button class="btn btn-ghost" id="vehicleModalCancel">Cancel</button>
+                <button class="btn btn-primary" id="vehicleModalSave">Save Vehicle</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Package Form Modal -->
+    <div class="modal-backdrop" id="pkgModal">
+        <div class="modal">
+            <div class="modal-head">
+                <h3 id="pkgModalTitle">Add Package</h3>
+                <button class="modal-close" id="pkgModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="pkgForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Package Name <span class="req">*</span></label>
+                            <input class="form-control" name="name" placeholder="e.g. Himalayan Adventure" required>
+                            <div class="form-error">Name is required</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Category <span class="req">*</span></label>
+                            <select class="form-control" name="category" required>
+                                <option value="">Select...</option>
+                                <option>Adventure</option>
+                                <option>Cultural</option>
+                                <option>Beach</option>
+                                <option>Mountain</option>
+                                <option>City</option>
+                                <option>Wildlife</option>
+                            </select>
+                            <div class="form-error">Category is required</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Duration</label>
+                            <input class="form-control" name="duration" placeholder="e.g. 5 Days / 4 Nights">
+                        </div>
+                        <div class="form-group">
+                            <label>Price ($) <span class="req">*</span></label>
+                            <input class="form-control" name="price" type="number" min="0" step="0.01"
+                                placeholder="1299.00" required>
+                            <div class="form-error">Price is required</div>
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" name="description"
+                                placeholder="Describe the package..."></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>Image URL</label>
+                            <input class="form-control" name="image"
+                                placeholder="https://picsum.photos/seed/pkg/800/400">
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:16px">
+                        <label>What's Included</label>
+                        <div class="includes-list" id="includesList"></div>
+                        <button type="button" class="btn btn-ghost btn-sm" style="margin-top:8px" id="addIncludeBtn">+
+                            Add Item</button>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Max Group Size</label>
+                            <input class="form-control" name="maxGroup" type="number" min="1" placeholder="12">
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select class="form-control" name="status">
+                                <option value="active">Active</option>
+                                <option value="disabled">Disabled</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-foot">
+                <button class="btn btn-ghost" id="pkgModalCancel">Cancel</button>
+                <button class="btn btn-primary" id="pkgModalSave">Save Package</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm Delete Modal -->
+    <div class="modal-backdrop" id="confirmModal">
+        <div class="modal" style="max-width:440px">
+            <div class="modal-body" style="text-align:center;padding:32px">
+                <div class="confirm-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6" />
+                        <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2" />
+                    </svg>
+                </div>
+                <h3 style="font-family:var(--font-heading);font-size:20px;color:var(--dark);margin-bottom:8px">Delete
+                    Item?</h3>
+                <p class="confirm-text" id="confirmText">Are you sure you want to delete this item? This action cannot
+                    be undone.</p>
+                <div style="display:flex;gap:10px;justify-content:center">
+                    <button class="btn btn-ghost" id="confirmCancel">Cancel</button>
+                    <button class="btn btn-danger" id="confirmDelete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="toastBox"></div>
 
     <script>
-        /* ═══════════════════════════════════════════════════════════════
-           VOYAGO ADMIN — Full Dashboard with Vehicle + Package CRUD
-           ═══════════════════════════════════════════════════════════════ */
+        /* ================================================================
+           IN-MEMORY DATABASE — Simulates MongoDB collections
+           No localStorage. Data exists only while the tab is open.
+           To persist data, you MUST use a backend + MongoDB (see Settings).
+        ================================================================ */
+        const DB = {
+            _id: () => 'id_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
 
-        var DB_KEY = 'voyago_vehicles';
-        var PKG_KEY = 'voyago_packages';
-        var SETTINGS_KEY = 'voyago_settings';
+            vehicles: {
+                _data: [],
+                find(filters = {}) {
+                    let results = [...this._data];
+                    if (filters.search) {
+                        const s = filters.search.toLowerCase();
+                        results = results.filter(v =>
+                            v.name.toLowerCase().includes(s) ||
+                            v.brand.toLowerCase().includes(s) ||
+                            v.type.toLowerCase().includes(s)
+                        );
+                    }
+                    if (filters.type) results = results.filter(v => v.type === filters.type);
+                    if (filters.status) results = results.filter(v => v.status === filters.status);
+                    return results;
+                },
+                findById(id) { return this._data.find(v => v._id === id) || null; },
+                insert(data) {
+                    const doc = { _id: this._id ? DB._id() : DB._id(), createdAt: new Date().toISOString(), ...data };
+                    this._data.push(doc);
+                    return doc;
+                },
+                update(id, data) {
+                    const idx = this._data.findIndex(v => v._id === id);
+                    if (idx === -1) return null;
+                    this._data[idx] = { ...this._data[idx], ...data, updatedAt: new Date().toISOString() };
+                    return this._data[idx];
+                },
+                remove(id) {
+                    const idx = this._data.findIndex(v => v._id === id);
+                    if (idx === -1) return false;
+                    this._data.splice(idx, 1);
+                    return true;
+                },
+                count(filters = {}) { return this.find(filters).length; }
+            },
 
-        var ALL_FEATURES = [
-            'Air Conditioning', 'Dual Zone AC', 'Roof-Mounted AC', 'Individual AC Vents',
-            'USB Charging Port', 'USB & Type-C Charging', 'USB Charging (All Rows)',
-            'GPS Navigation', 'GPS Tracking', 'Music System', 'Premium Music System',
-            'Premium Sound System', 'Reclining Seats', 'Push-Back Seats', 'Captain Seats (Row 2)',
-            'Leather Seats', 'Sunroof', '4WD Capability', 'Foldable 3rd Row', 'Roof Rails',
-            'Touchscreen Infotainment', 'Luggage Boot', 'Under-Bus Storage',
-            'Reading Lights', 'Onboard Pantry', 'Entertainment Screens',
-            'Sanitised After Each Trip', 'Emergency Assistance', 'Emergency Exit',
-            'Verified Driver', 'Verified Driver + Co-Driver', 'PA System', 'WiFi'
-        ];
+            packages: {
+                _data: [],
+                find(filters = {}) {
+                    let results = [...this._data];
+                    if (filters.search) {
+                        const s = filters.search.toLowerCase();
+                        results = results.filter(p =>
+                            p.name.toLowerCase().includes(s) ||
+                            p.category.toLowerCase().includes(s)
+                        );
+                    }
+                    if (filters.category) results = results.filter(p => p.category === filters.category);
+                    return results;
+                },
+                findById(id) { return this._data.find(p => p._id === id) || null; },
+                insert(data) {
+                    const doc = { _id: DB._id(), createdAt: new Date().toISOString(), ...data };
+                    this._data.push(doc);
+                    return doc;
+                },
+                update(id, data) {
+                    const idx = this._data.findIndex(p => p._id === id);
+                    if (idx === -1) return null;
+                    this._data[idx] = { ...this._data[idx], ...data, updatedAt: new Date().toISOString() };
+                    return this._data[idx];
+                },
+                remove(id) {
+                    const idx = this._data.findIndex(p => p._id === id);
+                    if (idx === -1) return false;
+                    this._data.splice(idx, 1);
+                    return true;
+                },
+                count(filters = {}) { return this.find(filters).length; }
+            },
 
-        var TYPE_LABELS = { sedan: 'Sedan', suv: 'SUV', muv: 'MUV', tempo: 'Tempo Traveller', bus: 'Bus / Coach' };
-        var CAT_LABELS = { hill: 'Hill Station', pilgrimage: 'Pilgrimage', weekend: 'Weekend Escape', corporate: 'Corporate Tour' };
-        var CAT_COLORS = { hill: 'badge-green', pilgrimage: 'badge-gold', weekend: 'badge-blue', corporate: 'badge-maroon' };
-        var ROUTE_EMOJIS = ['\u{1F4CD}', '\u{1F3D9}\uFE0F', '\u2708\uFE0F', '\u{1F3DE}\uFE0F', '\u{1F4BC}', '\u{1F3D4}\uFE0F', '\u{1F6E4}\uFE0F', '\u{1F6D5}', '\u{1F468}\u200D\u{1F469}\u200D\u{1F467}\u200D\u{1F466}', '\u{1F3D5}\uFE0F', '\u{1F38A}', '\u{1F3EB}', '\u{1F3ED}', '\u{1F393}', '\u26BD', '\u{1F389}', '\u{1F697}'];
+            bookings: {
+                _data: [],
+                find(filters = {}) {
+                    let results = [...this._data];
+                    if (filters.search) {
+                        const s = filters.search.toLowerCase();
+                        results = results.filter(b =>
+                            b.customer.toLowerCase().includes(s) ||
+                            b.item.toLowerCase().includes(s) ||
+                            b._id.toLowerCase().includes(s)
+                        );
+                    }
+                    if (filters.status) results = results.filter(b => b.status === filters.status);
+                    return results.sort((a, b) => new Date(b.date) - new Date(a.date));
+                },
+                insert(data) {
+                    const doc = { _id: 'BK' + String(this._data.length + 1).padStart(4, '0'), createdAt: new Date().toISOString(), ...data };
+                    this._data.push(doc);
+                    return doc;
+                },
+                update(id, data) {
+                    const idx = this._data.findIndex(b => b._id === id);
+                    if (idx === -1) return null;
+                    this._data[idx] = { ...this._data[idx], ...data };
+                    return this._data[idx];
+                },
+                remove(id) {
+                    const idx = this._data.findIndex(b => b._id === id);
+                    if (idx === -1) return false;
+                    this._data.splice(idx, 1);
+                    return true;
+                }
+            },
 
-        var currentSection = 'dashboard';
-        var editingVehicleId = null;
-        var editingPackageId = null;
-        var formState = { images: [''], routes: [{ icon: '\u{1F4CD}', label: '' }], features: [] };
-        var pkgFormState = { includes: [''] };
-        var revenueChart = null;
-        var typeChart = null;
-        var vehicleFilter = { search: '', type: '', status: '' };
-        var packageFilter = { search: '', category: '', status: '' };
+            activity: {
+                _data: [],
+                add(text, detail, type = 'blue') {
+                    this._data.unshift({ text, detail, type, time: new Date().toISOString() });
+                    if (this._data.length > 50) this._data.length = 50;
+                },
+                recent(n = 10) { return this._data.slice(0, n); }
+            }
+        };
 
-        // ── UTILITIES ──
-        function slugify(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
-        function formatCurrency(n) { return '\u20B9' + Number(n || 0).toLocaleString('en-IN'); }
-        function formatDate(d) { if (!d) return '\u2014'; var dt = new Date(d); return dt.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }); }
-        function formatDateTime(d) { if (!d) return '\u2014'; var dt = new Date(d); return dt.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) + ' ' + dt.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }); }
-        function getBadgeClass(bc) { if (!bc) return 'badge-gray'; if (bc.indexOf('maroon') >= 0) return 'badge-maroon'; if (bc.indexOf('gold') >= 0) return 'badge-gold'; return 'badge-gray'; }
-
-        function specIcon(t) {
-            var m = {
-                seat: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>',
-                fuel: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V6l2-4h14l2 4v16H3z"/><rect x="7" y="2" width="10" height="4" rx="1"/></svg>',
-                ac: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>',
-                luggage: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>',
-                gearbox: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-2.82 1.18V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68 1.65 1.65 0 008 3.17V3a2 2 0 014 0v.09c.15.83.89 1.42 1.71 1.33a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06c-.55.5-.7 1.3-.33 1.82a1.65 1.65 0 001.18.82H21a2 2 0 010 4h-.09c-.83.15-1.42.89-1.33 1.71z"/></svg>',
-                efficiency: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>'
-            };
-            return m[t] || '';
-        }
-
-        function toast(msg, type) {
-            type = type || 'info';
-            var box = document.getElementById('toastBox');
-            var el = document.createElement('div');
+        /* ============ UTILITIES ============ */
+        function toast(msg, type = 'success') {
+            const box = document.getElementById('toastBox');
+            const el = document.createElement('div');
             el.className = 'toast ' + type;
-            el.innerHTML = '<span style="flex:1">' + msg + '</span><button class="toast-close" onclick="this.parentElement.remove()">&times;</button>';
+            const icons = { success: '&#10003;', error: '&#10007;', warning: '&#9888;', info: '&#8505;' };
+            el.innerHTML = `<span>${icons[type] || ''}</span><span style="flex:1">${msg}</span><button class="toast-close" onclick="this.parentElement.remove()">&times;</button>`;
             box.appendChild(el);
-            setTimeout(function () { if (el.parentElement) el.remove(); }, 4000);
+            setTimeout(() => { if (el.parentElement) el.remove(); }, 4000);
         }
 
-        // ── DB: VEHICLES (with corrupted-data guard) ──
-        function getDB() {
-            try {
-                var raw = localStorage.getItem(DB_KEY);
-                if (raw) {
-                    var data = JSON.parse(raw);
-                    if (Array.isArray(data) && data.length > 0) {
-                        // Validate every vehicle has a pricing object with perKm
-                        var valid = true;
-                        for (var i = 0; i < data.length; i++) {
-                            if (!data[i] || !data[i].pricing || typeof data[i].pricing.perKm !== 'number') {
-                                valid = false;
-                                break;
-                            }
-                        }
-                        if (valid) return data;
-                    }
-                }
-            } catch (e) { }
-            var seed = getSeedData();
-            localStorage.setItem(DB_KEY, JSON.stringify(seed));
-            return seed;
-        }
-        function saveDB(d) { localStorage.setItem(DB_KEY, JSON.stringify(d)); }
-
-        // ── DB: PACKAGES (with corrupted-data guard) ──
-        function getPkgDB() {
-            try {
-                var raw = localStorage.getItem(PKG_KEY);
-                if (raw) {
-                    var data = JSON.parse(raw);
-                    if (Array.isArray(data) && data.length > 0) {
-                        var valid = true;
-                        for (var i = 0; i < data.length; i++) {
-                            if (!data[i] || typeof data[i].price !== 'number') { valid = false; break; }
-                        }
-                        if (valid) return data;
-                    }
-                }
-            } catch (e) { }
-            var seed = getSeedPackages();
-            localStorage.setItem(PKG_KEY, JSON.stringify(seed));
-            return seed;
-        }
-        function savePkgDB(d) { localStorage.setItem(PKG_KEY, JSON.stringify(d)); }
-
-        function getSettings() {
-            try { var r = localStorage.getItem(SETTINGS_KEY); if (r) return JSON.parse(r); } catch (e) { }
-            var d = { siteName: 'Voyago Travels', email: 'admin@voyago.in', phone: '+91 98765 43210', whatsapp: '+91 98765 43210', gst: '27AABCU9603R1ZM', address: '42, MG Road, Bengaluru, Karnataka 560001', onlineBooking: true, phoneVerify: true, autoConfirm: false };
-            localStorage.setItem(SETTINGS_KEY, JSON.stringify(d)); return d;
-        }
-        function saveSettings(s) { localStorage.setItem(SETTINGS_KEY, JSON.stringify(s)); }
-
-        // ── SEED: VEHICLES (complete, no truncation) ──
-        function getSeedData() {
-            return [
-                { id: 'v1', name: 'Swift Dzire', slug: 'sedan-dzire', type: 'sedan', brand: 'Maruti Suzuki', model: 'Dzire', year: 2024, available: true, featured: true, badge: 'Most Booked', badgeClass: 'badge-maroon', seats: 4, bags: 2, fuel: 'Petrol / CNG', transmission: 'Manual / Auto', mileage: '22-26 km/L', ac: true, rating: 4.8, trips: 1840, kmLakh: 28, specs: [{ icon: 'seat', label: 'Seating', value: '4 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Petrol / CNG' }, { icon: 'ac', label: 'AC', value: 'Fully AC' }, { icon: 'luggage', label: 'Luggage', value: '2 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'Manual / Auto' }, { icon: 'efficiency', label: 'Mileage', value: '22-26 km/L' }], features: ['Air Conditioning', 'USB Charging Port', 'GPS Navigation', 'Music System', 'Reclining Seats', 'Sanitised After Each Trip', 'Emergency Assistance', 'Verified Driver'], routes: [{ icon: '\u{1F3D9}\uFE0F', label: 'City Transfer' }, { icon: '\u2708\uFE0F', label: 'Airport Pickup' }, { icon: '\u{1F3DE}\uFE0F', label: 'Day Outing' }, { icon: '\u{1F4BC}', label: 'Corporate Rides' }, { icon: '\u{1F3D4}\uFE0F', label: 'Hill Drives' }, { icon: '\u{1F6E4}\uFE0F', label: 'Highway Trips' }], pricing: { perKm: 12, perDay: 2800, minFare: 350, toll: 'Extra, stated upfront', driver: 'Included' }, description: "India's most trusted compact sedan for solo travellers and couples.", heroImg: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=700&q=80', images: ['https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=700&q=80', 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=700&q=80', 'https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=700&q=80'], createdAt: '2025-01-15T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'v2', name: 'Honda City', slug: 'sedan-city', type: 'sedan', brand: 'Honda', model: 'City', year: 2024, available: true, featured: true, badge: 'Premium', badgeClass: 'badge-gold', seats: 4, bags: 2, fuel: 'Petrol', transmission: 'CVT Automatic', mileage: '18-21 km/L', ac: true, rating: 4.9, trips: 2210, kmLakh: 34, specs: [{ icon: 'seat', label: 'Seating', value: '4 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Petrol' }, { icon: 'ac', label: 'AC', value: 'Dual Zone AC' }, { icon: 'luggage', label: 'Luggage', value: '2 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'CVT Automatic' }, { icon: 'efficiency', label: 'Mileage', value: '18-21 km/L' }], features: ['Dual Zone AC', 'USB & Type-C Charging', 'GPS Navigation', 'Premium Sound System', 'Leather Seats', 'Sunroof', 'Verified Driver'], routes: [{ icon: '\u{1F4BC}', label: 'Business Travel' }, { icon: '\u2708\uFE0F', label: 'Airport Pickup' }, { icon: '\u{1F389}', label: 'Special Occasions' }], pricing: { perKm: 15, perDay: 3500, minFare: 450, toll: 'Extra, stated upfront', driver: 'Included' }, description: "Spacious cabin, premium interiors and whisper-quiet ride.", heroImg: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=700&q=80', images: ['https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=700&q=80', 'https://images.unsplash.com/photo-1617469165786-8007eda3caa7?w=700&q=80'], createdAt: '2025-01-15T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'v3', name: 'Innova Crysta', slug: 'suv-innova', type: 'suv', brand: 'Toyota', model: 'Innova Crysta', year: 2024, available: true, featured: true, badge: 'Popular', badgeClass: 'badge-maroon', seats: 7, bags: 4, fuel: 'Diesel', transmission: 'Manual / Auto', mileage: '14-17 km/L', ac: true, rating: 4.9, trips: 3120, kmLakh: 52, specs: [{ icon: 'seat', label: 'Seating', value: '7 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Diesel' }, { icon: 'ac', label: 'AC', value: 'Dual Roof AC' }, { icon: 'luggage', label: 'Luggage', value: '4 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'Manual / Auto' }, { icon: 'efficiency', label: 'Mileage', value: '14-17 km/L' }], features: ['Dual Zone AC', 'USB Charging (All Rows)', 'GPS Navigation', 'Premium Music System', 'Captain Seats (Row 2)', '4WD Capability', 'Verified Driver'], routes: [{ icon: '\u{1F468}\u200D\u{1F469}\u200D\u{1F467}\u200D\u{1F466}', label: 'Family Tours' }, { icon: '\u{1F3D4}\uFE0F', label: 'Hill Stations' }, { icon: '\u{1F6D5}', label: 'Pilgrimages' }], pricing: { perKm: 18, perDay: 4500, minFare: 600, toll: 'Extra, stated upfront', driver: 'Included' }, description: "India's favourite family mover.", heroImg: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=700&q=80', images: ['https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=700&q=80', 'https://images.unsplash.com/photo-1551830820-330a71b99659?w=700&q=80'], createdAt: '2025-01-15T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'v4', name: 'Toyota Fortuner', slug: 'suv-fortuner', type: 'suv', brand: 'Toyota', model: 'Fortuner', year: 2024, available: true, featured: false, badge: 'Luxury', badgeClass: 'badge-gold', seats: 7, bags: 5, fuel: 'Diesel', transmission: 'Automatic', mileage: '12-15 km/L', ac: true, rating: 5.0, trips: 980, kmLakh: 15, specs: [{ icon: 'seat', label: 'Seating', value: '7 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Diesel' }, { icon: 'ac', label: 'AC', value: 'Tri-Zone AC' }, { icon: 'luggage', label: 'Luggage', value: '5 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'Automatic' }, { icon: 'efficiency', label: 'Mileage', value: '12-15 km/L' }], features: ['Dual Zone AC', 'USB & Type-C Charging', 'GPS Navigation', 'Premium Sound System', 'Leather Seats', '4WD Capability', 'Sunroof', 'Verified Driver'], routes: [{ icon: '\u{1F3D4}\uFE0F', label: 'Hill Stations' }, { icon: '\u{1F3D5}\uFE0F', label: 'Adventure' }, { icon: '\u{1F4BC}', label: 'Corporate' }], pricing: { perKm: 24, perDay: 6000, minFare: 900, toll: 'Extra, stated upfront', driver: 'Included' }, description: "Dominate mountain passes and city highways in absolute luxury.", heroImg: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=700&q=80', images: ['https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=700&q=80'], createdAt: '2025-02-10T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'v5', name: 'Maruti Ertiga', slug: 'muv-ertiga', type: 'muv', brand: 'Maruti Suzuki', model: 'Ertiga', year: 2024, available: true, featured: false, badge: '', badgeClass: '', seats: 7, bags: 3, fuel: 'Petrol / CNG', transmission: 'Manual', mileage: '17-20 km/L', ac: true, rating: 4.7, trips: 1560, kmLakh: 23, specs: [{ icon: 'seat', label: 'Seating', value: '7 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Petrol / CNG' }, { icon: 'ac', label: 'AC', value: 'Fully AC' }, { icon: 'luggage', label: 'Luggage', value: '3 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'Manual' }, { icon: 'efficiency', label: 'Mileage', value: '17-20 km/L' }], features: ['Air Conditioning', 'USB Charging Port', 'GPS Navigation', 'Touchscreen Infotainment', 'Foldable 3rd Row', 'Roof Rails', 'Verified Driver'], routes: [{ icon: '\u{1F468}\u200D\u{1F469}\u200D\u{1F467}\u200D\u{1F466}', label: 'Family Outings' }, { icon: '\u{1F3D4}\uFE0F', label: 'Hill Drives' }, { icon: '\u{1F6D5}', label: 'Pilgrimages' }], pricing: { perKm: 16, perDay: 3800, minFare: 500, toll: 'Extra, stated upfront', driver: 'Included' }, description: "The sweet spot between sedan and SUV.", heroImg: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=700&q=80', images: ['https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=700&q=80'], createdAt: '2025-03-01T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'v6', name: '12-Seater Tempo', slug: 'tempo-12', type: 'tempo', brand: 'Force', model: 'Tempo Traveller', year: 2023, available: true, featured: true, badge: 'Group Fav', badgeClass: 'badge-maroon', seats: 12, bags: 8, fuel: 'Diesel', transmission: 'Manual', mileage: '10-13 km/L', ac: true, rating: 4.8, trips: 890, kmLakh: 18, specs: [{ icon: 'seat', label: 'Seating', value: '12 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Diesel' }, { icon: 'ac', label: 'AC', value: 'Roof-Mounted AC' }, { icon: 'luggage', label: 'Luggage', value: '8 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'Manual' }, { icon: 'efficiency', label: 'Mileage', value: '10-13 km/L' }], features: ['Roof-Mounted AC', 'Push-Back Seats', 'GPS Navigation', 'Premium Music System', 'Reading Lights', 'Luggage Boot', 'Verified Driver'], routes: [{ icon: '\u{1F6D5}', label: 'Pilgrimages' }, { icon: '\u{1F38A}', label: 'Group Events' }, { icon: '\u{1F3EB}', label: 'School Trips' }], pricing: { perKm: 28, perDay: 6500, minFare: 1200, toll: 'Extra, stated upfront', driver: 'Included' }, description: "Push-back seats, USB charging, reading lights.", heroImg: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=700&q=80', images: ['https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=700&q=80'], createdAt: '2025-01-20T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'v7', name: '20-Seater Tempo', slug: 'tempo-20', type: 'tempo', brand: 'Force', model: 'Tempo Traveller 20', year: 2023, available: false, featured: false, badge: '', badgeClass: '', seats: 20, bags: 15, fuel: 'Diesel', transmission: 'Manual', mileage: '8-11 km/L', ac: true, rating: 4.7, trips: 620, kmLakh: 12, specs: [{ icon: 'seat', label: 'Seating', value: '20 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Diesel' }, { icon: 'ac', label: 'AC', value: 'Roof-Mounted AC' }, { icon: 'luggage', label: 'Luggage', value: '15 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'Manual' }, { icon: 'efficiency', label: 'Mileage', value: '8-11 km/L' }], features: ['Roof-Mounted AC', 'Push-Back Seats', 'GPS Navigation', 'Music System', 'Reading Lights', 'Luggage Boot', 'Verified Driver'], routes: [{ icon: '\u{1F6D5}', label: 'Pilgrimages' }, { icon: '\u{1F38A}', label: 'Group Events' }], pricing: { perKm: 38, perDay: 8500, minFare: 1800, toll: 'Extra, stated upfront', driver: 'Included' }, description: "Larger pilgrimages and big family tours.", heroImg: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=700&q=80', images: ['https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=700&q=80'], createdAt: '2025-02-05T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'v8', name: '35-Seater Coach', slug: 'bus-35', type: 'bus', brand: 'Volvo', model: 'Luxury Coach', year: 2022, available: true, featured: true, badge: 'Corporate', badgeClass: 'badge-gold', seats: 35, bags: 30, fuel: 'Diesel', transmission: 'Automatic', mileage: '6-9 km/L', ac: true, rating: 4.8, trips: 420, kmLakh: 11, specs: [{ icon: 'seat', label: 'Seating', value: '35 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Diesel' }, { icon: 'ac', label: 'AC', value: 'Individual Vents' }, { icon: 'luggage', label: 'Luggage', value: 'Under-Bus Storage' }, { icon: 'gearbox', label: 'Transmission', value: 'Automatic' }, { icon: 'efficiency', label: 'Mileage', value: '6-9 km/L' }], features: ['Individual AC Vents', 'Reclining Seats', 'GPS Tracking', 'Entertainment Screens', 'Onboard Pantry', 'Emergency Exit', 'Verified Driver + Co-Driver'], routes: [{ icon: '\u{1F3ED}', label: 'Corporate Events' }, { icon: '\u{1F6D5}', label: 'Group Pilgrimages' }, { icon: '\u{1F393}', label: 'College Trips' }], pricing: { perKm: 55, perDay: 14000, minFare: 3500, toll: 'Extra, stated upfront', driver: 'Included + Co-Driver' }, description: "Corporate offsites, school tours and wedding shuttles.", heroImg: 'https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?w=700&q=80', images: ['https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?w=700&q=80'], createdAt: '2025-01-25T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'v9', name: '50-Seater Coach', slug: 'bus-50', type: 'bus', brand: 'Ashok Leyland', model: 'Viking', year: 2023, available: true, featured: false, badge: 'Large Group', badgeClass: 'badge-maroon', seats: 50, bags: 50, fuel: 'Diesel', transmission: 'Manual', mileage: '5-7 km/L', ac: true, rating: 4.7, trips: 280, kmLakh: 8, specs: [{ icon: 'seat', label: 'Seating', value: '50 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Diesel' }, { icon: 'ac', label: 'AC', value: 'Individual Vents' }, { icon: 'luggage', label: 'Luggage', value: 'Under-Bus Storage' }, { icon: 'gearbox', label: 'Transmission', value: 'Manual' }, { icon: 'efficiency', label: 'Mileage', value: '5-7 km/L' }], features: ['Individual AC Vents', 'Reclining Seats', 'GPS Tracking', 'PA System', 'Reading Lights', 'Emergency Exit', 'Verified Driver + Co-Driver'], routes: [{ icon: '\u{1F6D5}', label: 'Large Pilgrimages' }, { icon: '\u{1F393}', label: 'College Excursions' }, { icon: '\u{1F3ED}', label: 'Industrial Visits' }], pricing: { perKm: 65, perDay: 18000, minFare: 5000, toll: 'Extra, stated upfront', driver: 'Included + Co-Driver' }, description: "The ultimate people mover for large groups.", heroImg: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=700&q=80', images: ['https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=700&q=80'], createdAt: '2025-02-15T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' }
-            ];
+        function slugify(str) {
+            return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
         }
 
-        // ── SEED: PACKAGES (matching your public page) ──
-        function getSeedPackages() {
-            return [
-                { id: 'p1', name: 'Shimla\u2013Manali Grand Tour', slug: 'shimla-manali-grand-tour', category: 'hill', duration: '6 Days / 5 Nights', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', rating: 4.8, reviews: 2400, description: 'Snow-capped peaks, colonial charm, and mountain highways on one epic northern escape.', includes: ['Private Cab', '3\u2605 Hotel', 'Meals'], vehicle: 'Sedan / SUV', price: 18500, popular: true, active: true, featured: true, createdAt: '2025-01-10T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'p2', name: 'Char Dham Yatra', slug: 'char-dham-yatra', category: 'pilgrimage', duration: '12 Days / 11 Nights', image: 'https://dreamgohimalayas.in/wp-content/uploads/2026/01/Char-Dham-Yatra-2026.jpg', rating: 4.9, reviews: 4100, description: 'Sacred circuit of Yamunotri, Gangotri, Kedarnath & Badrinath \u2014 travel in ultimate devotion.', includes: ['SUV / Tempo', 'Yatra Stays', 'Pure Veg Meals'], vehicle: 'SUV / Tempo', price: 32000, popular: true, active: true, featured: true, createdAt: '2025-01-10T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'p3', name: 'Goa Coastal Retreat', slug: 'goa-coastal-retreat', category: 'weekend', duration: '3 Days / 2 Nights', image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&q=80', rating: 4.7, reviews: 1800, description: 'Sun, sand, and seafood \u2014 a breezy weekend on India\'s favourite coastline.', includes: ['Sedan / SUV', 'Beach Resort', 'Breakfast'], vehicle: 'Sedan / SUV', price: 9800, popular: false, active: true, featured: false, createdAt: '2025-01-15T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'p4', name: 'Coorg Coffee & Mist', slug: 'coorg-coffee-mist', category: 'hill', duration: '4 Days / 3 Nights', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80', rating: 4.7, reviews: 950, description: 'Rolling coffee estates, misty waterfalls, and fresh aromatic mountain breezes.', includes: ['Private Cab', 'Estate Villa', 'Breakfast'], vehicle: 'Sedan', price: 13200, popular: false, active: true, featured: false, createdAt: '2025-02-01T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'p5', name: 'Varanasi & Prayagraj', slug: 'varanasi-prayagraj', category: 'pilgrimage', duration: '5 Days / 4 Nights', image: 'https://travel4memory.com/wp-content/uploads/2024/10/varanasi-city-ancient-architecture-view-holy-manikarnika-ghat-varanasi-india-generative.webp', rating: 4.9, reviews: 1500, description: 'Ganga Aarti at Dashashwamedh Ghat, ancient temples, and the sacred Triveni Sangam.', includes: ['Private Cab', 'Heritage Hotel', 'All Meals'], vehicle: 'MUV', price: 14500, popular: false, active: true, featured: true, createdAt: '2025-02-10T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'p6', name: 'Lonavala & Khandala', slug: 'lonavala-khandala', category: 'weekend', duration: '2 Days / 1 Night', image: 'https://ikshanaandspa.familyresort.net/data/Photos/500x500w/15831/1583118/1583118195/Zaras-Resort-Khandala-Lonavala-Exterior.JPEG', rating: 4.5, reviews: 820, description: 'Monsoon valley viewpoints, waterfalls, and scenic drives near Pune.', includes: ['Sedan / SUV', 'Hilltop Resort', 'Breakfast'], vehicle: 'Sedan / SUV', price: 5500, popular: false, active: true, featured: false, createdAt: '2025-03-01T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'p7', name: 'Corporate Offsite Lonavala', slug: 'corporate-offsite-lonavala', category: 'corporate', duration: '2 Days / 1 Night', image: 'https://i.pinimg.com/736x/0a/21/d8/0a21d8b146e9faaff00c1cc87c2d6569.jpg', rating: 4.9, reviews: 420, description: 'Boost team bonding with custom activities, premium villas, and conference spaces.', includes: ['AC Coach / Tempo', 'Luxury Resort', 'Buffet & Hi-Tea'], vehicle: 'Tempo / Coach', price: 6500, popular: false, active: true, featured: false, createdAt: '2025-03-15T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'p8', name: 'Goa Leadership Summit', slug: 'goa-leadership-summit', category: 'corporate', duration: '4 Days / 3 Nights', image: 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=600&q=80', rating: 5.0, reviews: 210, description: 'Inspire strategy in 5\u2605 comfort. Boardrooms, luxury stays, and private yacht networking.', includes: ['Premium Sedans', '5\u2605 Beach Resort', 'All Meals & Socials'], vehicle: 'Sedan', price: 19500, popular: false, active: true, featured: true, createdAt: '2025-04-01T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'p9', name: 'Tirupati Balaji Darshan', slug: 'tirupati-balaji-darshan', category: 'pilgrimage', duration: '3 Days / 2 Nights', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=600&q=80', rating: 4.9, reviews: 2800, description: 'Hassle-free holy pilgrimage with VIP darshan passes and comfortable transfers.', includes: ['Private Cab', 'Star Hotel', 'Pure Veg Meals'], vehicle: 'Sedan', price: 8900, popular: true, active: true, featured: false, createdAt: '2025-04-10T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
-                { id: 'p10', name: 'Mahabaleshwar Strawberry Escape', slug: 'mahabaleshwar-strawberry', category: 'weekend', duration: '3 Days / 2 Nights', image: 'https://i.pinimg.com/1200x/3d/37/4a/3d374a5a8c0b0a7be1391bd705c17d8f.jpg', rating: 4.6, reviews: 1100, description: 'Fresh strawberry farm visits, spectacular viewpoints, and boat rides on Venna Lake.', includes: ['Sedan / SUV', 'Valley View Resort', 'Breakfast'], vehicle: 'MUV', price: 8200, popular: false, active: true, featured: false, createdAt: '2025-05-01T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' }
-            ];
+        function formatCurrency(n) {
+            return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
 
-        // ── MOCK DATA ──
-        var MOCK_BOOKINGS = [
-            { id: 'BK-1001', customer: 'Priya Sharma', phone: '+91 98765 12345', vehicle: 'Innova Crysta', from: 'Bengaluru', to: 'Mysore', date: '2025-06-28', km: 150, amount: 2700, status: 'confirmed' },
-            { id: 'BK-1002', customer: 'Rahul Mehta', phone: '+91 87654 32109', vehicle: 'Swift Dzire', from: 'Delhi', to: 'Agra', date: '2025-06-29', km: 230, amount: 2760, status: 'confirmed' },
-            { id: 'BK-1003', customer: 'Anjali Reddy', phone: '+91 76543 21098', vehicle: '35-Seater Coach', from: 'Hyderabad', to: 'Tirupati', date: '2025-06-30', km: 560, amount: 30800, status: 'pending' },
-            { id: 'BK-1004', customer: 'Vikram Joshi', phone: '+91 65432 10987', vehicle: 'Honda City', from: 'Mumbai', to: 'Pune', date: '2025-06-27', km: 165, amount: 2475, status: 'completed' },
-            { id: 'BK-1005', customer: 'Sunita Patel', phone: '+91 54321 09876', vehicle: '12-Seater Tempo', from: 'Ahmedabad', to: 'Mount Abu', date: '2025-07-01', km: 230, amount: 6440, status: 'pending' },
-            { id: 'BK-1006', customer: 'Arjun Nair', phone: '+91 43210 98765', vehicle: 'Toyota Fortuner', from: 'Kochi', to: 'Munnar', date: '2025-06-26', km: 130, amount: 3120, status: 'completed' },
-            { id: 'BK-1007', customer: 'Deepika Gupta', phone: '+91 32109 87654', vehicle: 'Maruti Ertiga', from: 'Jaipur', to: 'Udaipur', date: '2025-07-02', km: 400, amount: 6400, status: 'confirmed' },
-            { id: 'BK-1008', customer: 'Karan Singh', phone: '+91 21098 76543', vehicle: '50-Seater Coach', from: 'Chennai', to: 'Pondicherry', date: '2025-06-25', km: 160, amount: 10400, status: 'cancelled' }
-        ];
-        var MOCK_USERS = [
-            { id: 'U1', name: 'Priya Sharma', email: 'priya@email.com', phone: '+91 98765 12345', role: 'Customer', bookings: 12, joined: '2024-11-10', status: 'active' },
-            { id: 'U2', name: 'Rahul Mehta', email: 'rahul.m@email.com', phone: '+91 87654 32109', role: 'Customer', bookings: 8, joined: '2025-01-15', status: 'active' },
-            { id: 'U3', name: 'Driver Suresh', email: 'suresh@voyago.in', phone: '+91 99887 76655', role: 'Driver', bookings: 340, joined: '2023-06-01', status: 'active' },
-            { id: 'U4', name: 'Vikram Joshi', email: 'vikram.j@email.com', phone: '+91 65432 10987', role: 'Customer', bookings: 5, joined: '2025-02-08', status: 'inactive' },
-            { id: 'U5', name: 'Manager Deepa', email: 'deepa@voyago.in', phone: '+91 77665 54433', role: 'Manager', bookings: 0, joined: '2023-01-10', status: 'active' },
-            { id: 'U6', name: 'Karan Singh', email: 'karan.s@email.com', phone: '+91 21098 76543', role: 'Customer', bookings: 1, joined: '2025-06-20', status: 'blocked' }
-        ];
+        function timeAgo(iso) {
+            const diff = (Date.now() - new Date(iso).getTime()) / 1000;
+            if (diff < 60) return 'just now';
+            if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+            if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+            return Math.floor(diff / 86400) + 'd ago';
+        }
 
-        // ── NAVIGATION ──
-        function navigateTo(section) {
-            currentSection = section;
-            document.querySelectorAll('.nav-item').forEach(function (b) { b.classList.toggle('active', b.dataset.section === section) });
-            document.querySelectorAll('.section').forEach(function (s) { s.classList.remove('active') });
-            var t = document.getElementById('sec-' + section); if (t) t.classList.add('active');
-            var titles = { dashboard: 'Dashboard', bookings: 'Bookings', vehicles: 'Vehicles', packages: 'Packages', users: 'Users', settings: 'Settings' };
-            document.getElementById('headerTitle').textContent = titles[section] || 'Dashboard';
-            var r = { dashboard: renderDashboard, bookings: renderBookings, vehicles: renderVehicles, packages: renderPackages, users: renderUsers, settings: renderSettings };
-            if (r[section]) r[section]();
+        function copyCode(id) {
+            const el = document.getElementById(id);
+            const text = el.innerText.replace('Copy', '').trim();
+            navigator.clipboard.writeText(text).then(() => toast('Code copied to clipboard', 'info'));
+        }
+
+        /* ============ NAVIGATION ============ */
+        const sections = { dashboard: 'Dashboard', vehicles: 'Vehicles', packages: 'Packages', bookings: 'Bookings', settings: 'Settings' };
+        let currentSection = 'dashboard';
+
+        function navigateTo(key) {
+            currentSection = key;
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById('sec-' + key).classList.add('active');
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.section === key));
+            document.getElementById('headerTitle').textContent = sections[key] || key;
             closeSidebar();
-        }
-        function openSidebar() { document.getElementById('sidebar').classList.add('open'); document.getElementById('sidebarOverlay').classList.add('active') }
-        function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('sidebarOverlay').classList.remove('active') }
-        function updateTime() { var n = new Date(); document.getElementById('headerTime').textContent = n.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' }) + '  ' + n.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) }
-
-        function openModal(title, body, foot) { document.getElementById('modalTitle').textContent = title; document.getElementById('modalBody').innerHTML = body; document.getElementById('modalFoot').innerHTML = foot || ''; document.getElementById('modalBackdrop').classList.add('active'); document.body.style.overflow = 'hidden' }
-        function closeModal() { document.getElementById('modalBackdrop').classList.remove('active'); document.body.style.overflow = ''; editingVehicleId = null; editingPackageId = null }
-        function openPanel(title, body) { document.getElementById('panelTitle').textContent = title; document.getElementById('panelBody').innerHTML = body; document.getElementById('slidePanel').classList.add('active'); document.getElementById('panelOverlay').classList.add('active'); document.body.style.overflow = 'hidden' }
-        function closePanel() { document.getElementById('slidePanel').classList.remove('active'); document.getElementById('panelOverlay').classList.remove('active'); document.body.style.overflow = '' }
-        function setupToggle(id) { var el = document.getElementById(id); if (!el) return; el.addEventListener('click', function () { el.classList.toggle('on'); var l = el.parentElement.querySelector('.toggle-label'); if (l) l.textContent = el.classList.contains('on') ? (id.indexOf('available') >= 0 ? 'Active' : 'Yes') : (id.indexOf('available') >= 0 ? 'Inactive' : 'No') }) }
-
-        // ═══ DASHBOARD ═══
-        function renderDashboard() {
-            var db = getDB(), pkgs = getPkgDB();
-            var total = db.length, active = db.filter(function (v) { return v.available }).length;
-            var totalTrips = db.reduce(function (s, v) { return s + v.trips }, 0);
-            var totalRev = db.reduce(function (s, v) { return s + v.trips * v.pricing.perKm }, 0);
-            var sec = document.getElementById('sec-dashboard');
-            sec.innerHTML = '<div class="stats-grid"><div class="stat-card"><div class="stat-top"><div class="stat-icon maroon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 12h12M3 6h18v6H3z"/></svg></div><span class="stat-trend up">+2</span></div><div class="stat-label">Total Vehicles</div><div class="stat-value">' + total + '</div></div><div class="stat-card"><div class="stat-top"><div class="stat-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><span class="stat-trend up">+' + active + '</span></div><div class="stat-label">Active Vehicles</div><div class="stat-value">' + active + '</div></div><div class="stat-card"><div class="stat-top"><div class="stat-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/></svg></div><span class="stat-trend up">+' + pkgs.length + '</span></div><div class="stat-label">Packages</div><div class="stat-value">' + pkgs.length + '</div></div><div class="stat-card"><div class="stat-top"><div class="stat-icon gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><span class="stat-trend up">+18%</span></div><div class="stat-label">Est. Revenue</div><div class="stat-value">' + formatCurrency(totalRev) + '</div></div></div><div class="charts-grid"><div class="chart-card"><h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Revenue Trend (6 Months)</h3><canvas id="revenueCanvas"></canvas></div><div class="chart-card"><h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 118 2.83"/><path d="M22 12A10 10 0 0012 2v10z"/></svg> Vehicles by Type</h3><canvas id="typeCanvas"></canvas></div></div><div class="activity-card"><h3>Recent Activity</h3><div class="activity-list"><div class="activity-item"><div class="activity-dot green"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="activity-text"><strong>Innova Crysta</strong><p>New booking #BK-1001 confirmed</p></div><span class="activity-time">5m ago</span></div><div class="activity-item"><div class="activity-dot blue"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="activity-text"><strong>Honda City</strong><p>Completed trip to Pune</p></div><span class="activity-time">1h ago</span></div><div class="activity-item"><div class="activity-dot orange"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="activity-text"><strong>35-Seater Coach</strong><p>Pending booking #BK-1003</p></div><span class="activity-time">2h ago</span></div><div class="activity-item"><div class="activity-dot gold"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="activity-text"><strong>Char Dham Package</strong><p>Updated pricing to ' + formatCurrency(32000) + '</p></div><span class="activity-time">4h ago</span></div><div class="activity-item"><div class="activity-dot green"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="activity-text"><strong>New user registered</strong><p>Deepika Gupta created an account</p></div><span class="activity-time">6h ago</span></div></div></div>';
-            setTimeout(initCharts, 50);
-        }
-        function initCharts() {
-            if (revenueChart) { revenueChart.destroy(); revenueChart = null }
-            if (typeChart) { typeChart.destroy(); typeChart = null }
-            var rc = document.getElementById('revenueCanvas'), tc = document.getElementById('typeCanvas');
-            if (!rc || !tc) return;
-            revenueChart = new Chart(rc, { type: 'line', data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], datasets: [{ label: 'Revenue', data: [285000, 342000, 310000, 398000, 425000, 468000], borderColor: '#6E1F2B', backgroundColor: 'rgba(110,31,43,0.08)', fill: true, tension: 0.4, pointBackgroundColor: '#6E1F2B', pointRadius: 4, borderWidth: 2.5 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: '#8B8680', font: { size: 11 } } }, y: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { color: '#8B8680', font: { size: 11 }, callback: function (v) { return '\u20B9' + (v / 1000) + 'K' } } } } } });
-            var db = getDB(), tc2 = {}; db.forEach(function (v) { tc2[v.type] = (tc2[v.type] || 0) + 1 });
-            typeChart = new Chart(tc, { type: 'doughnut', data: { labels: Object.keys(tc2).map(function (k) { return TYPE_LABELS[k] || k }), datasets: [{ data: Object.values(tc2), backgroundColor: ['#6E1F2B', '#D9A441', '#A35334', '#4A7C59', '#1976D2'], borderWidth: 0, hoverOffset: 8 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#2A1A1A', font: { size: 11, family: 'Inter' }, padding: 12, usePointStyle: true, pointStyleWidth: 8 } } }, cutout: '60%' } });
+            if (key === 'dashboard') renderDashboard();
+            if (key === 'vehicles') renderVehicles();
+            if (key === 'packages') renderPackages();
+            if (key === 'bookings') renderBookings();
         }
 
-        // ═══ VEHICLES ═══
-        function renderVehicles() {
-            var db = getDB(), f = vehicleFilter;
-            var filtered = db.filter(function (v) { if (f.search && v.name.toLowerCase().indexOf(f.search.toLowerCase()) === -1 && v.brand.toLowerCase().indexOf(f.search.toLowerCase()) === -1) return false; if (f.type && v.type !== f.type) return false; if (f.status === 'active' && !v.available) return false; if (f.status === 'inactive' && v.available) return false; return true });
-            var sec = document.getElementById('sec-vehicles');
-            var to = '<option value="">All Types</option>'; Object.keys(TYPE_LABELS).forEach(function (k) { to += '<option value="' + k + '"' + (f.type === k ? ' selected' : '') + '>' + TYPE_LABELS[k] + '</option>' });
-            sec.innerHTML = '<div class="filters-bar"><input type="text" class="filter-input" id="vSearch" placeholder="Search vehicles..." value="' + (f.search || '') + '"><select class="filter-select" id="vType">' + to + '</select><select class="filter-select" id="vStatus"><option value="">All Status</option><option value="active"' + (f.status === 'active' ? ' selected' : '') + '>Active</option><option value="inactive"' + (f.status === 'inactive' ? ' selected' : '') + '>Inactive</option></select><div style="flex:1"></div><button class="btn btn-primary" id="addVehicleBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Vehicle</button></div><div class="admin-vehicles-grid" id="vehiclesGrid"></div>';
-            document.getElementById('vSearch').addEventListener('input', function (e) { vehicleFilter.search = e.target.value; renderVehicles() });
-            document.getElementById('vType').addEventListener('change', function (e) { vehicleFilter.type = e.target.value; renderVehicles() });
-            document.getElementById('vStatus').addEventListener('change', function (e) { vehicleFilter.status = e.target.value; renderVehicles() });
-            document.getElementById('addVehicleBtn').addEventListener('click', function () { openVehicleForm(null) });
-            var grid = document.getElementById('vehiclesGrid');
-            if (!filtered.length) { grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 12h12M3 6h18v6H3z"/></svg><h3>No Vehicles Found</h3><p>Try adjusting your search or add a new vehicle.</p></div>'; return }
-            grid.innerHTML = filtered.map(function (v) { var bc = v.badge ? getBadgeClass(v.badgeClass) : ''; return '<div class="admin-v-card' + (v.available ? '' : ' disabled-card') + '"><div class="admin-v-img"><img src="' + v.heroImg + '" alt="' + v.name + '" onerror="this.style.display=\'none\'"><div class="admin-v-img-overlay"></div>' + (v.badge ? '<span class="admin-v-badge badge ' + bc + '">' + v.badge + '</span>' : '') + '<span class="admin-v-type">' + (TYPE_LABELS[v.type] || v.type) + '</span><span class="admin-v-status badge ' + (v.available ? 'badge-green' : 'badge-red') + '">' + (v.available ? 'Active' : 'Inactive') + '</span></div><div class="admin-v-body"><div class="admin-v-name">' + v.name + '</div><div class="admin-v-slug">' + v.slug + '</div><div class="admin-v-details"><div class="admin-v-detail"><strong>' + v.seats + '</strong> Seats</div><div class="admin-v-detail"><strong>' + v.bags + '</strong> Bags</div><div class="admin-v-detail"><strong>' + v.fuel + '</strong></div><div class="admin-v-detail"><strong>' + v.transmission + '</strong></div></div><div class="admin-v-price">' + formatCurrency(v.pricing.perKm) + ' <span>/ km</span></div><div class="admin-v-actions"><button class="btn btn-sm btn-primary" data-action="view" data-id="' + v.id + '">View</button><button class="btn btn-sm btn-secondary" data-action="edit" data-id="' + v.id + '">Edit</button><button class="btn btn-sm btn-ghost" data-action="toggle" data-id="' + v.id + '">' + (v.available ? 'Disable' : 'Enable') + '</button><button class="btn btn-sm btn-danger" data-action="delete" data-id="' + v.id + '">Delete</button></div></div></div>' }).join('');
+        document.querySelectorAll('.nav-item').forEach(btn => {
+            btn.addEventListener('click', () => navigateTo(btn.dataset.section));
+        });
+
+        /* ============ SIDEBAR MOBILE ============ */
+        function closeSidebar() {
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('sidebarOverlay').classList.remove('active');
         }
-        document.getElementById('sec-vehicles').addEventListener('click', function (e) { var b = e.target.closest('[data-action]'); if (!b) return; var a = b.dataset.action, id = b.dataset.id; if (a === 'view') openVehiclePanel(id); else if (a === 'edit') openVehicleForm(id); else if (a === 'delete') confirmDeleteVehicle(id); else if (a === 'toggle') toggleVehicle(id) });
-
-        function toggleVehicle(id) { var db = getDB(), v = db.find(function (x) { return x.id === id }); if (!v) return; v.available = !v.available; v.updatedAt = new Date().toISOString(); saveDB(db); renderVehicles(); toast(v.name + ' is now ' + (v.available ? 'active' : 'inactive'), v.available ? 'success' : 'warning') }
-        function confirmDeleteVehicle(id) { var db = getDB(), v = db.find(function (x) { return x.id === id }); if (!v) return; openModal('Delete Vehicle', '<div class="confirm-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div><div class="confirm-text">Delete <strong>' + v.name + '</strong>? This cannot be undone.</div>', '<button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-danger" id="confirmDelVBtn">Delete</button>'); document.getElementById('confirmDelVBtn').addEventListener('click', function () { saveDB(getDB().filter(function (x) { return x.id !== id })); closeModal(); renderVehicles(); toast(v.name + ' deleted', 'error') }) }
-
-        function openVehiclePanel(id) {
-            var db = getDB(), v = db.find(function (x) { return x.id === id }); if (!v) return; var imgs = v.images && v.images.length ? '<img class="panel-img-main" id="panelMainImg" src="' + v.images[0] + '" onerror="this.style.display=\'none\'"><div class="panel-img-thumbs">' + v.images.map(function (img, i) { return '<img src="' + img + '" data-img="' + img + '" onerror="this.style.display=\'none\'"' + (i === 0 ? ' class="active"' : '') + '>' }).join('') + '</div>' : '';
-            var specs = v.specs ? v.specs.map(function (s) { return '<div class="panel-spec-item">' + specIcon(s.icon) + '<span><strong>' + s.label + ':</strong> ' + s.value + '</span></div>' }).join('') : '';
-            var feat = v.features ? v.features.map(function (f) { return '<span class="panel-feature-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' + f + '</span>' }).join('') : '';
-            var routes = v.routes ? v.routes.map(function (r) { return '<span class="panel-route-tag">' + r.icon + ' ' + r.label + '</span>' }).join('') : '';
-            var body = imgs + '<div class="detail-section-title">Vehicle Info</div><div class="detail-row"><span class="detail-label">Name</span><span class="detail-value">' + v.name + '</span></div><div class="detail-row"><span class="detail-label">Brand / Model</span><span class="detail-value">' + v.brand + ' ' + v.model + '</span></div><div class="detail-row"><span class="detail-label">Type</span><span class="detail-value">' + (TYPE_LABELS[v.type] || v.type) + '</span></div><div class="detail-row"><span class="detail-label">Status</span><span class="detail-value"><span class="badge ' + (v.available ? 'badge-green' : 'badge-red') + '">' + (v.available ? 'Active' : 'Inactive') + '</span></span></div><div class="detail-row"><span class="detail-label">Rating</span><span class="detail-value">' + v.rating + ' / 5.0</span></div><div class="detail-row"><span class="detail-label">Trips</span><span class="detail-value">' + v.trips.toLocaleString('en-IN') + '</span></div><div class="detail-section-title">Specifications</div><div class="panel-specs-grid">' + specs + '</div><div class="detail-section-title">Pricing</div><div class="detail-row"><span class="detail-label">Per Km</span><span class="detail-value">' + formatCurrency(v.pricing.perKm) + '</span></div><div class="detail-row"><span class="detail-label">Per Day</span><span class="detail-value">' + formatCurrency(v.pricing.perDay) + '</span></div><div class="detail-row"><span class="detail-label">Min Fare</span><span class="detail-value">' + formatCurrency(v.pricing.minFare) + '</span></div>';
-            if (feat) body += '<div class="detail-section-title">Features</div>' + feat;
-            if (routes) body += '<div class="detail-section-title">Routes</div>' + routes;
-            if (v.description) body += '<div class="detail-section-title">Description</div><p style="font-size:13px;color:var(--text-muted);line-height:1.7">' + v.description + '</p>';
-            body += '<div class="detail-section-title">Meta</div><div class="detail-row"><span class="detail-label">Updated</span><span class="detail-value">' + formatDateTime(v.updatedAt) + '</span></div>';
-            openPanel(v.name, body);
-            setTimeout(function () { document.querySelectorAll('.panel-img-thumbs img').forEach(function (t) { t.addEventListener('click', function () { document.querySelectorAll('.panel-img-thumbs img').forEach(function (x) { x.classList.remove('active') }); t.classList.add('active'); var m = document.getElementById('panelMainImg'); if (m) m.src = t.dataset.img }) }) }, 100);
-        }
-
-        // ── VEHICLE FORM (simplified for space — same 4-tab structure) ──
-        function openVehicleForm(id) {
-            var v = id ? getDB().find(function (x) { return x.id === id }) : null; editingVehicleId = id;
-            formState.images = v && v.images && v.images.length ? v.images.slice() : [''];
-            formState.routes = v && v.routes && v.routes.length ? v.routes.map(function (r) { return { icon: r.icon, label: r.label } }) : [{ icon: '\u{1F4CD}', label: '' }];
-            formState.features = v && v.features ? v.features.slice() : [];
-            var body = '<div class="form-tabs" id="formTabs"><button class="form-tab-btn active" data-tab="tab-basic">Basic Info</button><button class="form-tab-btn" data-tab="tab-specs">Specs & Features</button><button class="form-tab-btn" data-tab="tab-routes">Routes & Pricing</button><button class="form-tab-btn" data-tab="tab-media">Media & Display</button></div><div class="form-tab-pane active" id="tab-basic"><div class="form-row"><div class="form-group"><label>Vehicle Name <span class="req">*</span></label><input type="text" class="form-control" id="fv-name" value="' + (v ? v.name : '') + '"><div class="form-error">Required</div></div><div class="form-group"><label>Slug</label><input type="text" class="form-control" id="fv-slug" value="' + (v ? v.slug : '') + '"></div></div><div class="form-row triple"><div class="form-group"><label>Brand <span class="req">*</span></label><input type="text" class="form-control" id="fv-brand" value="' + (v ? v.brand : '') + '"><div class="form-error">Required</div></div><div class="form-group"><label>Model <span class="req">*</span></label><input type="text" class="form-control" id="fv-model" value="' + (v ? v.model : '') + '"><div class="form-error">Required</div></div><div class="form-group"><label>Year</label><input type="number" class="form-control" id="fv-year" value="' + (v ? v.year : 2024) + '" min="2000" max="2030"></div></div><div class="form-row"><div class="form-group"><label>Type <span class="req">*</span></label><select class="form-control" id="fv-type"><option value="">Select</option>' + Object.keys(TYPE_LABELS).map(function (k) { return '<option value="' + k + '"' + (v && v.type === k ? ' selected' : '') + '>' + TYPE_LABELS[k] + '</option>' }).join('') + '</select><div class="form-error">Required</div></div><div class="form-group"><label>Fuel</label><input type="text" class="form-control" id="fv-fuel" value="' + (v ? v.fuel : '') + '"></div></div><div class="form-row full"><div class="form-group"><label>Description</label><textarea class="form-control" id="fv-desc">' + (v ? v.description : '') + '</textarea></div></div></div><div class="form-tab-pane" id="tab-specs"><div class="form-row triple"><div class="form-group"><label>Seats <span class="req">*</span></label><input type="number" class="form-control" id="fv-seats" value="' + (v ? v.seats : 4) + '" min="1"><div class="form-error">Required</div></div><div class="form-group"><label>Bags</label><input type="number" class="form-control" id="fv-bags" value="' + (v ? v.bags : 2) + '" min="0"></div><div class="form-group"><label>AC</label><div class="toggle-wrap" style="margin-top:6px"><div class="toggle-track' + (v && v.ac ? ' on' : '') + '" id="fv-ac"><div class="toggle-thumb"></div></div><span class="toggle-label">' + (v && v.ac ? 'Yes' : 'No') + '</span></div></div></div><div class="form-row"><div class="form-group"><label>Transmission</label><input type="text" class="form-control" id="fv-trans" value="' + (v ? v.transmission : '') + '"></div><div class="form-group"><label>Mileage</label><input type="text" class="form-control" id="fv-mileage" value="' + (v ? v.mileage : '') + '"></div></div><div class="form-group" style="margin-bottom:0"><label style="margin-bottom:12px">Features</label><div class="features-grid" id="featuresGrid"></div></div></div><div class="form-tab-pane" id="tab-routes"><div class="form-group" style="margin-bottom:20px"><label style="margin-bottom:10px">Routes</label><div class="routes-list" id="routesList"></div><button class="btn btn-sm btn-ghost" id="addRouteBtn" style="margin-top:10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Route</button></div><div class="pricing-grid"><div class="form-group"><label>Per Km (' + '\u20B9' + ') <span class="req">*</span></label><input type="number" class="form-control" id="fv-perkm" value="' + (v ? v.pricing.perKm : '') + '" min="0"><div class="form-error">Required</div></div><div class="form-group"><label>Per Day (' + '\u20B9' + ')</label><input type="number" class="form-control" id="fv-perday" value="' + (v ? v.pricing.perDay : '') + '" min="0"></div><div class="form-group"><label>Min Fare (' + '\u20B9' + ')</label><input type="number" class="form-control" id="fv-minfare" value="' + (v ? v.pricing.minFare : '') + '" min="0"></div><div class="form-group"><label>Driver</label><input type="text" class="form-control" id="fv-driver" value="' + (v ? v.pricing.driver : 'Included') + '"></div></div><div class="form-row full" style="margin-top:16px"><div class="form-group"><label>Toll Info</label><input type="text" class="form-control" id="fv-toll" value="' + (v ? v.pricing.toll : 'Extra, stated upfront') + '"></div></div></div><div class="form-tab-pane" id="tab-media"><div class="form-group" style="margin-bottom:20px"><label style="margin-bottom:10px">Images (URLs)</label><div class="img-list" id="imgList"></div><button class="btn btn-sm btn-ghost" id="addImgBtn" style="margin-top:10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Image</button></div><div class="form-row"><div class="form-group"><label>Badge Text</label><input type="text" class="form-control" id="fv-badge" value="' + (v ? v.badge : '') + '"></div><div class="form-group"><label>Badge Style</label><select class="form-control" id="fv-badgeclass"><option value="">None</option><option value="badge-maroon"' + (v && v.badgeClass === 'badge-maroon' ? ' selected' : '') + '>Maroon</option><option value="badge-gold"' + (v && v.badgeClass === 'badge-gold' ? ' selected' : '') + '>Gold</option></select></div></div><div class="form-row"><div class="form-group"><label>Available</label><div class="toggle-wrap" style="margin-top:6px"><div class="toggle-track' + (!v || v.available ? ' on' : '') + '" id="fv-available"><div class="toggle-thumb"></div></div><span class="toggle-label">' + (!v || v.available ? 'Active' : 'Inactive') + '</span></div></div><div class="form-group"><label>Featured</label><div class="toggle-wrap" style="margin-top:6px"><div class="toggle-track' + (v && v.featured ? ' on' : '') + '" id="fv-featured"><div class="toggle-thumb"></div></div><span class="toggle-label">' + (v && v.featured ? 'Yes' : 'No') + '</span></div></div></div></div>';
-            openModal(id ? 'Edit Vehicle' : 'Add Vehicle', body, '<button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" id="saveVehicleBtn">' + (id ? 'Update' : 'Add') + ' Vehicle</button>');
-            document.getElementById('fv-name').addEventListener('input', function () { document.getElementById('fv-slug').value = slugify(this.value) });
-            document.querySelectorAll('.form-tab-btn').forEach(function (b) { b.addEventListener('click', function () { document.querySelectorAll('.form-tab-btn').forEach(function (x) { x.classList.remove('active') }); document.querySelectorAll('.form-tab-pane').forEach(function (x) { x.classList.remove('active') }); b.classList.add('active'); document.getElementById(b.dataset.tab).classList.add('active') }) });
-            setupToggle('fv-ac'); setupToggle('fv-available'); setupToggle('fv-featured');
-            renderFeaturesGrid(); renderRoutesList(); renderImgList();
-            document.getElementById('addRouteBtn').addEventListener('click', function () { formState.routes.push({ icon: '\u{1F4CD}', label: '' }); renderRoutesList() });
-            document.getElementById('addImgBtn').addEventListener('click', function () { formState.images.push(''); renderImgList() });
-            document.getElementById('saveVehicleBtn').addEventListener('click', saveVehicle);
-        }
-        function renderFeaturesGrid() { var g = document.getElementById('featuresGrid'); if (!g) return; g.innerHTML = ALL_FEATURES.map(function (f) { var c = formState.features.indexOf(f) >= 0; return '<div class="feature-check' + (c ? ' checked' : '') + '" data-feature="' + f + '"><input type="checkbox"' + (c ? ' checked' : '') + '>' + f + '</div>' }).join(''); g.querySelectorAll('.feature-check').forEach(function (el) { el.addEventListener('click', function () { var f = el.dataset.feature, idx = formState.features.indexOf(f); if (idx >= 0) { formState.features.splice(idx, 1); el.classList.remove('checked') } else { formState.features.push(f); el.classList.add('checked') } }) }) }
-        function renderRoutesList() { var l = document.getElementById('routesList'); if (!l) return; l.innerHTML = formState.routes.map(function (r, i) { return '<div class="route-item"><select class="form-control" style="width:60px;padding:6px 4px;text-align:center;font-size:16px" data-ri="' + i + '" data-field="icon">' + ROUTE_EMOJIS.map(function (e) { return '<option value="' + e + '"' + (r.icon === e ? ' selected' : '') + '>' + e + '</option>' }).join('') + '</select><input type="text" class="form-control" placeholder="Route label" value="' + r.label + '" data-ri="' + i + '" data-field="label">' + (formState.routes.length > 1 ? '<button class="remove-route" data-ri="' + i + '">&times;</button>' : '') + '</div>' }).join(''); l.querySelectorAll('input[data-field="label"],select[data-field="icon"]').forEach(function (el) { var ev = el.tagName === 'SELECT' ? 'change' : 'input'; el.addEventListener(ev, function () { formState.routes[parseInt(el.dataset.ri)][el.dataset.field] = el.value }) }); l.querySelectorAll('.remove-route').forEach(function (b) { b.addEventListener('click', function () { formState.routes.splice(parseInt(b.dataset.ri), 1); renderRoutesList() }) }) }
-        function renderImgList() { var l = document.getElementById('imgList'); if (!l) return; l.innerHTML = formState.images.map(function (u, i) { return '<div class="img-list-item">' + (u ? '<img src="' + u + '" onerror="this.style.display=\'none\'">' : '<div style="width:64px;height:44px;border-radius:4px;background:var(--light-gray);display:flex;align-items:center;justify-content:center;color:var(--medium-gray);font-size:11px">No img</div>') + '<input type="text" class="form-control" placeholder="Image URL" value="' + u + '" data-ii="' + i + '">' + (formState.images.length > 1 ? '<button class="remove-img" data-ii="' + i + '">&times;</button>' : '') + '</div>' }).join(''); l.querySelectorAll('input[data-ii]').forEach(function (el) { el.addEventListener('input', function () { formState.images[parseInt(el.dataset.ii)] = el.value }) }); l.querySelectorAll('.remove-img').forEach(function (b) { b.addEventListener('click', function () { formState.images.splice(parseInt(b.dataset.ii), 1); renderImgList() }) }) }
-        function saveVehicle() {
-            var name = document.getElementById('fv-name').value.trim(), slug = document.getElementById('fv-slug').value.trim() || slugify(name), brand = document.getElementById('fv-brand').value.trim(), model = document.getElementById('fv-model').value.trim(), year = parseInt(document.getElementById('fv-year').value) || 2024, type = document.getElementById('fv-type').value, fuel = document.getElementById('fv-fuel').value.trim(), desc = document.getElementById('fv-desc').value.trim(), seats = parseInt(document.getElementById('fv-seats').value) || 4, bags = parseInt(document.getElementById('fv-bags').value) || 0, ac = document.getElementById('fv-ac').classList.contains('on'), trans = document.getElementById('fv-trans').value.trim(), mileage = document.getElementById('fv-mileage').value.trim(), perKm = parseFloat(document.getElementById('fv-perkm').value) || 0, perDay = parseFloat(document.getElementById('fv-perday').value) || 0, minFare = parseFloat(document.getElementById('fv-minfare').value) || 0, driver = document.getElementById('fv-driver').value.trim() || 'Included', toll = document.getElementById('fv-toll').value.trim(), badge = document.getElementById('fv-badge').value.trim(), badgeClass = document.getElementById('fv-badgeclass').value, available = document.getElementById('fv-available').classList.contains('on'), featured = document.getElementById('fv-featured').classList.contains('on');
-            var hasErr = false;['fv-name', 'fv-brand', 'fv-model', 'fv-type', 'fv-seats', 'fv-perkm'].forEach(function (id) { var g = document.getElementById(id).closest('.form-group'); if (!document.getElementById(id).value.trim()) { g.classList.add('error'); hasErr = true } else { g.classList.remove('error') } }); if (hasErr) { toast('Fill all required fields', 'warning'); return }
-            var existing = editingVehicleId ? getDB().find(function (x) { return x.id === editingVehicleId }) : null;
-            var veh = { id: editingVehicleId || ('v' + Date.now()), name: name, slug: slug, type: type, brand: brand, model: model, year: year, available: available, featured: featured, badge: badge, badgeClass: badgeClass, seats: seats, bags: bags, fuel: fuel, transmission: trans, mileage: mileage, ac: ac, rating: existing ? existing.rating : 0, trips: existing ? existing.trips : 0, kmLakh: existing ? existing.kmLakh : 0, specs: [{ icon: 'seat', label: 'Seating', value: seats + ' Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: fuel || '\u2014' }, { icon: 'ac', label: 'AC', value: ac ? 'Yes' : 'No' }, { icon: 'luggage', label: 'Luggage', value: bags + ' Bags' }, { icon: 'gearbox', label: 'Transmission', value: trans || '\u2014' }, { icon: 'efficiency', label: 'Mileage', value: mileage || '\u2014' }], features: formState.features.slice(), routes: formState.routes.filter(function (r) { return r.label.trim() }).map(function (r) { return { icon: r.icon, label: r.label } }), pricing: { perKm: perKm, perDay: perDay, minFare: minFare, toll: toll, driver: driver }, description: desc, heroImg: formState.images[0] || '', images: formState.images.filter(function (i) { return i.trim() }), createdAt: existing ? existing.createdAt : new Date().toISOString(), updatedAt: new Date().toISOString() };
-            var db = getDB(); if (editingVehicleId) { var idx = db.findIndex(function (x) { return x.id === editingVehicleId }); if (idx >= 0) db[idx] = veh } else { db.push(veh) } saveDB(db); closeModal(); renderVehicles(); toast((editingVehicleId ? name + ' updated' : name + ' added') + ' successfully', 'success')
-        }
-
-        // ═══ PACKAGES (FULL CRUD) ═══
-        function renderPackages() {
-            var db = getPkgDB(), f = packageFilter;
-            var filtered = db.filter(function (p) { if (f.search && p.name.toLowerCase().indexOf(f.search.toLowerCase()) === -1) return false; if (f.category && p.category !== f.category) return false; if (f.status === 'active' && !p.active) return false; if (f.status === 'inactive' && p.active) return false; return true });
-            var sec = document.getElementById('sec-packages');
-            var co = '<option value="">All Categories</option>'; Object.keys(CAT_LABELS).forEach(function (k) { co += '<option value="' + k + '"' + (f.category === k ? ' selected' : '') + '>' + CAT_LABELS[k] + '</option>' });
-            sec.innerHTML = '<div class="filters-bar"><input type="text" class="filter-input" id="pkgSearch" placeholder="Search packages..." value="' + (f.search || '') + '"><select class="filter-select" id="pkgCat">' + co + '</select><select class="filter-select" id="pkgStatus"><option value="">All Status</option><option value="active"' + (f.status === 'active' ? ' selected' : '') + '>Active</option><option value="inactive"' + (f.status === 'inactive' ? ' selected' : '') + '>Inactive</option></select><div style="flex:1"></div><span style="font-size:13px;color:var(--medium-gray)">' + filtered.length + ' of ' + db.length + '</span><button class="btn btn-primary" id="addPkgBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Package</button></div><div class="pkg-grid" id="pkgGrid"></div>';
-            document.getElementById('pkgSearch').addEventListener('input', function (e) { packageFilter.search = e.target.value; renderPackages() });
-            document.getElementById('pkgCat').addEventListener('change', function (e) { packageFilter.category = e.target.value; renderPackages() });
-            document.getElementById('pkgStatus').addEventListener('change', function (e) { packageFilter.status = e.target.value; renderPackages() });
-            document.getElementById('addPkgBtn').addEventListener('click', function () { openPackageForm(null) });
-            var grid = document.getElementById('pkgGrid');
-            if (!filtered.length) { grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/></svg><h3>No Packages Found</h3><p>Adjust filters or add a new package.</p></div>'; return }
-            grid.innerHTML = filtered.map(function (p) { var catColor = CAT_COLORS[p.category] || 'badge-gray'; var stars = '\u2605'.repeat(Math.floor(p.rating)) + ((p.rating % 1 >= 0.5) ? '\u2606' : ''); return '<div class="admin-pkg-card' + (p.active ? '' : ' disabled-card') + '"><div class="admin-pkg-img"><img src="' + p.image + '" alt="' + p.name + '" onerror="this.style.display=\'none\'"><div class="admin-pkg-img-overlay"></div><span class="admin-pkg-cat badge ' + catColor + '">' + (CAT_LABELS[p.category] || p.category) + '</span><span class="admin-pkg-duration">' + p.duration + '</span>' + (p.popular ? '<span class="admin-pkg-status badge badge-gold">Popular</span>' : '') + (!p.active ? '<span class="admin-pkg-status badge badge-red">Inactive</span>' : '') + '</div><div class="admin-pkg-body"><div class="admin-pkg-name">' + p.name + '</div><div class="admin-pkg-desc">' + p.description + '</div><div class="admin-pkg-includes">' + (p.includes || []).map(function (i) { return '<span class="admin-pkg-include-tag">' + i + '</span>' }).join('') + '</div><div class="admin-pkg-footer"><div class="admin-pkg-price">' + formatCurrency(p.price) + ' <span>/ person</span></div><div class="admin-pkg-rating">' + stars + ' ' + p.rating + '</div></div><div class="admin-pkg-actions"><button class="btn btn-sm btn-primary" data-pkg-action="edit" data-id="' + p.id + '">Edit</button><button class="btn btn-sm btn-ghost" data-pkg-action="toggle" data-id="' + p.id + '">' + (p.active ? 'Disable' : 'Enable') + '</button><button class="btn btn-sm btn-danger" data-pkg-action="delete" data-id="' + p.id + '">Delete</button></div></div></div>' }).join('');
-        }
-        document.getElementById('sec-packages').addEventListener('click', function (e) { var b = e.target.closest('[data-pkg-action]'); if (!b) return; var a = b.dataset['pkg-action'], id = b.dataset.id; if (a === 'edit') openPackageForm(id); else if (a === 'delete') confirmDeletePackage(id); else if (a === 'toggle') togglePackage(id) });
-
-        function togglePackage(id) { var db = getPkgDB(), p = db.find(function (x) { return x.id === id }); if (!p) return; p.active = !p.active; p.updatedAt = new Date().toISOString(); savePkgDB(db); renderPackages(); toast(p.name + (p.active ? ' activated' : ' deactivated'), p.active ? 'success' : 'warning') }
-        function confirmDeletePackage(id) { var db = getPkgDB(), p = db.find(function (x) { return x.id === id }); if (!p) return; openModal('Delete Package', '<div class="confirm-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div><div class="confirm-text">Delete <strong>' + p.name + '</strong>? This cannot be undone.</div>', '<button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-danger" id="confirmDelPkgBtn">Delete</button>'); document.getElementById('confirmDelPkgBtn').addEventListener('click', function () { savePkgDB(getPkgDB().filter(function (x) { return x.id !== id })); closeModal(); renderPackages(); toast(p.name + ' deleted', 'error') }) }
-
-        function openPackageForm(id) {
-            var p = id ? getPkgDB().find(function (x) { return x.id === id }) : null; editingPackageId = id;
-            pkgFormState.includes = p && p.includes && p.includes.length ? p.includes.slice() : [''];
-            var catOpts = Object.keys(CAT_LABELS).map(function (k) { return '<option value="' + k + '"' + (p && p.category === k ? ' selected' : '') + '>' + CAT_LABELS[k] + '</option>' }).join('');
-            var body = '<div class="form-row"><div class="form-group"><label>Package Name <span class="req">*</span></label><input type="text" class="form-control" id="fp-name" value="' + (p ? p.name : '') + '"><div class="form-error">Required</div></div><div class="form-group"><label>Slug</label><input type="text" class="form-control" id="fp-slug" value="' + (p ? p.slug : '') + '"></div></div><div class="form-row triple"><div class="form-group"><label>Category <span class="req">*</span></label><select class="form-control" id="fp-cat"><option value="">Select</option>' + catOpts + '</select><div class="form-error">Required</div></div><div class="form-group"><label>Duration</label><input type="text" class="form-control" id="fp-dur" placeholder="e.g. 3 Days / 2 Nights" value="' + (p ? p.duration : '') + '"></div></div><div class="form-row full"><div class="form-group"><label>Image URL <span class="req">*</span></label><input type="text" class="form-control" id="fp-img" placeholder="https://..." value="' + (p ? p.image : '') + '"><div class="form-error">Required</div></div></div><div class="form-row full"><div class="form-group"><label>Description</label><textarea class="form-control" id="fp-desc">' + (p ? p.description : '') + '</textarea></div></div><div class="form-row"><div class="form-group"><label>Price per Person (' + '\u20B9' + ') <span class="req">*</span></label><input type="number" class="form-control" id="fp-price" value="' + (p ? p.price : '') + '" min="0"><div class="form-error">Required</div></div><div class="form-group"><label>Vehicle Type</label><input type="text" class="form-control" id="fp-vehicle" placeholder="e.g. Sedan / SUV" value="' + (p ? p.vehicle : '') + '"></div></div><div class="form-row triple"><div class="form-group"><label>Rating</label><input type="number" class="form-control" id="fp-rating" value="' + (p ? p.rating : 0) + '" min="0" max="5" step="0.1"></div><div class="form-group"><label>Reviews Count</label><input type="number" class="form-control" id="fp-reviews" value="' + (p ? p.reviews : 0) + '" min="0"></div></div><div class="form-group" style="margin-bottom:16px"><label style="margin-bottom:10px">Includes</label><div class="includes-list" id="includesList"></div><button class="btn btn-sm btn-ghost" id="addIncludeBtn" style="margin-top:10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Include</button></div><div class="form-row"><div class="form-group"><label>Active</label><div class="toggle-wrap" style="margin-top:6px"><div class="toggle-track' + (!p || p.active ? ' on' : '') + '" id="fp-active"><div class="toggle-thumb"></div></div><span class="toggle-label">' + (!p || p.active ? 'Active' : 'Inactive') + '</span></div></div><div class="form-group"><label>Popular</label><div class="toggle-wrap" style="margin-top:6px"><div class="toggle-track' + (p && p.popular ? ' on' : '') + '" id="fp-popular"><div class="toggle-thumb"></div></div><span class="toggle-label">' + (p && p.popular ? 'Yes' : 'No') + '</span></div></div><div class="form-group"><label>Featured</label><div class="toggle-wrap" style="margin-top:6px"><div class="toggle-track' + (p && p.featured ? ' on' : '') + '" id="fp-featured"><div class="toggle-thumb"></div></div><span class="toggle-label">' + (p && p.featured ? 'Yes' : 'No') + '</span></div></div></div>';
-            openModal(id ? 'Edit Package' : 'Add Package', body, '<button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" id="savePkgBtn">' + (id ? 'Update' : 'Add') + ' Package</button>');
-            document.getElementById('fp-name').addEventListener('input', function () { document.getElementById('fp-slug').value = slugify(this.value) });
-            setupToggle('fp-active'); setupToggle('fp-popular'); setupToggle('fp-featured');
-            renderIncludesList();
-            document.getElementById('addIncludeBtn').addEventListener('click', function () { pkgFormState.includes.push(''); renderIncludesList() });
-            document.getElementById('savePkgBtn').addEventListener('click', savePackage);
-        }
-        function renderIncludesList() { var l = document.getElementById('includesList'); if (!l) return; l.innerHTML = pkgFormState.includes.map(function (v, i) { return '<div class="includes-item"><input type="text" class="form-control" placeholder="e.g. Breakfast, Hotel, Guide..." value="' + v + '" data-ii="' + i + '">' + (pkgFormState.includes.length > 1 ? '<button class="remove-include" data-ii="' + i + '">&times;</button>' : '') + '</div>' }).join(''); l.querySelectorAll('input[data-ii]').forEach(function (el) { el.addEventListener('input', function () { pkgFormState.includes[parseInt(el.dataset.ii)] = el.value }) }); l.querySelectorAll('.remove-include').forEach(function (b) { b.addEventListener('click', function () { pkgFormState.includes.splice(parseInt(b.dataset.ii), 1); renderIncludesList() }) }) }
-        function savePackage() {
-            var name = document.getElementById('fp-name').value.trim(), slug = document.getElementById('fp-slug').value.trim() || slugify(name), cat = document.getElementById('fp-cat').value, dur = document.getElementById('fp-dur').value.trim(), img = document.getElementById('fp-img').value.trim(), desc = document.getElementById('fp-desc').value.trim(), price = parseFloat(document.getElementById('fp-price').value) || 0, vehicle = document.getElementById('fp-vehicle').value.trim(), rating = parseFloat(document.getElementById('fp-rating').value) || 0, reviews = parseInt(document.getElementById('fp-reviews').value) || 0, active = document.getElementById('fp-active').classList.contains('on'), popular = document.getElementById('fp-popular').classList.contains('on'), featured = document.getElementById('fp-featured').classList.contains('on');
-            var hasErr = false;['fp-name', 'fp-cat', 'fp-img', 'fp-price'].forEach(function (id) { var g = document.getElementById(id).closest('.form-group'); if (!document.getElementById(id).value.trim()) { g.classList.add('error'); hasErr = true } else { g.classList.remove('error') } }); if (hasErr) { toast('Fill all required fields', 'warning'); return }
-            var existing = editingPackageId ? getPkgDB().find(function (x) { return x.id === editingPackageId }) : null;
-            var pkg = { id: editingPackageId || ('p' + Date.now()), name: name, slug: slug, category: cat, duration: dur, image: img, description: desc, price: price, vehicle: vehicle, rating: Math.min(5, Math.max(0, rating)), reviews: Math.max(0, reviews), includes: pkgFormState.includes.filter(function (x) { return x.trim() }), active: active, popular: popular, featured: featured, createdAt: existing ? existing.createdAt : new Date().toISOString(), updatedAt: new Date().toISOString() };
-            var db = getPkgDB(); if (editingPackageId) { var idx = db.findIndex(function (x) { return x.id === editingPackageId }); if (idx >= 0) db[idx] = pkg } else { db.push(pkg) } savePkgDB(db); closeModal(); renderPackages(); toast((editingPackageId ? name + ' updated' : name + ' added') + ' successfully', 'success')
-        }
-
-        // ═══ BOOKINGS ═══
-        function renderBookings() { var sc = { confirmed: 'badge-green', pending: 'badge-orange', completed: 'badge-blue', cancelled: 'badge-red' }; var sec = document.getElementById('sec-bookings'); var rows = MOCK_BOOKINGS.map(function (b) { return '<tr><td><strong>' + b.id + '</strong></td><td>' + b.customer + '<br><span style="font-size:11px;color:var(--medium-gray)">' + b.phone + '</span></td><td>' + b.vehicle + '</td><td>' + b.from + ' \u2192 ' + b.to + '</td><td>' + formatDate(b.date) + '</td><td>' + formatCurrency(b.amount) + '</td><td><span class="badge ' + (sc[b.status] || 'badge-gray') + '">' + b.status.charAt(0).toUpperCase() + b.status.slice(1) + '</span></td></tr>' }).join(''); sec.innerHTML = '<div class="filters-bar"><select class="filter-select" id="bkStatus"><option value="">All Status</option><option value="confirmed">Confirmed</option><option value="pending">Pending</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option></select><div style="flex:1"></div><span style="font-size:13px;color:var(--medium-gray)">' + MOCK_BOOKINGS.length + ' bookings</span></div><div class="data-table-wrap"><div class="table-responsive"><table class="data-table"><thead><tr><th>ID</th><th>Customer</th><th>Vehicle</th><th>Route</th><th>Date</th><th>Amount</th><th>Status</th></tr></thead><tbody id="bkBody">' + rows + '</tbody></table></div></div>'; document.getElementById('bkStatus').addEventListener('change', function (e) { var v = e.target.value, f = v ? MOCK_BOOKINGS.filter(function (b) { return b.status === v }) : MOCK_BOOKINGS; document.getElementById('bkBody').innerHTML = f.map(function (b) { return '<tr><td><strong>' + b.id + '</strong></td><td>' + b.customer + '</td><td>' + b.vehicle + '</td><td>' + b.from + ' \u2192 ' + b.to + '</td><td>' + formatDate(b.date) + '</td><td>' + formatCurrency(b.amount) + '</td><td><span class="badge ' + (sc[b.status] || 'badge-gray') + '">' + b.status.charAt(0).toUpperCase() + b.status.slice(1) + '</span></td></tr>' }).join('') || '<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--medium-gray)">No bookings</td></tr>' }) }
-
-        // ═══ USERS ═══
-        function renderUsers() { var rc = { Customer: 'badge-blue', Driver: 'badge-green', Manager: 'badge-gold' }, sc = { active: 'badge-green', inactive: 'badge-gray', blocked: 'badge-red' }; var sec = document.getElementById('sec-users'); var rows = MOCK_USERS.map(function (u) { return '<tr><td><strong>' + u.name + '</strong></td><td>' + u.email + '</td><td>' + u.phone + '</td><td><span class="badge ' + (rc[u.role] || 'badge-gray') + '">' + u.role + '</span></td><td>' + u.bookings + '</td><td>' + formatDate(u.joined) + '</td><td><span class="badge ' + (sc[u.status] || 'badge-gray') + '">' + u.status.charAt(0).toUpperCase() + u.status.slice(1) + '</span></td></tr>' }).join(''); sec.innerHTML = '<div class="filters-bar"><select class="filter-select" id="uRole"><option value="">All Roles</option><option value="Customer">Customer</option><option value="Driver">Driver</option><option value="Manager">Manager</option></select><select class="filter-select" id="uStatus"><option value="">All Status</option><option value="active">Active</option><option value="inactive">Inactive</option><option value="blocked">Blocked</option></select><div style="flex:1"></div><span style="font-size:13px;color:var(--medium-gray)">' + MOCK_USERS.length + ' users</span></div><div class="data-table-wrap"><div class="table-responsive"><table class="data-table"><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Bookings</th><th>Joined</th><th>Status</th></tr></thead><tbody id="uBody">' + rows + '</tbody></table></div></div>'; function fU() { var r = document.getElementById('uRole').value, s = document.getElementById('uStatus').value, fl = MOCK_USERS.filter(function (u) { if (r && u.role !== r) return false; if (s && u.status !== s) return false; return true }); document.getElementById('uBody').innerHTML = fl.map(function (u) { return '<tr><td><strong>' + u.name + '</strong></td><td>' + u.email + '</td><td>' + u.phone + '</td><td><span class="badge ' + (rc[u.role] || 'badge-gray') + '">' + u.role + '</span></td><td>' + u.bookings + '</td><td>' + formatDate(u.joined) + '</td><td><span class="badge ' + (sc[u.status] || 'badge-gray') + '">' + u.status.charAt(0).toUpperCase() + u.status.slice(1) + '</span></td></tr>' }).join('') || '<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--medium-gray)">No users</td></tr>' } document.getElementById('uRole').addEventListener('change', fU); document.getElementById('uStatus').addEventListener('change', fU) }
-
-        // ═══ SETTINGS ═══
-        function renderSettings() {
-            var s = getSettings(); var sec = document.getElementById('sec-settings'); sec.innerHTML = '<div class="settings-card"><h3>General Information</h3><div class="form-row"><div class="form-group"><label>Site Name</label><input type="text" class="form-control" id="s-name" value="' + s.siteName + '"></div><div class="form-group"><label>Contact Email</label><input type="email" class="form-control" id="s-email" value="' + s.email + '"></div></div><div class="form-row"><div class="form-group"><label>Phone</label><input type="text" class="form-control" id="s-phone" value="' + s.phone + '"></div><div class="form-group"><label>WhatsApp</label><input type="text" class="form-control" id="s-whatsapp" value="' + s.whatsapp + '"></div></div><div class="form-row"><div class="form-group"><label>GST Number</label><input type="text" class="form-control" id="s-gst" value="' + s.gst + '"></div><div class="form-group"><label>Address</label><input type="text" class="form-control" id="s-address" value="' + s.address + '"></div></div></div><div class="settings-card"><h3>Preferences</h3><div class="settings-row"><div class="settings-row-info"><h4>Online Booking</h4><p>Allow customers to book from the website</p></div><div class="toggle-wrap"><div class="toggle-track' + (s.onlineBooking ? ' on' : '') + '" id="s-online"><div class="toggle-thumb"></div></div></div></div><div class="settings-row"><div class="settings-row-info"><h4>Phone Verification</h4><p>Require OTP for new bookings</p></div><div class="toggle-wrap"><div class="toggle-track' + (s.phoneVerify ? ' on' : '') + '" id="s-phonev"><div class="toggle-thumb"></div></div></div></div><div class="settings-row"><div class="settings-row-info"><h4>Auto-Confirm</h4><p>Confirm bookings without manual review</p></div><div class="toggle-wrap"><div class="toggle-track' + (s.autoConfirm ? ' on' : '') + '" id="s-auto"><div class="toggle-thumb"></div></div></div></div></div><div style="display:flex;gap:12px;margin-bottom:24px"><button class="btn btn-primary" id="saveSettingsBtn">Save Settings</button><button class="btn btn-danger" id="resetDataBtn">Reset All Data</button></div>';
-            setupToggle('s-online'); setupToggle('s-phonev'); setupToggle('s-auto');
-            document.getElementById('saveSettingsBtn').addEventListener('click', function () { saveSettings({ siteName: document.getElementById('s-name').value.trim(), email: document.getElementById('s-email').value.trim(), phone: document.getElementById('s-phone').value.trim(), whatsapp: document.getElementById('s-whatsapp').value.trim(), gst: document.getElementById('s-gst').value.trim(), address: document.getElementById('s-address').value.trim(), onlineBooking: document.getElementById('s-online').classList.contains('on'), phoneVerify: document.getElementById('s-phonev').classList.contains('on'), autoConfirm: document.getElementById('s-auto').classList.contains('on') }); toast('Settings saved', 'success') });
-            document.getElementById('resetDataBtn').addEventListener('click', function () { openModal('Reset All Data', '<div class="confirm-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.2"/></svg></div><div class="confirm-text">This will <strong>delete all vehicle AND package data</strong> and restore defaults.</div>', '<button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-danger" id="confirmResetBtn">Reset All</button>'); document.getElementById('confirmResetBtn').addEventListener('click', function () { localStorage.removeItem(DB_KEY); localStorage.removeItem(PKG_KEY); closeModal(); toast('All data reset to defaults', 'warning'); navigateTo(currentSection) }) });
-        }
-
-        // ═══ EVENT LISTENERS ═══
-        document.querySelectorAll('.nav-item').forEach(function (b) { b.addEventListener('click', function () { navigateTo(b.dataset.section) }) });
-        document.getElementById('hamburgerBtn').addEventListener('click', openSidebar);
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.add('open');
+            document.getElementById('sidebarOverlay').classList.add('active');
+        });
         document.getElementById('sidebarClose').addEventListener('click', closeSidebar);
         document.getElementById('sidebarOverlay').addEventListener('click', closeSidebar);
-        document.getElementById('modalClose').addEventListener('click', closeModal);
-        document.getElementById('modalBackdrop').addEventListener('click', function (e) { if (e.target === this) closeModal() });
+
+        /* ============ CLOCK ============ */
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('headerTime').textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) + ' — ' + now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        /* ============ DASHBOARD ============ */
+        let lineChartInstance = null;
+        let doughnutChartInstance = null;
+
+        function renderDashboard() {
+            const vCount = DB.vehicles.count();
+            const pCount = DB.packages.count();
+            const bCount = DB.bookings.find().length;
+            const activeV = DB.vehicles.count({ status: 'active' });
+            const totalRevenue = DB.bookings.find().filter(b => b.status === 'confirmed' || b.status === 'completed').reduce((s, b) => s + (b.amount || 0), 0);
+
+            document.getElementById('statsGrid').innerHTML = `
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon maroon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5a1 1 0 01-1 1h-1"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+                    <span class="stat-trend up">--</span>
+                </div>
+                <div class="stat-label">Total Vehicles</div>
+                <div class="stat-value">${vCount}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V8H6a2 2 0 01-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12a2 2 0 002 2h14v-4"/><path d="M18 12a2 2 0 00-2 2c0 1.1.9 2 2 2h4v-4h-4z"/></svg></div>
+                    <span class="stat-trend up">--</span>
+                </div>
+                <div class="stat-label">Total Packages</div>
+                <div class="stat-value">${pCount}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+                    <span class="stat-trend up">--</span>
+                </div>
+                <div class="stat-label">Total Bookings</div>
+                <div class="stat-value">${bCount}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+                    <span class="stat-trend up">--</span>
+                </div>
+                <div class="stat-label">Revenue</div>
+                <div class="stat-value">${formatCurrency(totalRevenue)}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon orange"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                    <span class="stat-trend up">--</span>
+                </div>
+                <div class="stat-label">Active Vehicles</div>
+                <div class="stat-value">${activeV}</div>
+            </div>
+        `;
+
+            // Charts
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const bookingsByMonth = new Array(12).fill(0);
+            DB.bookings.find().forEach(b => {
+                const m = new Date(b.date).getMonth();
+                if (!isNaN(m)) bookingsByMonth[m]++;
+            });
+
+            if (lineChartInstance) lineChartInstance.destroy();
+            lineChartInstance = new Chart(document.getElementById('lineChart'), {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Bookings',
+                        data: bookingsByMonth,
+                        borderColor: '#6E1F2B',
+                        backgroundColor: 'rgba(110,31,43,0.08)',
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#6E1F2B',
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { stepSize: 1, font: { size: 11 } }, grid: { color: 'rgba(0,0,0,0.04)' } },
+                        x: { ticks: { font: { size: 11 } }, grid: { display: false } }
+                    }
+                }
+            });
+
+            // Doughnut
+            const typeCounts = {};
+            DB.vehicles.find().forEach(v => { typeCounts[v.type] = (typeCounts[v.type] || 0) + 1; });
+            const catCounts = {};
+            DB.packages.find().forEach(p => { catCounts[p.category] = (catCounts[p.category] || 0) + 1; });
+            const allLabels = Object.keys({ ...typeCounts, ...catCounts });
+            const allValues = [...Object.values(typeCounts), ...Object.values(catCounts)];
+            const allColors = ['#6E1F2B', '#D9A441', '#A35334', '#4A7C59', '#1976D2', '#FF7A00', '#7B1FA2', '#00897B'];
+
+            if (doughnutChartInstance) doughnutChartInstance.destroy();
+            doughnutChartInstance = new Chart(document.getElementById('doughnutChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: allLabels.length ? allLabels : ['No Data'],
+                    datasets: [{ data: allValues.length ? allValues : [1], backgroundColor: allColors.slice(0, Math.max(allLabels.length, 1)), borderWidth: 2, borderColor: '#fff' }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom', labels: { padding: 12, font: { size: 11 }, usePointStyle: true } } },
+                    cutout: '65%'
+                }
+            });
+
+            // Activity
+            const activities = DB.activity.recent(8);
+            const actList = document.getElementById('activityList');
+            if (activities.length === 0) {
+                actList.innerHTML = '<div class="empty-state" style="padding:30px"><p>No activity yet. Add vehicles or packages to see activity here.</p></div>';
+            } else {
+                actList.innerHTML = activities.map(a => `
+                <div class="activity-item">
+                    <div class="activity-dot ${a.type}">${a.type === 'green' ? '&#10003;' : a.type === 'orange' ? '&#9998;' : a.type === 'gold' ? '$' : '&#8505;'}</div>
+                    <div class="activity-text"><strong>${a.text}</strong><p>${a.detail}</p></div>
+                    <span class="activity-time">${timeAgo(a.time)}</span>
+                </div>
+            `).join('');
+            }
+
+            // Notification badge
+            document.getElementById('notifBadge').textContent = Math.min(activities.length, 99);
+        }
+
+        /* ============ VEHICLES ============ */
+        const ALL_FEATURES = ['AC', 'Bluetooth', 'GPS', 'USB Port', 'Sunroof', 'Leather Seats', 'Backup Camera', 'Heated Seats', 'Parking Sensors', 'Cruise Control', 'Keyless Entry', 'Tow Hitch', 'Roof Rack', 'WiFi'];
+
+        function renderVehicles() {
+            const search = document.getElementById('vSearch').value;
+            const type = document.getElementById('vTypeFilter').value;
+            const status = document.getElementById('vStatusFilter').value;
+            const vehicles = DB.vehicles.find({ search, type, status });
+            const grid = document.getElementById('vehiclesGrid');
+
+            if (vehicles.length === 0) {
+                grid.innerHTML = `
+                <div class="empty-state" style="grid-column:1/-1">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5a1 1 0 01-1 1h-1"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    <h3>No Vehicles Found</h3>
+                    <p>${search || type || status ? 'Try adjusting your filters or search terms.' : 'Click "Add Vehicle" to create your first vehicle entry.'}</p>
+                    ${!(search || type || status) ? '<button class="btn btn-primary" onclick="openVehicleModal()">Add Your First Vehicle</button>' : ''}
+                </div>`;
+                return;
+            }
+
+            grid.innerHTML = vehicles.map(v => {
+                const statusBadge = v.status === 'active' ? 'badge-green' : v.status === 'maintenance' ? 'badge-orange' : 'badge-gray';
+                const img = (v.images && v.images[0]) || '';
+                return `
+            <div class="admin-v-card ${v.status === 'disabled' ? 'disabled-card' : ''}">
+                <div class="admin-v-img">
+                    ${img ? `<img src="${img}" alt="${v.name}" onerror="this.style.display='none'">` : ''}
+                    <div class="admin-v-img-overlay"></div>
+                    <span class="admin-v-badge badge badge-maroon">${v.type || 'Vehicle'}</span>
+                    <span class="admin-v-type">${v.brand || ''} ${v.year || ''}</span>
+                    <span class="admin-v-status badge ${statusBadge}">${v.status || 'active'}</span>
+                </div>
+                <div class="admin-v-body">
+                    <div class="admin-v-name">${v.name}</div>
+                    <div class="admin-v-slug">${slugify(v.name)}</div>
+                    <div class="admin-v-details">
+                        <div class="admin-v-detail"><strong>${v.seats || '--'}</strong> Seats</div>
+                        <div class="admin-v-detail"><strong>${v.fuel || '--'}</strong></div>
+                        <div class="admin-v-detail"><strong>${v.transmission || '--'}</strong></div>
+                        <div class="admin-v-detail"><strong>${(v.features || []).length}</strong> Features</div>
+                    </div>
+                    <div class="admin-v-price">${formatCurrency(v.pricePerDay || 0)} <span>/ day</span></div>
+                    <div class="admin-v-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="viewVehicle('${v._id}')">View</button>
+                        <button class="btn btn-ghost btn-sm" onclick="editVehicle('${v._id}')">Edit</button>
+                        <button class="btn btn-danger btn-sm" onclick="confirmDeleteVehicle('${v._id}')">Delete</button>
+                    </div>
+                </div>
+            </div>`;
+            }).join('');
+        }
+
+        document.getElementById('vSearch').addEventListener('input', renderVehicles);
+        document.getElementById('vTypeFilter').addEventListener('change', renderVehicles);
+        document.getElementById('vStatusFilter').addEventListener('change', renderVehicles);
+
+        /* ============ VEHICLE MODAL ============ */
+        let editingVehicleId = null;
+        let formImages = [];
+        let formRoutes = [];
+        let formFeatures = [];
+
+        function openVehicleModal(vehicle = null) {
+            editingVehicleId = vehicle ? vehicle._id : null;
+            document.getElementById('vehicleModalTitle').textContent = vehicle ? 'Edit Vehicle' : 'Add Vehicle';
+            const form = document.getElementById('vehicleForm');
+            form.reset();
+            form.querySelectorAll('.form-group').forEach(g => g.classList.remove('error'));
+
+            // Reset tabs
+            document.querySelectorAll('#vFormTabs .form-tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+            document.querySelectorAll('.form-tab-pane').forEach((p, i) => p.classList.toggle('active', i === 0));
+
+            // Features
+            formFeatures = vehicle ? [...(vehicle.features || [])] : [];
+            renderFeaturesGrid();
+
+            // Images
+            formImages = vehicle ? [...(vehicle.images || [])] : [];
+            renderImgList();
+
+            // Routes
+            formRoutes = vehicle ? [...(vehicle.routes || [])] : [];
+            renderRoutesList();
+
+            // Fill form
+            if (vehicle) {
+                form.name.value = vehicle.name || '';
+                form.type.value = vehicle.type || '';
+                form.brand.value = vehicle.brand || '';
+                form.year.value = vehicle.year || '';
+                form.description.value = vehicle.description || '';
+                form.seats.value = vehicle.seats || '';
+                form.fuel.value = vehicle.fuel || '';
+                form.transmission.value = vehicle.transmission || '';
+                form.pricePerDay.value = vehicle.pricePerDay || '';
+                form.status.value = vehicle.status || 'active';
+            }
+
+            document.getElementById('vehicleModal').classList.add('active');
+        }
+
+        function renderFeaturesGrid() {
+            document.getElementById('featuresGrid').innerHTML = ALL_FEATURES.map(f =>
+                `<div class="feature-check ${formFeatures.includes(f) ? 'checked' : ''}" onclick="toggleFeature(this,'${f}')"><input type="checkbox" ${formFeatures.includes(f) ? 'checked' : ''}>${f}</div>`
+            ).join('');
+        }
+
+        function toggleFeature(el, name) {
+            const idx = formFeatures.indexOf(name);
+            if (idx >= 0) { formFeatures.splice(idx, 1); el.classList.remove('checked'); }
+            else { formFeatures.push(name); el.classList.add('checked'); }
+        }
+
+        function renderImgList() {
+            document.getElementById('imgList').innerHTML = formImages.map((url, i) => `
+            <div class="img-list-item">
+                <img src="${url}" alt="img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2264%22 height=%2244%22><rect fill=%22%23E8E3DC%22 width=%2264%22 height=%2244%22/></svg>'">
+                <input class="form-control" value="${url}" onchange="formImages[${i}]=this.value">
+                <button type="button" class="remove-img" onclick="formImages.splice(${i},1);renderImgList()">&times;</button>
+            </div>
+        `).join('');
+        }
+
+        document.getElementById('addImgBtn').addEventListener('click', () => {
+            formImages.push('https://picsum.photos/seed/' + Math.random().toString(36).slice(2, 6) + '/800/500');
+            renderImgList();
+        });
+
+        function renderRoutesList() {
+            document.getElementById('routesList').innerHTML = formRoutes.map((r, i) => `
+            <div class="route-item">
+                <span class="route-emoji">${r.emoji || '📍'}</span>
+                <input class="form-control" value="${r.name}" onchange="formRoutes[${i}].name=this.value" placeholder="Route name">
+                <input class="form-control" style="width:60px" value="${r.emoji}" onchange="formRoutes[${i}].emoji=this.value" placeholder="Emoji">
+                <button type="button" class="remove-route" onclick="formRoutes.splice(${i},1);renderRoutesList()">&times;</button>
+            </div>
+        `).join('');
+        }
+
+        document.getElementById('addRouteBtn').addEventListener('click', () => {
+            formRoutes.push({ name: '', emoji: '📍' });
+            renderRoutesList();
+        });
+
+        // Form tab switching
+        document.getElementById('vFormTabs').addEventListener('click', e => {
+            if (!e.target.classList.contains('form-tab-btn')) return;
+            document.querySelectorAll('#vFormTabs .form-tab-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            document.querySelectorAll('.form-tab-pane').forEach(p => p.classList.remove('active'));
+            document.getElementById(e.target.dataset.tab).classList.add('active');
+        });
+
+        document.getElementById('addVehicleBtn').addEventListener('click', () => openVehicleModal());
+
+        document.getElementById('vehicleModalClose').addEventListener('click', () => document.getElementById('vehicleModal').classList.remove('active'));
+        document.getElementById('vehicleModalCancel').addEventListener('click', () => document.getElementById('vehicleModal').classList.remove('active'));
+
+        document.getElementById('vehicleModalSave').addEventListener('click', () => {
+            const form = document.getElementById('vehicleForm');
+            let valid = true;
+
+            // Validate required fields
+            ['name', 'type', 'brand', 'pricePerDay'].forEach(fname => {
+                const fg = form[fname].closest('.form-group');
+                if (!form[fname].value.trim()) { fg.classList.add('error'); valid = false; }
+                else fg.classList.remove('error');
+            });
+
+            if (!valid) { toast('Please fill in all required fields', 'error'); return; }
+
+            const data = {
+                name: form.name.value.trim(),
+                type: form.type.value,
+                brand: form.brand.value.trim(),
+                year: parseInt(form.year.value) || null,
+                description: form.description.value.trim(),
+                seats: parseInt(form.seats.value) || null,
+                fuel: form.fuel.value,
+                transmission: form.transmission.value,
+                pricePerDay: parseFloat(form.pricePerDay.value) || 0,
+                status: form.status.value,
+                images: formImages.filter(u => u.trim()),
+                features: [...formFeatures],
+                routes: formRoutes.filter(r => r.name.trim())
+            };
+
+            if (editingVehicleId) {
+                DB.vehicles.update(editingVehicleId, data);
+                DB.activity.add('Vehicle Updated', data.name, 'orange');
+                toast('Vehicle updated successfully', 'success');
+            } else {
+                DB.vehicles.insert(data);
+                DB.activity.add('Vehicle Created', data.name, 'green');
+                toast('Vehicle added successfully', 'success');
+            }
+
+            document.getElementById('vehicleModal').classList.remove('active');
+            renderVehicles();
+        });
+
+        /* ============ VEHICLE DETAIL PANEL ============ */
+        function viewVehicle(id) {
+            const v = DB.vehicles.findById(id);
+            if (!v) return;
+            const panel = document.getElementById('vehiclePanel');
+            const body = document.getElementById('panelBody');
+            const mainImg = (v.images && v.images[0]) || '';
+
+            body.innerHTML = `
+            ${mainImg ? `<img class="panel-img-main" id="panelMainImg" src="${mainImg}" alt="${v.name}" onerror="this.style.display='none'">` : '<div class="panel-img-main" style="display:flex;align-items:center;justify-content:center;color:var(--medium-gray);font-size:13px">No image</div>'}
+            ${(v.images && v.images.length > 1) ? `<div class="panel-img-thumbs">${v.images.map((img, i) => `<img src="${img}" alt="thumb" class="${i === 0 ? 'active' : ''}" onclick="document.getElementById('panelMainImg').src='${img}';this.parentElement.querySelectorAll('img').forEach(t=>t.classList.remove('active'));this.classList.add('active')" onerror="this.style.display='none'">`).join('')}</div>` : ''}
+            <div class="detail-section-title">Vehicle Information</div>
+            <div class="detail-row"><span class="detail-label">Name</span><span class="detail-value">${v.name}</span></div>
+            <div class="detail-row"><span class="detail-label">Type</span><span class="detail-value">${v.type}</span></div>
+            <div class="detail-row"><span class="detail-label">Brand</span><span class="detail-value">${v.brand}</span></div>
+            <div class="detail-row"><span class="detail-label">Year</span><span class="detail-value">${v.year || '--'}</span></div>
+            <div class="detail-row"><span class="detail-label">Status</span><span class="detail-value">${v.status}</span></div>
+            ${v.description ? `<div class="detail-row"><span class="detail-label">Description</span><span class="detail-value">${v.description}</span></div>` : ''}
+            <div class="detail-section-title">Specifications</div>
+            <div class="panel-specs-grid">
+                <div class="panel-spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>${v.seats || '--'} Seats</div>
+                <div class="panel-spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>${v.fuel || '--'}</div>
+                <div class="panel-spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${v.transmission || '--'}</div>
+                <div class="panel-spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>${formatCurrency(v.pricePerDay)}/day</div>
+            </div>
+            ${(v.features && v.features.length) ? `<div class="detail-section-title">Features</div><div style="margin-bottom:8px">${v.features.map(f => `<span class="panel-feature-tag">&#10003; ${f}</span>`).join('')}</div>` : ''}
+            ${(v.routes && v.routes.length) ? `<div class="detail-section-title">Routes</div><div style="margin-bottom:8px">${v.routes.map(r => `<span class="panel-route-tag">${r.emoji} ${r.name}</span>`).join('')}</div>` : ''}
+            <div class="detail-section-title">Meta</div>
+            <div class="detail-row"><span class="detail-label">ID</span><span class="detail-value" style="font-family:monospace;font-size:11px">${v._id}</span></div>
+            <div class="detail-row"><span class="detail-label">Created</span><span class="detail-value">${v.createdAt ? new Date(v.createdAt).toLocaleString() : '--'}</span></div>
+            <div style="margin-top:20px;display:flex;gap:8px">
+                <button class="btn btn-primary btn-block" onclick="closePanel();editVehicle('${v._id}')">Edit Vehicle</button>
+                <button class="btn btn-danger btn-block" onclick="closePanel();confirmDeleteVehicle('${v._id}')">Delete</button>
+            </div>
+        `;
+
+            panel.classList.add('active');
+            document.getElementById('panelOverlay').classList.add('active');
+        }
+
+        function closePanel() {
+            document.getElementById('vehiclePanel').classList.remove('active');
+            document.getElementById('panelOverlay').classList.remove('active');
+        }
         document.getElementById('panelClose').addEventListener('click', closePanel);
         document.getElementById('panelOverlay').addEventListener('click', closePanel);
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { if (document.getElementById('modalBackdrop').classList.contains('active')) closeModal(); else if (document.getElementById('slidePanel').classList.contains('active')) closePanel() } });
 
-        // ═══ INIT ═══
-        function init() { updateTime(); setInterval(updateTime, 1000); getDB(); getPkgDB(); renderDashboard() }
-        init();
+        function editVehicle(id) {
+            const v = DB.vehicles.findById(id);
+            if (v) openVehicleModal(v);
+        }
+
+        /* ============ DELETE CONFIRMATION ============ */
+        let pendingDeleteType = null;
+        let pendingDeleteId = null;
+
+        function confirmDeleteVehicle(id) {
+            const v = DB.vehicles.findById(id);
+            if (!v) return;
+            pendingDeleteType = 'vehicle';
+            pendingDeleteId = id;
+            document.getElementById('confirmText').innerHTML = `Are you sure you want to delete <strong>${v.name}</strong>? This action cannot be undone.`;
+            document.getElementById('confirmModal').classList.add('active');
+        }
+
+        function confirmDeletePackage(id) {
+            const p = DB.packages.findById(id);
+            if (!p) return;
+            pendingDeleteType = 'package';
+            pendingDeleteId = id;
+            document.getElementById('confirmText').innerHTML = `Are you sure you want to delete <strong>${p.name}</strong>? This action cannot be undone.`;
+            document.getElementById('confirmModal').classList.add('active');
+        }
+
+        document.getElementById('confirmCancel').addEventListener('click', () => {
+            document.getElementById('confirmModal').classList.remove('active');
+            pendingDeleteType = null;
+            pendingDeleteId = null;
+        });
+
+        document.getElementById('confirmDelete').addEventListener('click', () => {
+            if (pendingDeleteType === 'vehicle') {
+                const v = DB.vehicles.findById(pendingDeleteId);
+                DB.vehicles.remove(pendingDeleteId);
+                DB.activity.add('Vehicle Deleted', v ? v.name : 'Unknown', 'orange');
+                toast('Vehicle deleted', 'warning');
+                renderVehicles();
+            } else if (pendingDeleteType === 'package') {
+                const p = DB.packages.findById(pendingDeleteId);
+                DB.packages.remove(pendingDeleteId);
+                DB.activity.add('Package Deleted', p ? p.name : 'Unknown', 'orange');
+                toast('Package deleted', 'warning');
+                renderPackages();
+            }
+            document.getElementById('confirmModal').classList.remove('active');
+            pendingDeleteType = null;
+            pendingDeleteId = null;
+        });
+
+        /* ============ PACKAGES ============ */
+        function renderPackages() {
+            const search = document.getElementById('pSearch').value;
+            const category = document.getElementById('pCatFilter').value;
+            const packages = DB.packages.find({ search, category });
+            const grid = document.getElementById('packagesGrid');
+
+            if (packages.length === 0) {
+                grid.innerHTML = `
+                <div class="empty-state" style="grid-column:1/-1">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12V8H6a2 2 0 01-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12a2 2 0 002 2h14v-4"/><path d="M18 12a2 2 0 00-2 2c0 1.1.9 2 2 2h4v-4h-4z"/></svg>
+                    <h3>No Packages Found</h3>
+                    <p>${search || category ? 'Try adjusting your filters.' : 'Click "Add Package" to create your first travel package.'}</p>
+                    ${!(search || category) ? '<button class="btn btn-primary" onclick="openPkgModal()">Add Your First Package</button>' : ''}
+                </div>`;
+                return;
+            }
+
+            grid.innerHTML = packages.map(p => {
+                const statusBadge = p.status === 'active' ? 'badge-green' : 'badge-gray';
+                const img = p.image || '';
+                return `
+            <div class="admin-pkg-card ${p.status === 'disabled' ? 'disabled-card' : ''}">
+                <div class="admin-pkg-img">
+                    ${img ? `<img src="${img}" alt="${p.name}" onerror="this.style.display='none'">` : ''}
+                    <div class="admin-pkg-img-overlay"></div>
+                    <span class="admin-pkg-cat badge badge-maroon">${p.category || 'Package'}</span>
+                    ${p.duration ? `<span class="admin-pkg-duration">${p.duration}</span>` : ''}
+                    <span class="admin-pkg-status badge ${statusBadge}">${p.status || 'active'}</span>
+                </div>
+                <div class="admin-pkg-body">
+                    <div class="admin-pkg-name">${p.name}</div>
+                    <div class="admin-pkg-desc">${p.description || 'No description provided.'}</div>
+                    ${(p.includes && p.includes.length) ? `<div class="admin-pkg-includes">${p.includes.slice(0, 4).map(i => `<span class="admin-pkg-include-tag">${i}</span>`).join('')}${p.includes.length > 4 ? `<span class="admin-pkg-include-tag">+${p.includes.length - 4} more</span>` : ''}</div>` : ''}
+                    <div class="admin-pkg-footer">
+                        <div class="admin-pkg-price">${formatCurrency(p.price || 0)} <span>/ person</span></div>
+                        ${p.maxGroup ? `<span class="badge badge-blue">Max ${p.maxGroup}</span>` : ''}
+                    </div>
+                    <div class="admin-pkg-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="editPackage('${p._id}')">Edit</button>
+                        <button class="btn btn-danger btn-sm" onclick="confirmDeletePackage('${p._id}')">Delete</button>
+                    </div>
+                </div>
+            </div>`;
+            }).join('');
+        }
+
+        document.getElementById('pSearch').addEventListener('input', renderPackages);
+        document.getElementById('pCatFilter').addEventListener('change', renderPackages);
+
+        /* ============ PACKAGE MODAL ============ */
+        let editingPkgId = null;
+        let formIncludes = [];
+
+        function openPkgModal(pkg = null) {
+            editingPkgId = pkg ? pkg._id : null;
+            document.getElementById('pkgModalTitle').textContent = pkg ? 'Edit Package' : 'Add Package';
+            const form = document.getElementById('pkgForm');
+            form.reset();
+            form.querySelectorAll('.form-group').forEach(g => g.classList.remove('error'));
+
+            formIncludes = pkg ? [...(pkg.includes || [])] : [];
+            renderIncludesList();
+
+            if (pkg) {
+                form.name.value = pkg.name || '';
+                form.category.value = pkg.category || '';
+                form.duration.value = pkg.duration || '';
+                form.price.value = pkg.price || '';
+                form.description.value = pkg.description || '';
+                form.image.value = pkg.image || '';
+                form.maxGroup.value = pkg.maxGroup || '';
+                form.status.value = pkg.status || 'active';
+            }
+
+            document.getElementById('pkgModal').classList.add('active');
+        }
+
+        function renderIncludesList() {
+            document.getElementById('includesList').innerHTML = formIncludes.map((item, i) => `
+            <div class="includes-item">
+                <input class="form-control" value="${item}" onchange="formIncludes[${i}]=this.value" placeholder="e.g. Hotel Accommodation">
+                <button type="button" class="remove-include" onclick="formIncludes.splice(${i},1);renderIncludesList()">&times;</button>
+            </div>
+        `).join('');
+        }
+
+        document.getElementById('addIncludeBtn').addEventListener('click', () => {
+            formIncludes.push('');
+            renderIncludesList();
+        });
+
+        document.getElementById('addPkgBtn').addEventListener('click', () => openPkgModal());
+        document.getElementById('pkgModalClose').addEventListener('click', () => document.getElementById('pkgModal').classList.remove('active'));
+        document.getElementById('pkgModalCancel').addEventListener('click', () => document.getElementById('pkgModal').classList.remove('active'));
+
+        document.getElementById('pkgModalSave').addEventListener('click', () => {
+            const form = document.getElementById('pkgForm');
+            let valid = true;
+
+            ['name', 'category', 'price'].forEach(fname => {
+                const fg = form[fname].closest('.form-group');
+                if (!form[fname].value.trim()) { fg.classList.add('error'); valid = false; }
+                else fg.classList.remove('error');
+            });
+
+            if (!valid) { toast('Please fill in all required fields', 'error'); return; }
+
+            const data = {
+                name: form.name.value.trim(),
+                category: form.category.value,
+                duration: form.duration.value.trim(),
+                price: parseFloat(form.price.value) || 0,
+                description: form.description.value.trim(),
+                image: form.image.value.trim(),
+                includes: formIncludes.filter(i => i.trim()),
+                maxGroup: parseInt(form.maxGroup.value) || null,
+                status: form.status.value
+            };
+
+            if (editingPkgId) {
+                DB.packages.update(editingPkgId, data);
+                DB.activity.add('Package Updated', data.name, 'orange');
+                toast('Package updated successfully', 'success');
+            } else {
+                DB.packages.insert(data);
+                DB.activity.add('Package Created', data.name, 'green');
+                toast('Package added successfully', 'success');
+            }
+
+            document.getElementById('pkgModal').classList.remove('active');
+            renderPackages();
+        });
+
+        function editPackage(id) {
+            const p = DB.packages.findById(id);
+            if (p) openPkgModal(p);
+        }
+
+        /* ============ BOOKINGS ============ */
+        function renderBookings() {
+            const search = document.getElementById('bSearch').value;
+            const status = document.getElementById('bStatusFilter').value;
+            const bookings = DB.bookings.find({ search, status });
+            const tbody = document.getElementById('bookingsBody');
+
+            if (bookings.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state" style="padding:40px"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><h3>No Bookings</h3><p>Bookings will appear here when customers make reservations.</p></div></td></tr>`;
+                return;
+            }
+
+            const statusBadge = s => s === 'confirmed' ? 'badge-green' : s === 'pending' ? 'badge-orange' : s === 'completed' ? 'badge-blue' : 'badge-red';
+
+            tbody.innerHTML = bookings.map(b => `
+            <tr>
+                <td style="font-family:monospace;font-weight:600">${b._id}</td>
+                <td>${b.customer}</td>
+                <td>${b.item}</td>
+                <td>${b.date ? new Date(b.date).toLocaleDateString() : '--'}</td>
+                <td style="font-weight:700">${formatCurrency(b.amount || 0)}</td>
+                <td><span class="badge ${statusBadge(b.status)}">${b.status}</span></td>
+                <td>
+                    <select class="filter-select" style="padding:4px 8px;font-size:12px" onchange="updateBookingStatus('${b._id}',this.value)">
+                        <option value="pending" ${b.status === 'pending' ? 'selected' : ''}>Pending</option>
+                        <option value="confirmed" ${b.status === 'confirmed' ? 'selected' : ''}>Confirmed</option>
+                        <option value="completed" ${b.status === 'completed' ? 'selected' : ''}>Completed</option>
+                        <option value="cancelled" ${b.status === 'cancelled' ? 'selected' : ''}>Cancelled</option>
+                    </select>
+                </td>
+            </tr>
+        `).join('');
+        }
+
+        function updateBookingStatus(id, status) {
+            DB.bookings.update(id, { status });
+            DB.activity.add('Booking ' + status.charAt(0).toUpperCase() + status.slice(1), id, status === 'cancelled' ? 'orange' : 'green');
+            toast(`Booking ${id} updated to ${status}`, 'info');
+            renderBookings();
+        }
+
+        document.getElementById('bSearch').addEventListener('input', renderBookings);
+        document.getElementById('bStatusFilter').addEventListener('change', renderBookings);
+
+        /* ============ CLOSE MODALS ON BACKDROP CLICK ============ */
+        document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+            backdrop.addEventListener('click', e => {
+                if (e.target === backdrop) backdrop.classList.remove('active');
+            });
+        });
+
+        /* ============ INITIAL RENDER ============ */
+        renderDashboard();
     </script>
 </body>
 
