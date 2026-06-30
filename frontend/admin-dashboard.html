@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <style>
@@ -49,7 +49,7 @@
             --radius-sm: 8px;
             --shadow: 0 2px 12px rgba(13, 6, 5, .06);
             --shadow-lg: 0 10px 40px rgba(13, 6, 5, .12);
-            --transition: .3s cubic-bezier(.4, 0, .2, 1);
+            --transition: .3s cubic-bezier(.4, 0, .2, 1)
         }
 
         html {
@@ -84,7 +84,6 @@
             background: var(--medium-gray)
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0
@@ -107,18 +106,6 @@
             }
         }
 
-        @keyframes slideOutRight {
-            from {
-                transform: translateX(0);
-                opacity: 1
-            }
-
-            to {
-                transform: translateX(100%);
-                opacity: 0
-            }
-        }
-
         @keyframes scaleIn {
             from {
                 transform: scale(.92);
@@ -131,28 +118,6 @@
             }
         }
 
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: .5
-            }
-        }
-
-        @keyframes checkDraw {
-            from {
-                stroke-dashoffset: 50
-            }
-
-            to {
-                stroke-dashoffset: 0
-            }
-        }
-
         .fade-in {
             animation: fadeIn .3s ease
         }
@@ -161,7 +126,6 @@
             animation: scaleIn .3s ease
         }
 
-        /* Layout */
         .app {
             display: flex;
             min-height: 100vh
@@ -180,7 +144,6 @@
             display: block
         }
 
-        /* Sidebar */
         .sidebar {
             width: var(--sidebar-w);
             background: var(--white);
@@ -325,7 +288,6 @@
             z-index: 101
         }
 
-        /* Main */
         .main {
             flex: 1;
             margin-left: var(--sidebar-w);
@@ -416,46 +378,6 @@
             justify-content: center
         }
 
-        .header-dropdown {
-            position: relative
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: var(--white);
-            border: 1px solid var(--light-gray);
-            border-radius: var(--radius-sm);
-            min-width: 160px;
-            box-shadow: var(--shadow-lg);
-            z-index: 200;
-            margin-top: 8px;
-            overflow: hidden
-        }
-
-        .dropdown-menu.active {
-            display: block;
-            animation: scaleIn .2s ease
-        }
-
-        .dropdown-item {
-            padding: 11px 16px;
-            border: none;
-            background: none;
-            cursor: pointer;
-            color: var(--text);
-            font-size: 13px;
-            text-align: left;
-            width: 100%;
-            transition: background .15s
-        }
-
-        .dropdown-item:hover {
-            background: var(--ivory)
-        }
-
         .content {
             flex: 1;
             overflow-y: auto;
@@ -463,7 +385,6 @@
             min-width: 0
         }
 
-        /* Sections */
         .section {
             display: none
         }
@@ -473,7 +394,6 @@
             animation: fadeIn .35s ease
         }
 
-        /* Stat Cards */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -531,6 +451,11 @@
             color: var(--orange)
         }
 
+        .stat-icon.gold {
+            background: var(--gold-light);
+            color: var(--rust)
+        }
+
         .stat-trend {
             font-size: 11px;
             font-weight: 700;
@@ -562,7 +487,6 @@
             font-variant-numeric: tabular-nums
         }
 
-        /* Charts */
         .charts-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -595,142 +519,6 @@
             max-height: 280px
         }
 
-        /* Activity Feed */
-        .activity-card {
-            background: var(--white);
-            border: 1px solid var(--light-gray);
-            border-radius: var(--radius);
-            padding: 20px
-        }
-
-        .activity-card h3 {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 14px
-        }
-
-        .activity-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-height: 320px;
-            overflow-y: auto
-        }
-
-        .activity-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 12px;
-            border-radius: var(--radius-sm);
-            background: var(--ivory);
-            transition: background .15s
-        }
-
-        .activity-item:hover {
-            background: var(--ivory-deep)
-        }
-
-        .activity-dot {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 14px
-        }
-
-        .activity-dot.green {
-            background: var(--green-light);
-            color: var(--green)
-        }
-
-        .activity-dot.blue {
-            background: var(--blue-light);
-            color: var(--blue)
-        }
-
-        .activity-dot.orange {
-            background: var(--orange-light);
-            color: var(--orange)
-        }
-
-        .activity-dot.gold {
-            background: var(--gold-light);
-            color: var(--gold)
-        }
-
-        .activity-dot.red {
-            background: var(--red-light);
-            color: var(--red)
-        }
-
-        .activity-text {
-            flex: 1;
-            min-width: 0
-        }
-
-        .activity-text strong {
-            font-size: 13px;
-            color: var(--text)
-        }
-
-        .activity-text p {
-            font-size: 12px;
-            color: var(--medium-gray);
-            margin-top: 1px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis
-        }
-
-        .activity-time {
-            font-size: 11px;
-            color: var(--medium-gray);
-            white-space: nowrap;
-            flex-shrink: 0
-        }
-
-        /* Filters Bar */
-        .filters-bar {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            flex-wrap: wrap
-        }
-
-        .filter-input,
-        .filter-select {
-            padding: 9px 14px;
-            border: 1px solid var(--light-gray);
-            border-radius: var(--radius-sm);
-            font-size: 13px;
-            font-family: var(--font-body);
-            color: var(--text);
-            background: var(--white);
-            transition: border-color var(--transition)
-        }
-
-        .filter-input::placeholder {
-            color: var(--medium-gray)
-        }
-
-        .filter-input:focus,
-        .filter-select:focus {
-            outline: none;
-            border-color: var(--maroon);
-            box-shadow: 0 0 0 3px var(--maroon-light)
-        }
-
-        .filter-input {
-            min-width: 200px
-        }
-
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -792,6 +580,15 @@
             color: var(--maroon)
         }
 
+        .btn-success {
+            background: var(--green);
+            color: var(--white)
+        }
+
+        .btn-success:hover {
+            background: #3a6348
+        }
+
         .btn-sm {
             padding: 6px 12px;
             font-size: 12px
@@ -809,63 +606,41 @@
             justify-content: center
         }
 
-        /* Table */
-        .table-wrap {
-            background: var(--white);
-            border: 1px solid var(--light-gray);
-            border-radius: var(--radius);
-            overflow: hidden;
-            margin-bottom: 24px;
-            overflow-x: auto
-        }
-
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 700px
-        }
-
-        .data-table thead {
-            background: var(--ivory);
-            border-bottom: 2px solid var(--light-gray)
-        }
-
-        .data-table th {
-            padding: 12px 16px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 12px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: .06em
-        }
-
-        .data-table td {
-            padding: 12px 16px;
-            border-bottom: 1px solid var(--light-gray);
-            font-size: 13px;
-            color: var(--text);
-            vertical-align: middle
-        }
-
-        .data-table tbody tr {
-            transition: background .15s
-        }
-
-        .data-table tbody tr:hover {
-            background: var(--ivory)
-        }
-
-        .data-table tbody tr:last-child td {
-            border-bottom: none
-        }
-
-        .table-actions {
+        .filters-bar {
             display: flex;
-            gap: 6px
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap
         }
 
-        /* Badges */
+        .filter-input,
+        .filter-select {
+            padding: 9px 14px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--white);
+            transition: border-color var(--transition)
+        }
+
+        .filter-input::placeholder {
+            color: var(--medium-gray)
+        }
+
+        .filter-input:focus,
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--maroon);
+            box-shadow: 0 0 0 3px var(--maroon-light)
+        }
+
+        .filter-input {
+            min-width: 200px
+        }
+
         .badge {
             display: inline-block;
             padding: 4px 10px;
@@ -905,7 +680,11 @@
             color: var(--medium-gray)
         }
 
-        /* Vehicle Cards Grid (admin) */
+        .badge-maroon {
+            background: var(--maroon-light);
+            color: var(--maroon)
+        }
+
         .admin-vehicles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -926,6 +705,15 @@
             box-shadow: var(--shadow-lg)
         }
 
+        .admin-v-card.disabled-card {
+            opacity: .55
+        }
+
+        .admin-v-card.disabled-card:hover {
+            transform: none;
+            box-shadow: var(--shadow)
+        }
+
         .admin-v-img {
             height: 180px;
             background: linear-gradient(135deg, var(--maroon), var(--rust));
@@ -939,7 +727,12 @@
         .admin-v-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover
+            object-fit: cover;
+            transition: transform .5s ease
+        }
+
+        .admin-v-card:hover .admin-v-img img {
+            transform: scale(1.05)
         }
 
         .admin-v-img-overlay {
@@ -966,6 +759,12 @@
             opacity: .9
         }
 
+        .admin-v-status {
+            position: absolute;
+            top: 12px;
+            right: 12px
+        }
+
         .admin-v-body {
             padding: 16px
         }
@@ -975,7 +774,14 @@
             font-size: 17px;
             font-weight: 600;
             color: var(--dark);
-            margin-bottom: 10px
+            margin-bottom: 4px
+        }
+
+        .admin-v-slug {
+            font-size: 11px;
+            color: var(--medium-gray);
+            margin-bottom: 10px;
+            font-family: monospace
         }
 
         .admin-v-details {
@@ -1013,37 +819,10 @@
 
         .admin-v-actions {
             display: flex;
-            gap: 8px
+            gap: 8px;
+            flex-wrap: wrap
         }
 
-        /* View Toggle */
-        .view-toggle {
-            display: flex;
-            gap: 4px
-        }
-
-        .view-toggle-btn {
-            width: 34px;
-            height: 34px;
-            border-radius: var(--radius-sm);
-            border: 1.5px solid var(--light-gray);
-            background: transparent;
-            color: var(--medium-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all var(--transition)
-        }
-
-        .view-toggle-btn.active,
-        .view-toggle-btn:hover {
-            background: var(--maroon);
-            border-color: var(--maroon);
-            color: var(--white)
-        }
-
-        /* Modal */
         .modal-backdrop {
             display: none;
             position: fixed;
@@ -1063,9 +842,9 @@
         .modal {
             background: var(--white);
             border-radius: var(--radius);
-            width: 92%;
-            max-width: 580px;
-            max-height: 90vh;
+            width: 94%;
+            max-width: 820px;
+            max-height: 92vh;
             overflow-y: auto;
             box-shadow: 0 20px 60px rgba(13, 6, 5, .3);
             animation: scaleIn .25s ease
@@ -1076,7 +855,12 @@
             align-items: center;
             justify-content: space-between;
             padding: 20px 24px;
-            border-bottom: 1px solid var(--light-gray)
+            border-bottom: 1px solid var(--light-gray);
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            z-index: 5;
+            border-radius: var(--radius) var(--radius) 0 0
         }
 
         .modal-head h3 {
@@ -1110,10 +894,13 @@
             border-top: 1px solid var(--light-gray);
             display: flex;
             justify-content: flex-end;
-            gap: 10px
+            gap: 10px;
+            position: sticky;
+            bottom: 0;
+            background: var(--white);
+            z-index: 5
         }
 
-        /* Form Groups */
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1123,6 +910,10 @@
 
         .form-row.full {
             grid-template-columns: 1fr
+        }
+
+        .form-row.triple {
+            grid-template-columns: 1fr 1fr 1fr
         }
 
         .form-group {
@@ -1197,7 +988,204 @@
             display: block
         }
 
-        /* Slide Panel */
+        .form-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 24px;
+            border-bottom: 2px solid var(--light-gray);
+            overflow-x: auto
+        }
+
+        .form-tab-btn {
+            padding: 11px 16px;
+            background: none;
+            border: none;
+            color: var(--medium-gray);
+            cursor: pointer;
+            font-size: 12.5px;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all var(--transition);
+            white-space: nowrap;
+            font-family: var(--font-body)
+        }
+
+        .form-tab-btn:hover {
+            color: var(--maroon)
+        }
+
+        .form-tab-btn.active {
+            color: var(--maroon);
+            border-bottom-color: var(--maroon)
+        }
+
+        .form-tab-pane {
+            display: none
+        }
+
+        .form-tab-pane.active {
+            display: block;
+            animation: fadeIn .25s ease
+        }
+
+        .img-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .img-list-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: var(--ivory);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--light-gray)
+        }
+
+        .img-list-item img {
+            width: 64px;
+            height: 44px;
+            object-fit: cover;
+            border-radius: 4px;
+            background: var(--light-gray)
+        }
+
+        .img-list-item input {
+            flex: 1
+        }
+
+        .img-list-item .remove-img {
+            background: none;
+            border: none;
+            color: var(--red);
+            cursor: pointer;
+            font-size: 18px;
+            padding: 4px;
+            line-height: 1
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px
+        }
+
+        .feature-check {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1.5px solid var(--light-gray);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all .15s;
+            font-size: 13px;
+            user-select: none
+        }
+
+        .feature-check:hover {
+            border-color: var(--maroon);
+            background: var(--maroon-light)
+        }
+
+        .feature-check.checked {
+            border-color: var(--maroon);
+            background: var(--maroon-light);
+            color: var(--maroon);
+            font-weight: 600
+        }
+
+        .feature-check input {
+            display: none
+        }
+
+        .routes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .route-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            background: var(--ivory);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--light-gray)
+        }
+
+        .route-emoji {
+            font-size: 20px;
+            width: 32px;
+            text-align: center
+        }
+
+        .route-item input {
+            flex: 1
+        }
+
+        .route-item .remove-route {
+            background: none;
+            border: none;
+            color: var(--red);
+            cursor: pointer;
+            font-size: 18px;
+            padding: 4px
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        .toggle-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .toggle-track {
+            width: 44px;
+            height: 24px;
+            border-radius: 12px;
+            background: var(--light-gray);
+            position: relative;
+            cursor: pointer;
+            transition: background var(--transition);
+            flex-shrink: 0
+        }
+
+        .toggle-track.on {
+            background: var(--green)
+        }
+
+        .toggle-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--white);
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform var(--transition);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .15)
+        }
+
+        .toggle-track.on .toggle-thumb {
+            transform: translateX(20px)
+        }
+
+        .toggle-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text)
+        }
+
         .panel-overlay {
             display: none;
             position: fixed;
@@ -1212,10 +1200,10 @@
 
         .slide-panel {
             position: fixed;
-            right: -460px;
+            right: -520px;
             top: 0;
-            width: 460px;
-            max-width: 92vw;
+            width: 500px;
+            max-width: 94vw;
             height: 100vh;
             background: var(--white);
             box-shadow: -4px 0 24px rgba(13, 6, 5, .12);
@@ -1276,17 +1264,97 @@
         }
 
         .detail-section-title {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
-            letter-spacing: .1em;
+            letter-spacing: .12em;
             text-transform: uppercase;
             color: var(--maroon);
-            margin: 20px 0 8px;
+            margin: 20px 0 10px;
             padding-bottom: 6px;
             border-bottom: 2px solid var(--maroon-light)
         }
 
-        /* Toast */
+        .panel-img-main {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            background: var(--light-gray)
+        }
+
+        .panel-img-thumbs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 4px
+        }
+
+        .panel-img-thumbs img {
+            width: 72px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color .15s;
+            flex-shrink: 0
+        }
+
+        .panel-img-thumbs img:hover,
+        .panel-img-thumbs img.active {
+            border-color: var(--maroon)
+        }
+
+        .panel-specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 8px
+        }
+
+        .panel-spec-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            padding: 6px 8px;
+            background: var(--ivory);
+            border-radius: 6px
+        }
+
+        .panel-spec-item svg {
+            color: var(--maroon);
+            flex-shrink: 0
+        }
+
+        .panel-feature-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            background: var(--green-light);
+            color: var(--green);
+            border-radius: 6px;
+            font-size: 11.5px;
+            font-weight: 600;
+            margin: 3px
+        }
+
+        .panel-route-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 10px;
+            background: var(--gold-light);
+            color: var(--rust);
+            border-radius: 6px;
+            font-size: 11.5px;
+            font-weight: 600;
+            margin: 3px
+        }
+
         #toastBox {
             position: fixed;
             bottom: 24px;
@@ -1339,7 +1407,6 @@
             padding: 0 0 0 8px
         }
 
-        /* Delete Confirm */
         .confirm-icon {
             width: 56px;
             height: 56px;
@@ -1364,129 +1431,6 @@
             color: var(--text)
         }
 
-        /* Tabs */
-        .tabs {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--light-gray)
-        }
-
-        .tab-btn {
-            padding: 11px 18px;
-            background: none;
-            border: none;
-            color: var(--medium-gray);
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            border-bottom: 3px solid transparent;
-            margin-bottom: -2px;
-            transition: all var(--transition)
-        }
-
-        .tab-btn:hover {
-            color: var(--maroon)
-        }
-
-        .tab-btn.active {
-            color: var(--maroon);
-            border-bottom-color: var(--maroon)
-        }
-
-        .tab-pane {
-            display: none
-        }
-
-        .tab-pane.active {
-            display: block;
-            animation: fadeIn .3s ease
-        }
-
-        /* Booking detail timeline */
-        .timeline {
-            position: relative;
-            padding-left: 24px;
-            margin: 16px 0
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 4px;
-            bottom: 4px;
-            width: 2px;
-            background: var(--light-gray)
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-bottom: 16px
-        }
-
-        .timeline-item:last-child {
-            padding-bottom: 0
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -20px;
-            top: 4px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            border: 2px solid var(--light-gray);
-            background: var(--white)
-        }
-
-        .timeline-item.done .timeline-dot {
-            background: var(--green);
-            border-color: var(--green)
-        }
-
-        .timeline-item.current .timeline-dot {
-            background: var(--gold);
-            border-color: var(--gold);
-            box-shadow: 0 0 0 4px var(--gold-light)
-        }
-
-        .timeline-item.pending .timeline-dot {
-            background: var(--white);
-            border-color: var(--medium-gray)
-        }
-
-        .timeline-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text)
-        }
-
-        .timeline-desc {
-            font-size: 11px;
-            color: var(--medium-gray);
-            margin-top: 2px
-        }
-
-        /* Settings */
-        .settings-card {
-            background: var(--white);
-            border: 1px solid var(--light-gray);
-            border-radius: var(--radius);
-            padding: 24px;
-            max-width: 640px
-        }
-
-        .settings-card h3 {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--light-gray)
-        }
-
-        /* Empty State */
         .empty-state {
             text-align: center;
             padding: 60px 24px;
@@ -1507,17 +1451,373 @@
 
         .empty-state p {
             font-size: 13px;
-            max-width: 300px;
+            max-width: 340px;
             margin: 0 auto 20px
         }
 
-        /* Responsive */
+        .activity-card {
+            background: var(--white);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            padding: 20px
+        }
+
+        .activity-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 14px
+        }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 320px;
+            overflow-y: auto
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            background: var(--ivory)
+        }
+
+        .activity-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px
+        }
+
+        .activity-dot.green {
+            background: var(--green-light);
+            color: var(--green)
+        }
+
+        .activity-dot.blue {
+            background: var(--blue-light);
+            color: var(--blue)
+        }
+
+        .activity-dot.orange {
+            background: var(--orange-light);
+            color: var(--orange)
+        }
+
+        .activity-dot.gold {
+            background: var(--gold-light);
+            color: var(--gold)
+        }
+
+        .activity-text {
+            flex: 1;
+            min-width: 0
+        }
+
+        .activity-text strong {
+            font-size: 13px;
+            color: var(--text)
+        }
+
+        .activity-text p {
+            font-size: 12px;
+            color: var(--medium-gray);
+            margin-top: 1px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        .activity-time {
+            font-size: 11px;
+            color: var(--medium-gray);
+            white-space: nowrap;
+            flex-shrink: 0
+        }
+
+        .data-table-wrap {
+            background: var(--white);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 24px
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px
+        }
+
+        .data-table thead {
+            background: var(--ivory)
+        }
+
+        .data-table th {
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 11.5px;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: var(--medium-gray);
+            border-bottom: 2px solid var(--light-gray)
+        }
+
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--light-gray);
+            color: var(--text)
+        }
+
+        .data-table tbody tr {
+            transition: background .15s
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--maroon-light)
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: none
+        }
+
+        .table-responsive {
+            overflow-x: auto
+        }
+
+        .pkg-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px
+        }
+
+        .admin-pkg-card {
+            background: var(--white);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform var(--transition), box-shadow var(--transition)
+        }
+
+        .admin-pkg-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg)
+        }
+
+        .admin-pkg-card.disabled-card {
+            opacity: .55
+        }
+
+        .admin-pkg-card.disabled-card:hover {
+            transform: none;
+            box-shadow: var(--shadow)
+        }
+
+        .admin-pkg-img {
+            height: 180px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .admin-pkg-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s ease
+        }
+
+        .admin-pkg-card:hover .admin-pkg-img img {
+            transform: scale(1.05)
+        }
+
+        .admin-pkg-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(13, 6, 5, .6), transparent 50%)
+        }
+
+        .admin-pkg-cat {
+            position: absolute;
+            top: 12px;
+            left: 12px
+        }
+
+        .admin-pkg-duration {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 600;
+            background: rgba(0, 0, 0, .45);
+            padding: 4px 10px;
+            border-radius: 6px;
+            backdrop-filter: blur(4px)
+        }
+
+        .admin-pkg-status {
+            position: absolute;
+            top: 12px;
+            right: 12px
+        }
+
+        .admin-pkg-body {
+            padding: 16px
+        }
+
+        .admin-pkg-name {
+            font-family: var(--font-heading);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 6px
+        }
+
+        .admin-pkg-desc {
+            font-size: 12.5px;
+            color: var(--medium-gray);
+            margin-bottom: 12px;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden
+        }
+
+        .admin-pkg-includes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px
+        }
+
+        .admin-pkg-include-tag {
+            font-size: 11px;
+            padding: 3px 8px;
+            background: var(--ivory);
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            color: var(--text)
+        }
+
+        .admin-pkg-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px
+        }
+
+        .admin-pkg-price {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--maroon)
+        }
+
+        .admin-pkg-price span {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--medium-gray)
+        }
+
+        .admin-pkg-rating {
+            font-size: 12px;
+            color: var(--gold)
+        }
+
+        .admin-pkg-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .settings-card {
+            background: var(--white);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 20px
+        }
+
+        .settings-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--maroon-light)
+        }
+
+        .settings-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--light-gray)
+        }
+
+        .settings-row:last-child {
+            border-bottom: none
+        }
+
+        .settings-row-info h4 {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px
+        }
+
+        .settings-row-info p {
+            font-size: 12px;
+            color: var(--medium-gray)
+        }
+
+        .includes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .includes-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: var(--ivory);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--light-gray)
+        }
+
+        .includes-item input {
+            flex: 1
+        }
+
+        .includes-item .remove-include {
+            background: none;
+            border: none;
+            color: var(--red);
+            cursor: pointer;
+            font-size: 18px;
+            padding: 4px;
+            line-height: 1
+        }
+
         @media(max-width:1100px) {
             .charts-grid {
                 grid-template-columns: 1fr
             }
 
-            .admin-vehicles-grid {
+            .admin-vehicles-grid,
+            .pkg-grid {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))
             }
         }
@@ -1552,7 +1852,12 @@
                 grid-template-columns: 1fr
             }
 
-            .admin-vehicles-grid {
+            .form-row.triple {
+                grid-template-columns: 1fr
+            }
+
+            .admin-vehicles-grid,
+            .pkg-grid {
                 grid-template-columns: 1fr
             }
 
@@ -1567,6 +1872,19 @@
             .slide-panel {
                 width: 100vw;
                 max-width: 100vw
+            }
+
+            .modal {
+                width: 98%;
+                max-height: 96vh
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr
             }
         }
 
@@ -1600,11 +1918,8 @@
 </head>
 
 <body>
-
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
     <div class="app">
-        <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <button class="sidebar-close" id="sidebarClose" aria-label="Close">&times;</button>
             <div class="sidebar-head">
@@ -1626,7 +1941,6 @@
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
                     </svg>
                     Bookings
-                    <span class="notif-badge" style="position:static;margin-left:auto" id="bookingBadge">0</span>
                 </button>
                 <button class="nav-item" data-section="vehicles">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1653,14 +1967,6 @@
                     </svg>
                     Users
                 </button>
-                <button class="nav-item" data-section="payments">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="5" width="20" height="14" rx="2" />
-                        <line x1="2" y1="10" x2="22" y2="10" />
-                    </svg>
-                    Payments
-                </button>
-                <div class="nav-section-label">System</div>
                 <button class="nav-item" data-section="settings">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="3" />
@@ -1678,8 +1984,6 @@
                 </div>
             </div>
         </aside>
-
-        <!-- Main Content -->
         <div class="main">
             <header class="header">
                 <div class="header-left">
@@ -1695,1277 +1999,385 @@
                 </div>
                 <div class="header-right">
                     <span class="header-time" id="headerTime"></span>
-                    <button class="header-btn" id="notifBtn">
+                    <button class="header-btn" aria-label="Notifications">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
                             <path d="M13.73 21a2 2 0 01-3.46 0" />
                         </svg>
-                        <span class="notif-badge" id="notifBadge">3</span>
+                        <span class="notif-badge">3</span>
                     </button>
-                    <div class="header-dropdown">
-                        <button class="header-btn" id="moreBtn">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="12" cy="5" r="1" />
-                                <circle cx="12" cy="12" r="1" />
-                                <circle cx="12" cy="19" r="1" />
-                            </svg>
-                        </button>
-                        <div class="dropdown-menu" id="moreDropdown">
-                            <button class="dropdown-item"
-                                onclick="toast('Profile page coming soon','info')">Profile</button>
-                            <button class="dropdown-item" onclick="logoutUser()" style="color:var(--red)">
-                                Logout </button>
-                        </div>
-                    </div>
                 </div>
             </header>
-
             <main class="content" id="contentArea">
-                <!-- DASHBOARD -->
                 <section id="sec-dashboard" class="section active"></section>
-                <!-- BOOKINGS -->
                 <section id="sec-bookings" class="section"></section>
-                <!-- VEHICLES -->
                 <section id="sec-vehicles" class="section"></section>
-                <!-- PACKAGES -->
                 <section id="sec-packages" class="section"></section>
-                <!-- USERS -->
                 <section id="sec-users" class="section"></section>
-                <!-- PAYMENTS -->
-                <section id="sec-payments" class="section"></section>
-                <!-- SETTINGS -->
                 <section id="sec-settings" class="section"></section>
             </main>
         </div>
     </div>
-
-    <!-- Modal Container -->
     <div class="modal-backdrop" id="modalBackdrop">
         <div class="modal" id="modalBox">
             <div class="modal-head">
-                <h3 id="modalTitle">Modal</h3>
-                <button class="modal-close" id="modalClose">&times;</button>
+                <h3 id="modalTitle">Modal</h3><button class="modal-close" id="modalClose">&times;</button>
             </div>
             <div class="modal-body" id="modalBody"></div>
             <div class="modal-foot" id="modalFoot"></div>
         </div>
     </div>
-
-    <!-- Slide Panel -->
     <div class="panel-overlay" id="panelOverlay"></div>
     <div class="slide-panel" id="slidePanel">
         <div class="slide-panel-head">
-            <h3 id="panelTitle">Details</h3>
-            <button class="modal-close" id="panelClose">&times;</button>
+            <h3 id="panelTitle">Details</h3><button class="modal-close" id="panelClose">&times;</button>
         </div>
         <div class="slide-panel-body" id="panelBody"></div>
     </div>
-
-    <!-- Toast Container -->
     <div id="toastBox"></div>
 
-    <script src="/js/api.js"></script>
-    <    <script>
-        /* ═══════════════════════════════════════════════════════
-           VOYAGO ADMIN DASHBOARD — Full Backend-Connected JS
-           ═══════════════════════════════════════════════════════ */
+    <script>
+        /* ═══════════════════════════════════════════════════════════════
+           VOYAGO ADMIN — Full Dashboard with Vehicle + Package CRUD
+           ═══════════════════════════════════════════════════════════════ */
 
-        // ─── STATE ───
-        const S = {
-            section: 'dashboard',
-            bookingPage: 1,
-            vehiclePage: 1,
-            packagePage: 1,
-            vehicleView: 'grid',
-            charts: {},
-            stats: null
-        };
+        var DB_KEY = 'voyago_vehicles';
+        var PKG_KEY = 'voyago_packages';
+        var SETTINGS_KEY = 'voyago_settings';
 
-        // ─── UTILITIES ───
-        function $(sel) { return document.querySelector(sel); }
-        function $$(sel) { return document.querySelectorAll(sel); }
+        var ALL_FEATURES = [
+            'Air Conditioning', 'Dual Zone AC', 'Roof-Mounted AC', 'Individual AC Vents',
+            'USB Charging Port', 'USB & Type-C Charging', 'USB Charging (All Rows)',
+            'GPS Navigation', 'GPS Tracking', 'Music System', 'Premium Music System',
+            'Premium Sound System', 'Reclining Seats', 'Push-Back Seats', 'Captain Seats (Row 2)',
+            'Leather Seats', 'Sunroof', '4WD Capability', 'Foldable 3rd Row', 'Roof Rails',
+            'Touchscreen Infotainment', 'Luggage Boot', 'Under-Bus Storage',
+            'Reading Lights', 'Onboard Pantry', 'Entertainment Screens',
+            'Sanitised After Each Trip', 'Emergency Assistance', 'Emergency Exit',
+            'Verified Driver', 'Verified Driver + Co-Driver', 'PA System', 'WiFi'
+        ];
 
-        function toast(msg, type = 'info') {
-            const box = $('#toastBox');
-            const icons = { success: '✓', error: '✕', warning: '⚠', info: 'ℹ' };
-            const el = document.createElement('div');
-            el.className = `toast ${type}`;
-            el.innerHTML = `<span style="font-size:16px;font-weight:700">${icons[type] || 'ℹ'}</span><span style="flex:1">${msg}</span><button class="toast-close" onclick="this.parentElement.remove()">&times;</button>`;
+        var TYPE_LABELS = { sedan: 'Sedan', suv: 'SUV', muv: 'MUV', tempo: 'Tempo Traveller', bus: 'Bus / Coach' };
+        var CAT_LABELS = { hill: 'Hill Station', pilgrimage: 'Pilgrimage', weekend: 'Weekend Escape', corporate: 'Corporate Tour' };
+        var CAT_COLORS = { hill: 'badge-green', pilgrimage: 'badge-gold', weekend: 'badge-blue', corporate: 'badge-maroon' };
+        var ROUTE_EMOJIS = ['\u{1F4CD}', '\u{1F3D9}\uFE0F', '\u2708\uFE0F', '\u{1F3DE}\uFE0F', '\u{1F4BC}', '\u{1F3D4}\uFE0F', '\u{1F6E4}\uFE0F', '\u{1F6D5}', '\u{1F468}\u200D\u{1F469}\u200D\u{1F467}\u200D\u{1F466}', '\u{1F3D5}\uFE0F', '\u{1F38A}', '\u{1F3EB}', '\u{1F3ED}', '\u{1F393}', '\u26BD', '\u{1F389}', '\u{1F697}'];
+
+        var currentSection = 'dashboard';
+        var editingVehicleId = null;
+        var editingPackageId = null;
+        var formState = { images: [''], routes: [{ icon: '\u{1F4CD}', label: '' }], features: [] };
+        var pkgFormState = { includes: [''] };
+        var revenueChart = null;
+        var typeChart = null;
+        var vehicleFilter = { search: '', type: '', status: '' };
+        var packageFilter = { search: '', category: '', status: '' };
+
+        // ── UTILITIES ──
+        function slugify(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
+        function formatCurrency(n) { return '\u20B9' + Number(n || 0).toLocaleString('en-IN'); }
+        function formatDate(d) { if (!d) return '\u2014'; var dt = new Date(d); return dt.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }); }
+        function formatDateTime(d) { if (!d) return '\u2014'; var dt = new Date(d); return dt.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) + ' ' + dt.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }); }
+        function getBadgeClass(bc) { if (!bc) return 'badge-gray'; if (bc.indexOf('maroon') >= 0) return 'badge-maroon'; if (bc.indexOf('gold') >= 0) return 'badge-gold'; return 'badge-gray'; }
+
+        function specIcon(t) {
+            var m = {
+                seat: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>',
+                fuel: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V6l2-4h14l2 4v16H3z"/><rect x="7" y="2" width="10" height="4" rx="1"/></svg>',
+                ac: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>',
+                luggage: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>',
+                gearbox: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-2.82 1.18V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68 1.65 1.65 0 008 3.17V3a2 2 0 014 0v.09c.15.83.89 1.42 1.71 1.33a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06c-.55.5-.7 1.3-.33 1.82a1.65 1.65 0 001.18.82H21a2 2 0 010 4h-.09c-.83.15-1.42.89-1.33 1.71z"/></svg>',
+                efficiency: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>'
+            };
+            return m[t] || '';
+        }
+
+        function toast(msg, type) {
+            type = type || 'info';
+            var box = document.getElementById('toastBox');
+            var el = document.createElement('div');
+            el.className = 'toast ' + type;
+            el.innerHTML = '<span style="flex:1">' + msg + '</span><button class="toast-close" onclick="this.parentElement.remove()">&times;</button>';
             box.appendChild(el);
-            setTimeout(() => { if (el.parentElement) el.remove(); }, 4000);
+            setTimeout(function () { if (el.parentElement) el.remove(); }, 4000);
         }
 
-        function fmtDate(d) {
-            if (!d) return '—';
-            const dt = new Date(d);
-            return dt.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
-        }
-        function fmtDateTime(d) {
-            if (!d) return '—';
-            const dt = new Date(d);
-            return dt.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) + ' ' + dt.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-        }
-        function fmtCurrency(n) {
-            if (!n && n !== 0) return '—';
-            return '₹' + Number(n).toLocaleString('en-IN');
-        }
-        function fmtRelative(d) {
-            if (!d) return '';
-            const s = Math.floor((Date.now() - new Date(d)) / 1000);
-            if (s < 60) return 'Just now';
-            if (s < 3600) return Math.floor(s / 60) + 'm ago';
-            if (s < 86400) return Math.floor(s / 3600) + 'h ago';
-            if (s < 604800) return Math.floor(s / 86400) + 'd ago';
-            return fmtDate(d);
-        }
-
-        function statusBadge(status) {
-            const map = {
-                'pending': 'badge-orange', 'confirmed': 'badge-blue', 'in-progress': 'badge-gold',
-                'completed': 'badge-green', 'cancelled': 'badge-red',
-                'paid': 'badge-green', 'partial': 'badge-gold',
-                'active': 'badge-green', 'inactive': 'badge-gray',
-                'read': 'badge-gray', 'unread': 'badge-blue',
-                'true': 'badge-green', 'false': 'badge-red'
-            };
-            return `<span class="badge ${map[status] || 'badge-gray'}">${status}</span>`;
-        }
-
-        function escHtml(s) {
-            if (!s) return '';
-            const d = document.createElement('div');
-            d.textContent = s;
-            return d.innerHTML;
-        }
-
-        // ─── MODAL ───
-        function openModal(title, bodyHtml, footHtml) {
-            $('#modalTitle').textContent = title;
-            $('#modalBody').innerHTML = bodyHtml;
-            $('#modalFoot').innerHTML = footHtml || '';
-            $('#modalBackdrop').classList.add('active');
-        }
-        function closeModal() { $('#modalBackdrop').classList.remove('active'); }
-
-        // ─── SLIDE PANEL ───
-        function openPanel(title, bodyHtml) {
-            $('#panelTitle').textContent = title;
-            $('#panelBody').innerHTML = bodyHtml;
-            $('#panelOverlay').classList.add('active');
-            $('#slidePanel').classList.add('active');
-        }
-        function closePanel() {
-            $('#panelOverlay').classList.remove('active');
-            $('#slidePanel').classList.remove('active');
-        }
-
-        // ─── CONFIRM DELETE ───
-        function confirmDelete(name, onConfirm) {
-            openModal('Confirm Delete', `
-        <div class="confirm-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
-        </div>
-        <div class="confirm-text">Are you sure you want to delete <strong>${escHtml(name)}</strong>? This action cannot be undone.</div>
-      `, `
-        <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-        <button class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
-      `);
-            $('#confirmDeleteBtn').onclick = () => { closeModal(); onConfirm(); };
-        }
-
-        // ─── NAVIGATION ───
-        function navigate(section) {
-            S.section = section;
-            $$('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.section === section));
-            $$('.section').forEach(s => s.classList.toggle('active', s.id === 'sec-' + section));
-            const titles = { dashboard: 'Dashboard', bookings: 'Bookings', vehicles: 'Vehicles', packages: 'Packages', users: 'Users', payments: 'Payments', settings: 'Settings' };
-            $('#headerTitle').textContent = titles[section] || 'Dashboard';
-            // Close mobile sidebar
-            $('#sidebar').classList.remove('open');
-            $('#sidebarOverlay').classList.remove('active');
-            // Render
-            const renderers = { dashboard: renderDashboard, bookings: renderBookings, vehicles: renderVehicles, packages: renderPackages, users: renderUsers, payments: renderPayments, settings: renderSettings };
-            if (renderers[section]) renderers[section]();
-        }
-
-        // ─── AUTH ───
-        async function checkAuth() {
-            const token = API.getToken();
-            if (!token) {
-                window.location.href = '/admin';
-                return false;
-            }
-            /* Validate token is still good before rendering anything */
-            const res = await API.admin.getMe();
-            if (!res.success) {
-                API.clearToken();
-                window.location.href = '/admin';
-                return false;
-            }
-            /* Update sidebar with real admin info */
-            const admin = res.data;
-            const initials = (admin.name || 'A').split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
-            const avatarEl = document.querySelector('.sidebar-avatar');
-            const nameEl = document.querySelector('.sidebar-user-name');
-            const roleEl = document.querySelector('.sidebar-user-role');
-            if (avatarEl) avatarEl.textContent = initials;
-            if (nameEl) nameEl.textContent = admin.name || 'Admin';
-            if (roleEl) roleEl.textContent = admin.role || 'Admin';
-            return true;
-        }
-
-        function logoutUser() {
-            API.clearToken();
-            window.location.href = '/admin';
-        }
-
-        // ─── HEADER TIME ───
-        function updateHeaderTime() {
-            const now = new Date();
-            $('#headerTime').textContent = now.toLocaleDateString('en-IN', { weekday: 'short', day: '2-digit', month: 'short' }) + ' · ' + now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-        }
-
-        // ═══════════════════════════════════════════════════════
-        //  DASHBOARD
-        // ═══════════════════════════════════════════════════════
-        async function renderDashboard() {
-            const sec = $('#sec-dashboard');
-            sec.innerHTML = `<div style="text-align:center;padding:80px 20px;color:var(--medium-gray)"><div style="font-size:32px;margin-bottom:12px">⏳</div>Loading dashboard...</div>`;
-
-            /* FIXED: use getDashboard() which actually exists in api.js */
-            const res = await API.admin.getDashboard();
-            if (!res.success) {
-                sec.innerHTML = `<div class="empty-state"><h3>Failed to load</h3><p>${res.message}</p><button class="btn btn-primary" onclick="renderDashboard()">Retry</button></div>`;
-                return;
-            }
-
-            /* FIXED: destructure correctly — backend returns { stats, recentBookings, recentContacts, monthlyBookings, statusBreakdown } */
-            const { stats: s, recentBookings, monthlyBookings, statusBreakdown } = res.data;
-            S.stats = s;
-
-            // Update badges
-            $('#bookingBadge').textContent = s.pendingBookings || 0;
-            const notifCount = (s.unreadContacts || 0) + (s.pendingBookings || 0);
-            $('#notifBadge').textContent = notifCount;
-            $('#notifBadge').style.display = notifCount === 0 ? 'none' : 'flex';
-
-            sec.innerHTML = `
-        <!-- Stats -->
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-top">
-              <div class="stat-icon maroon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-              </div>
-              <span class="stat-trend up">${s.pendingBookings} pending</span>
-            </div>
-            <div class="stat-label">Total Bookings</div>
-            <div class="stat-value">${s.totalBookings}</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-top">
-              <div class="stat-icon green">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-              </div>
-            </div>
-            <div class="stat-label">Total Revenue</div>
-            <div class="stat-value">${fmtCurrency(s.totalRevenue)}</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-top">
-              <div class="stat-icon blue">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 12h12M3 6h18v6H3z"/></svg>
-              </div>
-            </div>
-            <div class="stat-label">Vehicles</div>
-            <div class="stat-value">${s.availableVehicles} <span style="font-size:14px;color:var(--medium-gray);font-weight:500">/ ${s.totalVehicles}</span></div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-top">
-              <div class="stat-icon orange">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-              </div>
-            </div>
-            <div class="stat-label">Packages</div>
-            <div class="stat-value">${s.activePackages} <span style="font-size:14px;color:var(--medium-gray);font-weight:500">/ ${s.totalPackages}</span></div>
-          </div>
-        </div>
-
-        <!-- Charts -->
-        <div class="charts-grid">
-          <div class="chart-card">
-            <h3>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              Bookings Trend (6 Months)
-            </h3>
-            <canvas id="chartLine"></canvas>
-          </div>
-          <div class="chart-card">
-            <h3>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 118 2.83"/><path d="M22 12A10 10 0 0012 2v10z"/></svg>
-              Bookings by Status
-            </h3>
-            <canvas id="chartDoughnut"></canvas>
-          </div>
-        </div>
-
-        <!-- Recent Activity -->
-        <div class="activity-card">
-          <h3>Recent Bookings</h3>
-          <div class="activity-list">
-            ${recentBookings.length === 0 ? '<div class="empty-state" style="padding:30px"><p>No bookings yet</p></div>' :
-                    recentBookings.map(b => `
-                <div class="activity-item" style="cursor:pointer" onclick="navigate('bookings');setTimeout(()=>openBookingDetail('${b._id}'),300)">
-                  <div class="activity-dot ${b.status === 'completed' ? 'green' : b.status === 'cancelled' ? 'red' : b.status === 'confirmed' ? 'blue' : 'orange'}">
-                    ${b.bookingType === 'vehicle' ? '🚗' : '📍'}
-                  </div>
-                  <div class="activity-text">
-                    <strong>${escHtml(b.name)}</strong>
-                    <p>${escHtml(b._id)} · ${b.bookingType} · ${fmtCurrency(b.totalPrice)}</p>
-                  </div>
-                  <div class="activity-time">${fmtRelative(b.createdAt)}</div>
-                </div>
-              `).join('')}
-          </div>
-        </div>
-      `;
-
-            // Render charts with correctly structured data
-            renderCharts(monthlyBookings, statusBreakdown, s);
-        }
-
-        function renderCharts(monthlyBookings, statusBreakdown, stats) {
-            // Destroy existing
-            if (S.charts.line) S.charts.line.destroy();
-            if (S.charts.doughnut) S.charts.doughnut.destroy();
-
-            /* FIXED: _id is { year: Number, month: Number }, not a string */
-            const months = monthlyBookings.map(m => {
-                const dt = new Date(m._id.year, m._id.month - 1);
-                return dt.toLocaleString('en-IN', { month: 'short', year: '2-digit' });
-            });
-
-            // Line Chart
-            const ctxLine = document.getElementById('chartLine');
-            if (ctxLine) {
-                S.charts.line = new Chart(ctxLine, {
-                    type: 'line',
-                    data: {
-                        labels: months.length ? months : ['No data'],
-                        datasets: [
-                            {
-                                label: 'Bookings',
-                                data: monthlyBookings.map(m => m.count),
-                                borderColor: '#6E1F2B',
-                                backgroundColor: 'rgba(110,31,43,0.08)',
-                                fill: true,
-                                tension: 0.4,
-                                pointRadius: 5,
-                                pointBackgroundColor: '#6E1F2B'
-                            },
-                            {
-                                label: 'Revenue (₹)',
-                                data: monthlyBookings.map(m => m.revenue),
-                                borderColor: '#D9A441',
-                                backgroundColor: 'rgba(217,164,65,0.08)',
-                                fill: true,
-                                tension: 0.4,
-                                pointRadius: 5,
-                                pointBackgroundColor: '#D9A441',
-                                yAxisID: 'y1'
+        // ── DB: VEHICLES (with corrupted-data guard) ──
+        function getDB() {
+            try {
+                var raw = localStorage.getItem(DB_KEY);
+                if (raw) {
+                    var data = JSON.parse(raw);
+                    if (Array.isArray(data) && data.length > 0) {
+                        // Validate every vehicle has a pricing object with perKm
+                        var valid = true;
+                        for (var i = 0; i < data.length; i++) {
+                            if (!data[i] || !data[i].pricing || typeof data[i].pricing.perKm !== 'number') {
+                                valid = false;
+                                break;
                             }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, padding: 16, font: { size: 12 } } } },
-                        scales: {
-                            y: { beginAtZero: true, ticks: { stepSize: 1, font: { size: 11 } }, grid: { color: 'rgba(0,0,0,0.04)' } },
-                            y1: { position: 'right', beginAtZero: true, ticks: { callback: v => '₹' + (v / 1000) + 'k', font: { size: 11 } }, grid: { display: false } },
-                            x: { grid: { display: false }, ticks: { font: { size: 11 } } }
                         }
+                        if (valid) return data;
                     }
-                });
-            }
-
-            // Doughnut Chart
-            const statusColors = { pending: '#FF7A00', confirmed: '#1976D2', 'in-progress': '#D9A441', completed: '#4A7C59', cancelled: '#D32F2F' };
-            const statusLabels = statusBreakdown.map(s => s._id);
-            const statusValues = statusBreakdown.map(s => s.count);
-            const statusClrs = statusLabels.map(s => statusColors[s] || '#8B8680');
-
-            const ctxDough = document.getElementById('chartDoughnut');
-            if (ctxDough) {
-                S.charts.doughnut = new Chart(ctxDough, {
-                    type: 'doughnut',
-                    data: {
-                        labels: statusLabels.length ? statusLabels : ['No data'],
-                        datasets: [{ data: statusValues.length ? statusValues : [1], backgroundColor: statusClrs.length ? statusClrs : ['#E8E3DC'], borderWidth: 0, hoverOffset: 8 }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        cutout: '65%',
-                        plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, padding: 12, font: { size: 12 } } } }
-                    }
-                });
-            }
-        }
-
-        // ═══════════════════════════════════════════════════════
-        //  BOOKINGS  (unchanged — already correct)
-        // ═══════════════════════════════════════════════════════
-        async function renderBookings() {
-            const sec = $('#sec-bookings');
-            sec.innerHTML = `
-        <div class="filters-bar">
-          <input type="text" class="filter-input" id="bSearch" placeholder="Search name, email, ID...">
-          <select class="filter-select" id="bStatus">
-            <option value="">All Status</option>
-            <option value="pending">Pending</option>
-            <option value="confirmed">Confirmed</option>
-            <option value="in-progress">In Progress</option>
-            <option value="completed">Completed</option>
-            <option value="cancelled">Cancelled</option>
-          </select>
-          <select class="filter-select" id="bType">
-            <option value="">All Type</option>
-            <option value="vehicle">Vehicle</option>
-            <option value="package">Package</option>
-          </select>
-          <select class="filter-select" id="bPayment">
-            <option value="">All Payment</option>
-            <option value="pending">Pending</option>
-            <option value="partial">Partial</option>
-            <option value="paid">Paid</option>
-          </select>
-          <button class="btn btn-ghost btn-sm" onclick="loadBookings()">🔍 Filter</button>
-          <button class="btn btn-ghost btn-sm" onclick="clearBookingFilters()">Clear</button>
-        </div>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Customer</th>
-                <th>Type</th>
-                <th>Dates</th>
-                <th>Amount</th>
-                <th>Payment</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="bookingsBody"></tbody>
-          </table>
-        </div>
-        <div id="bookingsPagination" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"></div>
-      `;
-            loadBookings();
-        }
-
-        async function loadBookings() {
-            const params = new URLSearchParams();
-            params.set('page', S.bookingPage);
-            params.set('limit', 10);
-            const search = $('#bSearch')?.value?.trim();
-            const status = $('#bStatus')?.value;
-            const type = $('#bType')?.value;
-            const payment = $('#bPayment')?.value;
-            if (search) params.set('search', search);
-            if (status) params.set('status', status);
-            if (type) params.set('bookingType', type);
-            if (payment) params.set('paymentStatus', payment);
-
-            const res = await API.admin.getBookings(params.toString());
-            if (!res.success) { toast(res.message, 'error'); return; }
-
-            const { data, pagination } = res;
-            const tbody = $('#bookingsBody');
-            if (data.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="8"><div class="empty-state" style="padding:40px"><h3>No bookings found</h3><p>Try adjusting your filters</p></div></td></tr>`;
-            } else {
-                tbody.innerHTML = data.map(b => {
-                    const shortId = (b.bookingId || b._id).slice(-8).toUpperCase();
-                    return `<tr>
-            <td><strong style="font-size:12px;color:var(--maroon)">${escHtml(shortId)}</strong></td>
-            <td><strong>${escHtml(b.name)}</strong><br><span style="font-size:11px;color:var(--medium-gray)">${escHtml(b.email)}</span></td>
-            <td><span class="badge ${b.bookingType === 'vehicle' ? 'badge-blue' : 'badge-gold'}">${b.bookingType}</span></td>
-            <td style="font-size:12px">${fmtDate(b.pickupDate)}${b.returnDate ? '<br>' + fmtDate(b.returnDate) : ''}</td>
-            <td><strong>${fmtCurrency(b.totalPrice)}</strong></td>
-            <td>${statusBadge(b.paymentStatus || 'pending')}</td>
-            <td>${statusBadge(b.status)}</td>
-            <td>
-              <div class="table-actions">
-                <button class="btn btn-ghost btn-sm btn-icon" title="View" onclick="openBookingDetail('${b._id}')">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                </button>
-                <button class="btn btn-ghost btn-sm btn-icon" title="Status" onclick="openStatusModal('${b._id}','${b.status}')">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
-                </button>
-                <button class="btn btn-ghost btn-sm btn-icon" title="Delete" style="color:var(--red)" onclick="deleteBooking('${b._id}','${escHtml(shortId)}')">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
-                </button>
-              </div>
-            </td>
-          </tr>`;
-                }).join('');
-            }
-            renderPagination('#bookingsPagination', pagination, (p) => { S.bookingPage = p; loadBookings(); });
-        }
-
-        function clearBookingFilters() {
-            $('#bSearch').value = '';
-            $('#bStatus').value = '';
-            $('#bType').value = '';
-            $('#bPayment').value = '';
-            S.bookingPage = 1;
-            loadBookings();
-        }
-
-        async function openBookingDetail(id) {
-            const res = await API.admin.getBooking(id);
-            if (!res.success) { toast(res.message, 'error'); return; }
-            const b = res.data;
-            const item = b.bookingType === 'vehicle' ? b.vehicleId : b.packageId;
-            const itemName = b.bookingType === 'vehicle'
-                ? (item?.name ? `${item.name} (${item.type || ''})` : '—')
-                : (item?.title ? `${item.title} — ${item.destination || ''}` : '—');
-
-            const statuses = ['pending', 'confirmed', 'in-progress', 'completed', 'cancelled'];
-            const currentIdx = statuses.indexOf(b.status);
-
-            openPanel(`Booking ${(b.bookingId || b._id).slice(-8).toUpperCase()}`, `
-        <div class="detail-section-title">Customer Information</div>
-        <div class="detail-row"><span class="detail-label">Name</span><span class="detail-value">${escHtml(b.name)}</span></div>
-        <div class="detail-row"><span class="detail-label">Email</span><span class="detail-value">${escHtml(b.email)}</span></div>
-        <div class="detail-row"><span class="detail-label">Phone</span><span class="detail-value">${escHtml(b.phone)}</span></div>
-
-        <div class="detail-section-title">Booking Details</div>
-        <div class="detail-row"><span class="detail-label">Booking ID</span><span class="detail-value" style="color:var(--maroon)">${escHtml(b.bookingId || b._id)}</span></div>
-        <div class="detail-row"><span class="detail-label">Type</span><span class="detail-value">${statusBadge(b.bookingType)}</span></div>
-        <div class="detail-row"><span class="detail-label">${b.bookingType === 'vehicle' ? 'Vehicle' : 'Package'}</span><span class="detail-value">${escHtml(itemName)}</span></div>
-        ${b.pickupDate ? `<div class="detail-row"><span class="detail-label">Pickup Date</span><span class="detail-value">${fmtDate(b.pickupDate)}</span></div>` : ''}
-        ${b.returnDate ? `<div class="detail-row"><span class="detail-label">Return Date</span><span class="detail-value">${fmtDate(b.returnDate)}</span></div>` : ''}
-        ${b.numberOfDays ? `<div class="detail-row"><span class="detail-label">Duration</span><span class="detail-value">${b.numberOfDays} day(s)</span></div>` : ''}
-        ${b.pickupLocation ? `<div class="detail-row"><span class="detail-label">Pickup Location</span><span class="detail-value">${escHtml(b.pickupLocation)}</span></div>` : ''}
-        ${b.dropoffLocation ? `<div class="detail-row"><span class="detail-label">Drop-off Location</span><span class="detail-value">${escHtml(b.dropoffLocation)}</span></div>` : ''}
-        ${b.numberOfPeople ? `<div class="detail-row"><span class="detail-label">People</span><span class="detail-value">${b.numberOfPeople}</span></div>` : ''}
-
-        <div class="detail-section-title">Payment</div>
-        <div class="detail-row"><span class="detail-label">Total Amount</span><span class="detail-value" style="font-size:16px;color:var(--maroon)">${fmtCurrency(b.totalPrice)}</span></div>
-        <div class="detail-row"><span class="detail-label">Advance Paid</span><span class="detail-value">${fmtCurrency(b.advancePaid || 0)}</span></div>
-        <div class="detail-row"><span class="detail-label">Payment Status</span><span class="detail-value">${statusBadge(b.paymentStatus || 'pending')}</span></div>
-        ${b.gstNumber ? `<div class="detail-row"><span class="detail-label">GST Number</span><span class="detail-value">${escHtml(b.gstNumber)}</span></div>` : ''}
-
-        ${b.cancelReason ? `<div class="detail-section-title">Cancellation</div><div class="detail-row"><span class="detail-label">Reason</span><span class="detail-value" style="color:var(--red)">${escHtml(b.cancelReason)}</span></div>` : ''}
-        ${b.notes ? `<div class="detail-section-title">Notes</div><p style="font-size:13px;color:var(--text);padding:8px 0">${escHtml(b.notes)}</p>` : ''}
-
-        <div class="detail-section-title">Status Timeline</div>
-        <div class="timeline">
-          ${statuses.map((st, i) => {
-                const cls = i < currentIdx ? 'done' : i === currentIdx ? 'current' : 'pending';
-                return `<div class="timeline-item ${cls}"><div class="timeline-dot"></div><div class="timeline-label">${st.charAt(0).toUpperCase() + st.slice(1)}</div></div>`;
-            }).join('')}
-        </div>
-
-        <div style="margin-top:24px;display:flex;gap:10px">
-          <button class="btn btn-primary btn-sm" onclick="closePanel();openStatusModal('${b._id}','${b.status}')">Change Status</button>
-          <button class="btn btn-danger btn-sm" onclick="closePanel();deleteBooking('${b._id}','${escHtml((b.bookingId || b._id).slice(-8))}')">Delete</button>
-        </div>
-      `);
-        }
-
-        function openStatusModal(id, currentStatus) {
-            openModal('Update Status', `
-        <div class="form-group" style="margin-bottom:16px">
-          <label>Current Status</label>
-          <div style="margin-top:4px">${statusBadge(currentStatus)}</div>
-        </div>
-        <div class="form-group" style="margin-bottom:16px">
-          <label>New Status <span class="req">*</span></label>
-          <select class="form-control" id="newStatus">
-            <option value="pending" ${currentStatus === 'pending' ? 'selected' : ''}>Pending</option>
-            <option value="confirmed" ${currentStatus === 'confirmed' ? 'selected' : ''}>Confirmed</option>
-            <option value="in-progress" ${currentStatus === 'in-progress' ? 'selected' : ''}>In Progress</option>
-            <option value="completed" ${currentStatus === 'completed' ? 'selected' : ''}>Completed</option>
-            <option value="cancelled" ${currentStatus === 'cancelled' ? 'selected' : ''}>Cancelled</option>
-          </select>
-        </div>
-        <div class="form-group" id="cancelReasonGroup" style="display:none;margin-bottom:0">
-          <label>Cancel Reason</label>
-          <textarea class="form-control" id="cancelReason" placeholder="Reason for cancellation..."></textarea>
-        </div>
-      `, `
-        <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-        <button class="btn btn-primary" onclick="saveStatus('${id}')">Update</button>
-      `);
-            $('#newStatus').addEventListener('change', function () {
-                $('#cancelReasonGroup').style.display = this.value === 'cancelled' ? 'block' : 'none';
-            });
-        }
-
-        async function saveStatus(id) {
-            const status = $('#newStatus').value;
-            const cancelReason = $('#cancelReason')?.value || '';
-            const res = await API.admin.updateBookingStatus(id, { status, cancelReason });
-            if (res.success) {
-                toast(res.message, 'success');
-                closeModal();
-                loadBookings();
-            } else {
-                toast(res.message, 'error');
-            }
-        }
-
-        function deleteBooking(id, name) {
-            confirmDelete(name, async () => {
-                const res = await API.admin.deleteBooking(id);
-                if (res.success) { toast(res.message, 'success'); loadBookings(); }
-                else { toast(res.message, 'error'); }
-            });
-        }
-
-        // ═══════════════════════════════════════════════════════
-        //  VEHICLES  (unchanged)
-        // ═══════════════════════════════════════════════════════
-        async function renderVehicles() {
-            const sec = $('#sec-vehicles');
-            sec.innerHTML = `
-        <div class="filters-bar">
-          <input type="text" class="filter-input" id="vSearch" placeholder="Search vehicles...">
-          <select class="filter-select" id="vType">
-            <option value="">All Types</option>
-            <option value="sedan">Sedan</option><option value="suv">SUV</option><option value="muv">MUV</option>
-            <option value="tempo">Tempo</option><option value="bus">Bus</option><option value="luxury">Luxury</option>
-            <option value="hatchback">Hatchback</option><option value="van">Van</option><option value="bike">Bike</option>
-          </select>
-          <select class="filter-select" id="vAvailable">
-            <option value="">All</option>
-            <option value="true">Available</option>
-            <option value="false">Unavailable</option>
-          </select>
-          <button class="btn btn-ghost btn-sm" onclick="S.vehiclePage=1;loadVehicles()">🔍 Filter</button>
-          <button class="btn btn-ghost btn-sm" onclick="$('#vSearch').value='';$('#vType').value='';$('#vAvailable').value='';S.vehiclePage=1;loadVehicles()">Clear</button>
-          <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
-            <div class="view-toggle">
-              <button class="view-toggle-btn ${S.vehicleView === 'grid' ? 'active' : ''}" onclick="S.vehicleView='grid';renderVehicles()">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-              </button>
-              <button class="view-toggle-btn ${S.vehicleView === 'table' ? 'active' : ''}" onclick="S.vehicleView='table';renderVehicles()">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-              </button>
-            </div>
-            <button class="btn btn-primary btn-sm" onclick="openVehicleForm()">+ Add Vehicle</button>
-          </div>
-        </div>
-        <div id="vehiclesContainer"></div>
-        <div id="vehiclesPagination"></div>
-      `;
-            loadVehicles();
-        }
-
-        async function loadVehicles() {
-            const params = new URLSearchParams();
-            params.set('page', S.vehiclePage);
-            params.set('limit', 12);
-            const search = $('#vSearch')?.value?.trim();
-            const type = $('#vType')?.value;
-            const avail = $('#vAvailable')?.value;
-            if (search) params.set('search', search);
-            if (type) params.set('type', type);
-            if (avail) params.set('available', avail);
-
-            const res = await API.admin.getVehicles(params.toString());
-            if (!res.success) { toast(res.message, 'error'); return; }
-            const { data, pagination } = res;
-            const container = $('#vehiclesContainer');
-
-            if (data.length === 0) {
-                container.innerHTML = `<div class="empty-state"><h3>No vehicles found</h3><p>Add your first vehicle or adjust filters</p></div>`;
-                return;
-            }
-
-            if (S.vehicleView === 'grid') {
-                container.innerHTML = `<div class="admin-vehicles-grid">${data.map(v => `
-          <div class="admin-v-card">
-            <div class="admin-v-img">
-              ${v.image ? `<img src="${escHtml(v.image)}" alt="${escHtml(v.name)}" onerror="this.style.display='none'">` : ''}
-              <div class="admin-v-img-overlay"></div>
-              ${v.badge ? `<div class="admin-v-badge"><span class="badge badge-gold">${escHtml(v.badge)}</span></div>` : ''}
-              <div class="admin-v-type">${(v.type || '').toUpperCase()}</div>
-            </div>
-            <div class="admin-v-body">
-              <div class="admin-v-name">${escHtml(v.name)}</div>
-              <div class="admin-v-details">
-                <div class="admin-v-detail">Brand: <strong>${escHtml(v.brand)}</strong></div>
-                <div class="admin-v-detail">Seats: <strong>${v.seats}</strong></div>
-                <div class="admin-v-detail">Fuel: <strong>${v.fuelType || '—'}</strong></div>
-                <div class="admin-v-detail">Trans: <strong>${v.transmission || '—'}</strong></div>
-              </div>
-              <div class="admin-v-price">${fmtCurrency(v.pricePerDay)} <span>/ day</span></div>
-              <div style="margin-bottom:12px">${statusBadge(v.available ? 'true' : 'false')}</div>
-              <div class="admin-v-actions">
-                <button class="btn btn-ghost btn-sm" onclick="openVehicleForm('${v._id}')">Edit</button>
-                <button class="btn btn-ghost btn-sm" onclick="toggleVehicle('${v._id}')">${v.available ? 'Disable' : 'Enable'}</button>
-                <button class="btn btn-danger btn-sm" onclick="deleteVehicle('${v._id}','${escHtml(v.name)}')">Delete</button>
-              </div>
-            </div>
-          </div>
-        `).join('')}</div>`;
-            } else {
-                container.innerHTML = `<div class="table-wrap"><table class="data-table"><thead><tr>
-          <th>Image</th><th>Name</th><th>Type</th><th>Brand</th><th>Seats</th><th>Price/Day</th><th>Status</th><th>Actions</th>
-        </tr></thead><tbody>${data.map(v => `<tr>
-          <td>${v.image ? `<img src="${escHtml(v.image)}" style="width:60px;height:40px;object-fit:cover;border-radius:6px" onerror="this.style.display='none'">` : '—'}</td>
-          <td><strong>${escHtml(v.name)}</strong></td>
-          <td><span class="badge badge-blue">${v.type}</span></td>
-          <td>${escHtml(v.brand)}</td>
-          <td>${v.seats}</td>
-          <td><strong>${fmtCurrency(v.pricePerDay)}</strong></td>
-          <td>${statusBadge(v.available ? 'true' : 'false')}</td>
-          <td>
-            <div class="table-actions">
-              <button class="btn btn-ghost btn-sm" onclick="openVehicleForm('${v._id}')">Edit</button>
-              <button class="btn btn-ghost btn-sm" onclick="toggleVehicle('${v._id}')">${v.available ? 'Disable' : 'Enable'}</button>
-              <button class="btn btn-danger btn-sm" onclick="deleteVehicle('${v._id}','${escHtml(v.name)}')">Del</button>
-            </div>
-          </td>
-        </tr>`).join('')}</tbody></table></div>`;
-            }
-            renderPagination('#vehiclesPagination', pagination, (p) => { S.vehiclePage = p; loadVehicles(); });
-        }
-
-        function openVehicleForm(id) {
-            const isEdit = !!id;
-            let v = {};
-            const fillForm = async () => {
-                if (isEdit) {
-                    const res = await API.admin.getVehicle(id);
-                    if (!res.success) { toast(res.message, 'error'); return; }
-                    v = res.data;
                 }
-                openModal(isEdit ? 'Edit Vehicle' : 'Add Vehicle', `
-          <div class="form-row">
-            <div class="form-group"><label>Name <span class="req">*</span></label><input class="form-control" id="vfName" value="${escHtml(v.name || '')}"></div>
-            <div class="form-group"><label>Type <span class="req">*</span></label>
-              <select class="form-control" id="vfType">
-                ${['sedan', 'suv', 'muv', 'tempo', 'bus', 'luxury', 'hatchback', 'van', 'bike'].map(t => `<option value="${t}" ${v.type === t ? 'selected' : ''}>${t.charAt(0).toUpperCase() + t.slice(1)}</option>`).join('')}
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Brand <span class="req">*</span></label><input class="form-control" id="vfBrand" value="${escHtml(v.brand || '')}"></div>
-            <div class="form-group"><label>Model</label><input class="form-control" id="vfModel" value="${escHtml(v.model || '')}"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Year</label><input class="form-control" type="number" id="vfYear" value="${v.year || ''}"></div>
-            <div class="form-group"><label>Seats <span class="req">*</span></label><input class="form-control" type="number" id="vfSeats" value="${v.seats || ''}"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Fuel Type</label>
-              <select class="form-control" id="vfFuel">
-                <option value="">Select</option>
-                ${['petrol', 'diesel', 'electric', 'hybrid', 'cng'].map(f => `<option value="${f}" ${v.fuelType === f ? 'selected' : ''}>${f.charAt(0).toUpperCase() + f.slice(1)}</option>`).join('')}
-              </select>
-            </div>
-            <div class="form-group"><label>Transmission</label>
-              <select class="form-control" id="vfTrans">
-                <option value="">Select</option>
-                <option value="manual" ${v.transmission === 'manual' ? 'selected' : ''}>Manual</option>
-                <option value="automatic" ${v.transmission === 'automatic' ? 'selected' : ''}>Automatic</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Price Per Day <span class="req">*</span></label><input class="form-control" type="number" id="vfPrice" value="${v.pricePerDay || ''}"></div>
-            <div class="form-group"><label>Price Per Km</label><input class="form-control" type="number" id="vfPriceKm" value="${v.pricePerKm || ''}"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Image URL</label><input class="form-control" id="vfImage" value="${escHtml(v.image || '')}" placeholder="https://..."></div>
-            <div class="form-group"><label>Bags</label><input class="form-control" type="number" id="vfBags" value="${v.bags || 0}"></div>
-          </div>
-          <div class="form-row full">
-            <div class="form-group"><label>Features (comma-separated)</label><input class="form-control" id="vfFeatures" value="${(v.features || []).join(', ')}"></div>
-          </div>
-          <div class="form-row full">
-            <div class="form-group"><label>Description</label><textarea class="form-control" id="vfDesc">${escHtml(v.description || '')}</textarea></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Badge</label><input class="form-control" id="vfBadge" value="${escHtml(v.badge || '')}" placeholder="e.g. Popular"></div>
-            <div class="form-group"><label>Available</label><select class="form-control" id="vfAvail"><option value="true" ${v.available !== false ? 'selected' : ''}>Yes</option><option value="false" ${v.available === false ? 'selected' : ''}>No</option></select></div>
-          </div>
-        `, `
-          <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-          <button class="btn btn-primary" onclick="saveVehicle('${id || ''}')">${isEdit ? 'Update' : 'Create'}</button>
-        `);
-            };
-            fillForm();
+            } catch (e) { }
+            var seed = getSeedData();
+            localStorage.setItem(DB_KEY, JSON.stringify(seed));
+            return seed;
+        }
+        function saveDB(d) { localStorage.setItem(DB_KEY, JSON.stringify(d)); }
+
+        // ── DB: PACKAGES (with corrupted-data guard) ──
+        function getPkgDB() {
+            try {
+                var raw = localStorage.getItem(PKG_KEY);
+                if (raw) {
+                    var data = JSON.parse(raw);
+                    if (Array.isArray(data) && data.length > 0) {
+                        var valid = true;
+                        for (var i = 0; i < data.length; i++) {
+                            if (!data[i] || typeof data[i].price !== 'number') { valid = false; break; }
+                        }
+                        if (valid) return data;
+                    }
+                }
+            } catch (e) { }
+            var seed = getSeedPackages();
+            localStorage.setItem(PKG_KEY, JSON.stringify(seed));
+            return seed;
+        }
+        function savePkgDB(d) { localStorage.setItem(PKG_KEY, JSON.stringify(d)); }
+
+        function getSettings() {
+            try { var r = localStorage.getItem(SETTINGS_KEY); if (r) return JSON.parse(r); } catch (e) { }
+            var d = { siteName: 'Voyago Travels', email: 'admin@voyago.in', phone: '+91 98765 43210', whatsapp: '+91 98765 43210', gst: '27AABCU9603R1ZM', address: '42, MG Road, Bengaluru, Karnataka 560001', onlineBooking: true, phoneVerify: true, autoConfirm: false };
+            localStorage.setItem(SETTINGS_KEY, JSON.stringify(d)); return d;
+        }
+        function saveSettings(s) { localStorage.setItem(SETTINGS_KEY, JSON.stringify(s)); }
+
+        // ── SEED: VEHICLES (complete, no truncation) ──
+        function getSeedData() {
+            return [
+                { id: 'v1', name: 'Swift Dzire', slug: 'sedan-dzire', type: 'sedan', brand: 'Maruti Suzuki', model: 'Dzire', year: 2024, available: true, featured: true, badge: 'Most Booked', badgeClass: 'badge-maroon', seats: 4, bags: 2, fuel: 'Petrol / CNG', transmission: 'Manual / Auto', mileage: '22-26 km/L', ac: true, rating: 4.8, trips: 1840, kmLakh: 28, specs: [{ icon: 'seat', label: 'Seating', value: '4 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Petrol / CNG' }, { icon: 'ac', label: 'AC', value: 'Fully AC' }, { icon: 'luggage', label: 'Luggage', value: '2 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'Manual / Auto' }, { icon: 'efficiency', label: 'Mileage', value: '22-26 km/L' }], features: ['Air Conditioning', 'USB Charging Port', 'GPS Navigation', 'Music System', 'Reclining Seats', 'Sanitised After Each Trip', 'Emergency Assistance', 'Verified Driver'], routes: [{ icon: '\u{1F3D9}\uFE0F', label: 'City Transfer' }, { icon: '\u2708\uFE0F', label: 'Airport Pickup' }, { icon: '\u{1F3DE}\uFE0F', label: 'Day Outing' }, { icon: '\u{1F4BC}', label: 'Corporate Rides' }, { icon: '\u{1F3D4}\uFE0F', label: 'Hill Drives' }, { icon: '\u{1F6E4}\uFE0F', label: 'Highway Trips' }], pricing: { perKm: 12, perDay: 2800, minFare: 350, toll: 'Extra, stated upfront', driver: 'Included' }, description: "India's most trusted compact sedan for solo travellers and couples.", heroImg: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=700&q=80', images: ['https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=700&q=80', 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=700&q=80', 'https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=700&q=80'], createdAt: '2025-01-15T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'v2', name: 'Honda City', slug: 'sedan-city', type: 'sedan', brand: 'Honda', model: 'City', year: 2024, available: true, featured: true, badge: 'Premium', badgeClass: 'badge-gold', seats: 4, bags: 2, fuel: 'Petrol', transmission: 'CVT Automatic', mileage: '18-21 km/L', ac: true, rating: 4.9, trips: 2210, kmLakh: 34, specs: [{ icon: 'seat', label: 'Seating', value: '4 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Petrol' }, { icon: 'ac', label: 'AC', value: 'Dual Zone AC' }, { icon: 'luggage', label: 'Luggage', value: '2 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'CVT Automatic' }, { icon: 'efficiency', label: 'Mileage', value: '18-21 km/L' }], features: ['Dual Zone AC', 'USB & Type-C Charging', 'GPS Navigation', 'Premium Sound System', 'Leather Seats', 'Sunroof', 'Verified Driver'], routes: [{ icon: '\u{1F4BC}', label: 'Business Travel' }, { icon: '\u2708\uFE0F', label: 'Airport Pickup' }, { icon: '\u{1F389}', label: 'Special Occasions' }], pricing: { perKm: 15, perDay: 3500, minFare: 450, toll: 'Extra, stated upfront', driver: 'Included' }, description: "Spacious cabin, premium interiors and whisper-quiet ride.", heroImg: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=700&q=80', images: ['https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=700&q=80', 'https://images.unsplash.com/photo-1617469165786-8007eda3caa7?w=700&q=80'], createdAt: '2025-01-15T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'v3', name: 'Innova Crysta', slug: 'suv-innova', type: 'suv', brand: 'Toyota', model: 'Innova Crysta', year: 2024, available: true, featured: true, badge: 'Popular', badgeClass: 'badge-maroon', seats: 7, bags: 4, fuel: 'Diesel', transmission: 'Manual / Auto', mileage: '14-17 km/L', ac: true, rating: 4.9, trips: 3120, kmLakh: 52, specs: [{ icon: 'seat', label: 'Seating', value: '7 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Diesel' }, { icon: 'ac', label: 'AC', value: 'Dual Roof AC' }, { icon: 'luggage', label: 'Luggage', value: '4 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'Manual / Auto' }, { icon: 'efficiency', label: 'Mileage', value: '14-17 km/L' }], features: ['Dual Zone AC', 'USB Charging (All Rows)', 'GPS Navigation', 'Premium Music System', 'Captain Seats (Row 2)', '4WD Capability', 'Verified Driver'], routes: [{ icon: '\u{1F468}\u200D\u{1F469}\u200D\u{1F467}\u200D\u{1F466}', label: 'Family Tours' }, { icon: '\u{1F3D4}\uFE0F', label: 'Hill Stations' }, { icon: '\u{1F6D5}', label: 'Pilgrimages' }], pricing: { perKm: 18, perDay: 4500, minFare: 600, toll: 'Extra, stated upfront', driver: 'Included' }, description: "India's favourite family mover.", heroImg: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=700&q=80', images: ['https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=700&q=80', 'https://images.unsplash.com/photo-1551830820-330a71b99659?w=700&q=80'], createdAt: '2025-01-15T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'v4', name: 'Toyota Fortuner', slug: 'suv-fortuner', type: 'suv', brand: 'Toyota', model: 'Fortuner', year: 2024, available: true, featured: false, badge: 'Luxury', badgeClass: 'badge-gold', seats: 7, bags: 5, fuel: 'Diesel', transmission: 'Automatic', mileage: '12-15 km/L', ac: true, rating: 5.0, trips: 980, kmLakh: 15, specs: [{ icon: 'seat', label: 'Seating', value: '7 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Diesel' }, { icon: 'ac', label: 'AC', value: 'Tri-Zone AC' }, { icon: 'luggage', label: 'Luggage', value: '5 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'Automatic' }, { icon: 'efficiency', label: 'Mileage', value: '12-15 km/L' }], features: ['Dual Zone AC', 'USB & Type-C Charging', 'GPS Navigation', 'Premium Sound System', 'Leather Seats', '4WD Capability', 'Sunroof', 'Verified Driver'], routes: [{ icon: '\u{1F3D4}\uFE0F', label: 'Hill Stations' }, { icon: '\u{1F3D5}\uFE0F', label: 'Adventure' }, { icon: '\u{1F4BC}', label: 'Corporate' }], pricing: { perKm: 24, perDay: 6000, minFare: 900, toll: 'Extra, stated upfront', driver: 'Included' }, description: "Dominate mountain passes and city highways in absolute luxury.", heroImg: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=700&q=80', images: ['https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=700&q=80'], createdAt: '2025-02-10T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'v5', name: 'Maruti Ertiga', slug: 'muv-ertiga', type: 'muv', brand: 'Maruti Suzuki', model: 'Ertiga', year: 2024, available: true, featured: false, badge: '', badgeClass: '', seats: 7, bags: 3, fuel: 'Petrol / CNG', transmission: 'Manual', mileage: '17-20 km/L', ac: true, rating: 4.7, trips: 1560, kmLakh: 23, specs: [{ icon: 'seat', label: 'Seating', value: '7 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Petrol / CNG' }, { icon: 'ac', label: 'AC', value: 'Fully AC' }, { icon: 'luggage', label: 'Luggage', value: '3 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'Manual' }, { icon: 'efficiency', label: 'Mileage', value: '17-20 km/L' }], features: ['Air Conditioning', 'USB Charging Port', 'GPS Navigation', 'Touchscreen Infotainment', 'Foldable 3rd Row', 'Roof Rails', 'Verified Driver'], routes: [{ icon: '\u{1F468}\u200D\u{1F469}\u200D\u{1F467}\u200D\u{1F466}', label: 'Family Outings' }, { icon: '\u{1F3D4}\uFE0F', label: 'Hill Drives' }, { icon: '\u{1F6D5}', label: 'Pilgrimages' }], pricing: { perKm: 16, perDay: 3800, minFare: 500, toll: 'Extra, stated upfront', driver: 'Included' }, description: "The sweet spot between sedan and SUV.", heroImg: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=700&q=80', images: ['https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=700&q=80'], createdAt: '2025-03-01T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'v6', name: '12-Seater Tempo', slug: 'tempo-12', type: 'tempo', brand: 'Force', model: 'Tempo Traveller', year: 2023, available: true, featured: true, badge: 'Group Fav', badgeClass: 'badge-maroon', seats: 12, bags: 8, fuel: 'Diesel', transmission: 'Manual', mileage: '10-13 km/L', ac: true, rating: 4.8, trips: 890, kmLakh: 18, specs: [{ icon: 'seat', label: 'Seating', value: '12 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Diesel' }, { icon: 'ac', label: 'AC', value: 'Roof-Mounted AC' }, { icon: 'luggage', label: 'Luggage', value: '8 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'Manual' }, { icon: 'efficiency', label: 'Mileage', value: '10-13 km/L' }], features: ['Roof-Mounted AC', 'Push-Back Seats', 'GPS Navigation', 'Premium Music System', 'Reading Lights', 'Luggage Boot', 'Verified Driver'], routes: [{ icon: '\u{1F6D5}', label: 'Pilgrimages' }, { icon: '\u{1F38A}', label: 'Group Events' }, { icon: '\u{1F3EB}', label: 'School Trips' }], pricing: { perKm: 28, perDay: 6500, minFare: 1200, toll: 'Extra, stated upfront', driver: 'Included' }, description: "Push-back seats, USB charging, reading lights.", heroImg: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=700&q=80', images: ['https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=700&q=80'], createdAt: '2025-01-20T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'v7', name: '20-Seater Tempo', slug: 'tempo-20', type: 'tempo', brand: 'Force', model: 'Tempo Traveller 20', year: 2023, available: false, featured: false, badge: '', badgeClass: '', seats: 20, bags: 15, fuel: 'Diesel', transmission: 'Manual', mileage: '8-11 km/L', ac: true, rating: 4.7, trips: 620, kmLakh: 12, specs: [{ icon: 'seat', label: 'Seating', value: '20 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Diesel' }, { icon: 'ac', label: 'AC', value: 'Roof-Mounted AC' }, { icon: 'luggage', label: 'Luggage', value: '15 Large Bags' }, { icon: 'gearbox', label: 'Transmission', value: 'Manual' }, { icon: 'efficiency', label: 'Mileage', value: '8-11 km/L' }], features: ['Roof-Mounted AC', 'Push-Back Seats', 'GPS Navigation', 'Music System', 'Reading Lights', 'Luggage Boot', 'Verified Driver'], routes: [{ icon: '\u{1F6D5}', label: 'Pilgrimages' }, { icon: '\u{1F38A}', label: 'Group Events' }], pricing: { perKm: 38, perDay: 8500, minFare: 1800, toll: 'Extra, stated upfront', driver: 'Included' }, description: "Larger pilgrimages and big family tours.", heroImg: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=700&q=80', images: ['https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=700&q=80'], createdAt: '2025-02-05T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'v8', name: '35-Seater Coach', slug: 'bus-35', type: 'bus', brand: 'Volvo', model: 'Luxury Coach', year: 2022, available: true, featured: true, badge: 'Corporate', badgeClass: 'badge-gold', seats: 35, bags: 30, fuel: 'Diesel', transmission: 'Automatic', mileage: '6-9 km/L', ac: true, rating: 4.8, trips: 420, kmLakh: 11, specs: [{ icon: 'seat', label: 'Seating', value: '35 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Diesel' }, { icon: 'ac', label: 'AC', value: 'Individual Vents' }, { icon: 'luggage', label: 'Luggage', value: 'Under-Bus Storage' }, { icon: 'gearbox', label: 'Transmission', value: 'Automatic' }, { icon: 'efficiency', label: 'Mileage', value: '6-9 km/L' }], features: ['Individual AC Vents', 'Reclining Seats', 'GPS Tracking', 'Entertainment Screens', 'Onboard Pantry', 'Emergency Exit', 'Verified Driver + Co-Driver'], routes: [{ icon: '\u{1F3ED}', label: 'Corporate Events' }, { icon: '\u{1F6D5}', label: 'Group Pilgrimages' }, { icon: '\u{1F393}', label: 'College Trips' }], pricing: { perKm: 55, perDay: 14000, minFare: 3500, toll: 'Extra, stated upfront', driver: 'Included + Co-Driver' }, description: "Corporate offsites, school tours and wedding shuttles.", heroImg: 'https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?w=700&q=80', images: ['https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?w=700&q=80'], createdAt: '2025-01-25T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'v9', name: '50-Seater Coach', slug: 'bus-50', type: 'bus', brand: 'Ashok Leyland', model: 'Viking', year: 2023, available: true, featured: false, badge: 'Large Group', badgeClass: 'badge-maroon', seats: 50, bags: 50, fuel: 'Diesel', transmission: 'Manual', mileage: '5-7 km/L', ac: true, rating: 4.7, trips: 280, kmLakh: 8, specs: [{ icon: 'seat', label: 'Seating', value: '50 Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: 'Diesel' }, { icon: 'ac', label: 'AC', value: 'Individual Vents' }, { icon: 'luggage', label: 'Luggage', value: 'Under-Bus Storage' }, { icon: 'gearbox', label: 'Transmission', value: 'Manual' }, { icon: 'efficiency', label: 'Mileage', value: '5-7 km/L' }], features: ['Individual AC Vents', 'Reclining Seats', 'GPS Tracking', 'PA System', 'Reading Lights', 'Emergency Exit', 'Verified Driver + Co-Driver'], routes: [{ icon: '\u{1F6D5}', label: 'Large Pilgrimages' }, { icon: '\u{1F393}', label: 'College Excursions' }, { icon: '\u{1F3ED}', label: 'Industrial Visits' }], pricing: { perKm: 65, perDay: 18000, minFare: 5000, toll: 'Extra, stated upfront', driver: 'Included + Co-Driver' }, description: "The ultimate people mover for large groups.", heroImg: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=700&q=80', images: ['https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=700&q=80'], createdAt: '2025-02-15T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' }
+            ];
         }
 
-        async function saveVehicle(id) {
-            const data = {
-                name: $('#vfName').value.trim(),
-                type: $('#vfType').value,
-                brand: $('#vfBrand').value.trim(),
-                model: $('#vfModel').value.trim(),
-                year: parseInt($('#vfYear').value) || null,
-                seats: parseInt($('#vfSeats').value),
-                bags: parseInt($('#vfBags').value) || 0,
-                fuelType: $('#vfFuel').value || undefined,
-                transmission: $('#vfTrans').value || undefined,
-                pricePerDay: parseFloat($('#vfPrice').value),
-                pricePerKm: parseFloat($('#vfPriceKm').value) || undefined,
-                image: $('#vfImage').value.trim() || undefined,
-                features: $('#vfFeatures').value.split(',').map(f => f.trim()).filter(Boolean),
-                description: $('#vfDesc').value.trim() || undefined,
-                badge: $('#vfBadge').value.trim() || '',
-                available: $('#vfAvail').value === 'true'
-            };
-            if (!data.name || !data.type || !data.brand || !data.seats || !data.pricePerDay) {
-                toast('Name, Type, Brand, Seats and Price are required.', 'error');
-                return;
-            }
-            const res = id ? await API.admin.updateVehicle(id, data) : await API.admin.createVehicle(data);
-            if (res.success) {
-                toast(res.message, 'success');
-                closeModal();
-                loadVehicles();
-            } else {
-                toast(res.message, 'error');
-            }
+        // ── SEED: PACKAGES (matching your public page) ──
+        function getSeedPackages() {
+            return [
+                { id: 'p1', name: 'Shimla\u2013Manali Grand Tour', slug: 'shimla-manali-grand-tour', category: 'hill', duration: '6 Days / 5 Nights', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', rating: 4.8, reviews: 2400, description: 'Snow-capped peaks, colonial charm, and mountain highways on one epic northern escape.', includes: ['Private Cab', '3\u2605 Hotel', 'Meals'], vehicle: 'Sedan / SUV', price: 18500, popular: true, active: true, featured: true, createdAt: '2025-01-10T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'p2', name: 'Char Dham Yatra', slug: 'char-dham-yatra', category: 'pilgrimage', duration: '12 Days / 11 Nights', image: 'https://dreamgohimalayas.in/wp-content/uploads/2026/01/Char-Dham-Yatra-2026.jpg', rating: 4.9, reviews: 4100, description: 'Sacred circuit of Yamunotri, Gangotri, Kedarnath & Badrinath \u2014 travel in ultimate devotion.', includes: ['SUV / Tempo', 'Yatra Stays', 'Pure Veg Meals'], vehicle: 'SUV / Tempo', price: 32000, popular: true, active: true, featured: true, createdAt: '2025-01-10T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'p3', name: 'Goa Coastal Retreat', slug: 'goa-coastal-retreat', category: 'weekend', duration: '3 Days / 2 Nights', image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&q=80', rating: 4.7, reviews: 1800, description: 'Sun, sand, and seafood \u2014 a breezy weekend on India\'s favourite coastline.', includes: ['Sedan / SUV', 'Beach Resort', 'Breakfast'], vehicle: 'Sedan / SUV', price: 9800, popular: false, active: true, featured: false, createdAt: '2025-01-15T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'p4', name: 'Coorg Coffee & Mist', slug: 'coorg-coffee-mist', category: 'hill', duration: '4 Days / 3 Nights', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80', rating: 4.7, reviews: 950, description: 'Rolling coffee estates, misty waterfalls, and fresh aromatic mountain breezes.', includes: ['Private Cab', 'Estate Villa', 'Breakfast'], vehicle: 'Sedan', price: 13200, popular: false, active: true, featured: false, createdAt: '2025-02-01T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'p5', name: 'Varanasi & Prayagraj', slug: 'varanasi-prayagraj', category: 'pilgrimage', duration: '5 Days / 4 Nights', image: 'https://travel4memory.com/wp-content/uploads/2024/10/varanasi-city-ancient-architecture-view-holy-manikarnika-ghat-varanasi-india-generative.webp', rating: 4.9, reviews: 1500, description: 'Ganga Aarti at Dashashwamedh Ghat, ancient temples, and the sacred Triveni Sangam.', includes: ['Private Cab', 'Heritage Hotel', 'All Meals'], vehicle: 'MUV', price: 14500, popular: false, active: true, featured: true, createdAt: '2025-02-10T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'p6', name: 'Lonavala & Khandala', slug: 'lonavala-khandala', category: 'weekend', duration: '2 Days / 1 Night', image: 'https://ikshanaandspa.familyresort.net/data/Photos/500x500w/15831/1583118/1583118195/Zaras-Resort-Khandala-Lonavala-Exterior.JPEG', rating: 4.5, reviews: 820, description: 'Monsoon valley viewpoints, waterfalls, and scenic drives near Pune.', includes: ['Sedan / SUV', 'Hilltop Resort', 'Breakfast'], vehicle: 'Sedan / SUV', price: 5500, popular: false, active: true, featured: false, createdAt: '2025-03-01T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'p7', name: 'Corporate Offsite Lonavala', slug: 'corporate-offsite-lonavala', category: 'corporate', duration: '2 Days / 1 Night', image: 'https://i.pinimg.com/736x/0a/21/d8/0a21d8b146e9faaff00c1cc87c2d6569.jpg', rating: 4.9, reviews: 420, description: 'Boost team bonding with custom activities, premium villas, and conference spaces.', includes: ['AC Coach / Tempo', 'Luxury Resort', 'Buffet & Hi-Tea'], vehicle: 'Tempo / Coach', price: 6500, popular: false, active: true, featured: false, createdAt: '2025-03-15T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'p8', name: 'Goa Leadership Summit', slug: 'goa-leadership-summit', category: 'corporate', duration: '4 Days / 3 Nights', image: 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=600&q=80', rating: 5.0, reviews: 210, description: 'Inspire strategy in 5\u2605 comfort. Boardrooms, luxury stays, and private yacht networking.', includes: ['Premium Sedans', '5\u2605 Beach Resort', 'All Meals & Socials'], vehicle: 'Sedan', price: 19500, popular: false, active: true, featured: true, createdAt: '2025-04-01T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'p9', name: 'Tirupati Balaji Darshan', slug: 'tirupati-balaji-darshan', category: 'pilgrimage', duration: '3 Days / 2 Nights', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=600&q=80', rating: 4.9, reviews: 2800, description: 'Hassle-free holy pilgrimage with VIP darshan passes and comfortable transfers.', includes: ['Private Cab', 'Star Hotel', 'Pure Veg Meals'], vehicle: 'Sedan', price: 8900, popular: true, active: true, featured: false, createdAt: '2025-04-10T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' },
+                { id: 'p10', name: 'Mahabaleshwar Strawberry Escape', slug: 'mahabaleshwar-strawberry', category: 'weekend', duration: '3 Days / 2 Nights', image: 'https://i.pinimg.com/1200x/3d/37/4a/3d374a5a8c0b0a7be1391bd705c17d8f.jpg', rating: 4.6, reviews: 1100, description: 'Fresh strawberry farm visits, spectacular viewpoints, and boat rides on Venna Lake.', includes: ['Sedan / SUV', 'Valley View Resort', 'Breakfast'], vehicle: 'MUV', price: 8200, popular: false, active: true, featured: false, createdAt: '2025-05-01T10:00:00Z', updatedAt: '2025-06-20T14:30:00Z' }
+            ];
         }
 
-        function deleteVehicle(id, name) {
-            confirmDelete(name, async () => {
-                const res = await API.admin.deleteVehicle(id);
-                if (res.success) { toast(res.message, 'success'); loadVehicles(); }
-                else { toast(res.message, 'error'); }
-            });
+        // ── MOCK DATA ──
+        var MOCK_BOOKINGS = [
+            { id: 'BK-1001', customer: 'Priya Sharma', phone: '+91 98765 12345', vehicle: 'Innova Crysta', from: 'Bengaluru', to: 'Mysore', date: '2025-06-28', km: 150, amount: 2700, status: 'confirmed' },
+            { id: 'BK-1002', customer: 'Rahul Mehta', phone: '+91 87654 32109', vehicle: 'Swift Dzire', from: 'Delhi', to: 'Agra', date: '2025-06-29', km: 230, amount: 2760, status: 'confirmed' },
+            { id: 'BK-1003', customer: 'Anjali Reddy', phone: '+91 76543 21098', vehicle: '35-Seater Coach', from: 'Hyderabad', to: 'Tirupati', date: '2025-06-30', km: 560, amount: 30800, status: 'pending' },
+            { id: 'BK-1004', customer: 'Vikram Joshi', phone: '+91 65432 10987', vehicle: 'Honda City', from: 'Mumbai', to: 'Pune', date: '2025-06-27', km: 165, amount: 2475, status: 'completed' },
+            { id: 'BK-1005', customer: 'Sunita Patel', phone: '+91 54321 09876', vehicle: '12-Seater Tempo', from: 'Ahmedabad', to: 'Mount Abu', date: '2025-07-01', km: 230, amount: 6440, status: 'pending' },
+            { id: 'BK-1006', customer: 'Arjun Nair', phone: '+91 43210 98765', vehicle: 'Toyota Fortuner', from: 'Kochi', to: 'Munnar', date: '2025-06-26', km: 130, amount: 3120, status: 'completed' },
+            { id: 'BK-1007', customer: 'Deepika Gupta', phone: '+91 32109 87654', vehicle: 'Maruti Ertiga', from: 'Jaipur', to: 'Udaipur', date: '2025-07-02', km: 400, amount: 6400, status: 'confirmed' },
+            { id: 'BK-1008', customer: 'Karan Singh', phone: '+91 21098 76543', vehicle: '50-Seater Coach', from: 'Chennai', to: 'Pondicherry', date: '2025-06-25', km: 160, amount: 10400, status: 'cancelled' }
+        ];
+        var MOCK_USERS = [
+            { id: 'U1', name: 'Priya Sharma', email: 'priya@email.com', phone: '+91 98765 12345', role: 'Customer', bookings: 12, joined: '2024-11-10', status: 'active' },
+            { id: 'U2', name: 'Rahul Mehta', email: 'rahul.m@email.com', phone: '+91 87654 32109', role: 'Customer', bookings: 8, joined: '2025-01-15', status: 'active' },
+            { id: 'U3', name: 'Driver Suresh', email: 'suresh@voyago.in', phone: '+91 99887 76655', role: 'Driver', bookings: 340, joined: '2023-06-01', status: 'active' },
+            { id: 'U4', name: 'Vikram Joshi', email: 'vikram.j@email.com', phone: '+91 65432 10987', role: 'Customer', bookings: 5, joined: '2025-02-08', status: 'inactive' },
+            { id: 'U5', name: 'Manager Deepa', email: 'deepa@voyago.in', phone: '+91 77665 54433', role: 'Manager', bookings: 0, joined: '2023-01-10', status: 'active' },
+            { id: 'U6', name: 'Karan Singh', email: 'karan.s@email.com', phone: '+91 21098 76543', role: 'Customer', bookings: 1, joined: '2025-06-20', status: 'blocked' }
+        ];
+
+        // ── NAVIGATION ──
+        function navigateTo(section) {
+            currentSection = section;
+            document.querySelectorAll('.nav-item').forEach(function (b) { b.classList.toggle('active', b.dataset.section === section) });
+            document.querySelectorAll('.section').forEach(function (s) { s.classList.remove('active') });
+            var t = document.getElementById('sec-' + section); if (t) t.classList.add('active');
+            var titles = { dashboard: 'Dashboard', bookings: 'Bookings', vehicles: 'Vehicles', packages: 'Packages', users: 'Users', settings: 'Settings' };
+            document.getElementById('headerTitle').textContent = titles[section] || 'Dashboard';
+            var r = { dashboard: renderDashboard, bookings: renderBookings, vehicles: renderVehicles, packages: renderPackages, users: renderUsers, settings: renderSettings };
+            if (r[section]) r[section]();
+            closeSidebar();
+        }
+        function openSidebar() { document.getElementById('sidebar').classList.add('open'); document.getElementById('sidebarOverlay').classList.add('active') }
+        function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('sidebarOverlay').classList.remove('active') }
+        function updateTime() { var n = new Date(); document.getElementById('headerTime').textContent = n.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' }) + '  ' + n.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) }
+
+        function openModal(title, body, foot) { document.getElementById('modalTitle').textContent = title; document.getElementById('modalBody').innerHTML = body; document.getElementById('modalFoot').innerHTML = foot || ''; document.getElementById('modalBackdrop').classList.add('active'); document.body.style.overflow = 'hidden' }
+        function closeModal() { document.getElementById('modalBackdrop').classList.remove('active'); document.body.style.overflow = ''; editingVehicleId = null; editingPackageId = null }
+        function openPanel(title, body) { document.getElementById('panelTitle').textContent = title; document.getElementById('panelBody').innerHTML = body; document.getElementById('slidePanel').classList.add('active'); document.getElementById('panelOverlay').classList.add('active'); document.body.style.overflow = 'hidden' }
+        function closePanel() { document.getElementById('slidePanel').classList.remove('active'); document.getElementById('panelOverlay').classList.remove('active'); document.body.style.overflow = '' }
+        function setupToggle(id) { var el = document.getElementById(id); if (!el) return; el.addEventListener('click', function () { el.classList.toggle('on'); var l = el.parentElement.querySelector('.toggle-label'); if (l) l.textContent = el.classList.contains('on') ? (id.indexOf('available') >= 0 ? 'Active' : 'Yes') : (id.indexOf('available') >= 0 ? 'Inactive' : 'No') }) }
+
+        // ═══ DASHBOARD ═══
+        function renderDashboard() {
+            var db = getDB(), pkgs = getPkgDB();
+            var total = db.length, active = db.filter(function (v) { return v.available }).length;
+            var totalTrips = db.reduce(function (s, v) { return s + v.trips }, 0);
+            var totalRev = db.reduce(function (s, v) { return s + v.trips * v.pricing.perKm }, 0);
+            var sec = document.getElementById('sec-dashboard');
+            sec.innerHTML = '<div class="stats-grid"><div class="stat-card"><div class="stat-top"><div class="stat-icon maroon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 12h12M3 6h18v6H3z"/></svg></div><span class="stat-trend up">+2</span></div><div class="stat-label">Total Vehicles</div><div class="stat-value">' + total + '</div></div><div class="stat-card"><div class="stat-top"><div class="stat-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><span class="stat-trend up">+' + active + '</span></div><div class="stat-label">Active Vehicles</div><div class="stat-value">' + active + '</div></div><div class="stat-card"><div class="stat-top"><div class="stat-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/></svg></div><span class="stat-trend up">+' + pkgs.length + '</span></div><div class="stat-label">Packages</div><div class="stat-value">' + pkgs.length + '</div></div><div class="stat-card"><div class="stat-top"><div class="stat-icon gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><span class="stat-trend up">+18%</span></div><div class="stat-label">Est. Revenue</div><div class="stat-value">' + formatCurrency(totalRev) + '</div></div></div><div class="charts-grid"><div class="chart-card"><h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Revenue Trend (6 Months)</h3><canvas id="revenueCanvas"></canvas></div><div class="chart-card"><h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 118 2.83"/><path d="M22 12A10 10 0 0012 2v10z"/></svg> Vehicles by Type</h3><canvas id="typeCanvas"></canvas></div></div><div class="activity-card"><h3>Recent Activity</h3><div class="activity-list"><div class="activity-item"><div class="activity-dot green"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="activity-text"><strong>Innova Crysta</strong><p>New booking #BK-1001 confirmed</p></div><span class="activity-time">5m ago</span></div><div class="activity-item"><div class="activity-dot blue"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="activity-text"><strong>Honda City</strong><p>Completed trip to Pune</p></div><span class="activity-time">1h ago</span></div><div class="activity-item"><div class="activity-dot orange"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="activity-text"><strong>35-Seater Coach</strong><p>Pending booking #BK-1003</p></div><span class="activity-time">2h ago</span></div><div class="activity-item"><div class="activity-dot gold"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="activity-text"><strong>Char Dham Package</strong><p>Updated pricing to ' + formatCurrency(32000) + '</p></div><span class="activity-time">4h ago</span></div><div class="activity-item"><div class="activity-dot green"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="activity-text"><strong>New user registered</strong><p>Deepika Gupta created an account</p></div><span class="activity-time">6h ago</span></div></div></div>';
+            setTimeout(initCharts, 50);
+        }
+        function initCharts() {
+            if (revenueChart) { revenueChart.destroy(); revenueChart = null }
+            if (typeChart) { typeChart.destroy(); typeChart = null }
+            var rc = document.getElementById('revenueCanvas'), tc = document.getElementById('typeCanvas');
+            if (!rc || !tc) return;
+            revenueChart = new Chart(rc, { type: 'line', data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], datasets: [{ label: 'Revenue', data: [285000, 342000, 310000, 398000, 425000, 468000], borderColor: '#6E1F2B', backgroundColor: 'rgba(110,31,43,0.08)', fill: true, tension: 0.4, pointBackgroundColor: '#6E1F2B', pointRadius: 4, borderWidth: 2.5 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: '#8B8680', font: { size: 11 } } }, y: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { color: '#8B8680', font: { size: 11 }, callback: function (v) { return '\u20B9' + (v / 1000) + 'K' } } } } } });
+            var db = getDB(), tc2 = {}; db.forEach(function (v) { tc2[v.type] = (tc2[v.type] || 0) + 1 });
+            typeChart = new Chart(tc, { type: 'doughnut', data: { labels: Object.keys(tc2).map(function (k) { return TYPE_LABELS[k] || k }), datasets: [{ data: Object.values(tc2), backgroundColor: ['#6E1F2B', '#D9A441', '#A35334', '#4A7C59', '#1976D2'], borderWidth: 0, hoverOffset: 8 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#2A1A1A', font: { size: 11, family: 'Inter' }, padding: 12, usePointStyle: true, pointStyleWidth: 8 } } }, cutout: '60%' } });
         }
 
-        async function toggleVehicle(id) {
-            const res = await API.admin.toggleVehicle(id);
-            if (res.success) { toast(res.message, 'success'); loadVehicles(); }
-            else { toast(res.message, 'error'); }
+        // ═══ VEHICLES ═══
+        function renderVehicles() {
+            var db = getDB(), f = vehicleFilter;
+            var filtered = db.filter(function (v) { if (f.search && v.name.toLowerCase().indexOf(f.search.toLowerCase()) === -1 && v.brand.toLowerCase().indexOf(f.search.toLowerCase()) === -1) return false; if (f.type && v.type !== f.type) return false; if (f.status === 'active' && !v.available) return false; if (f.status === 'inactive' && v.available) return false; return true });
+            var sec = document.getElementById('sec-vehicles');
+            var to = '<option value="">All Types</option>'; Object.keys(TYPE_LABELS).forEach(function (k) { to += '<option value="' + k + '"' + (f.type === k ? ' selected' : '') + '>' + TYPE_LABELS[k] + '</option>' });
+            sec.innerHTML = '<div class="filters-bar"><input type="text" class="filter-input" id="vSearch" placeholder="Search vehicles..." value="' + (f.search || '') + '"><select class="filter-select" id="vType">' + to + '</select><select class="filter-select" id="vStatus"><option value="">All Status</option><option value="active"' + (f.status === 'active' ? ' selected' : '') + '>Active</option><option value="inactive"' + (f.status === 'inactive' ? ' selected' : '') + '>Inactive</option></select><div style="flex:1"></div><button class="btn btn-primary" id="addVehicleBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Vehicle</button></div><div class="admin-vehicles-grid" id="vehiclesGrid"></div>';
+            document.getElementById('vSearch').addEventListener('input', function (e) { vehicleFilter.search = e.target.value; renderVehicles() });
+            document.getElementById('vType').addEventListener('change', function (e) { vehicleFilter.type = e.target.value; renderVehicles() });
+            document.getElementById('vStatus').addEventListener('change', function (e) { vehicleFilter.status = e.target.value; renderVehicles() });
+            document.getElementById('addVehicleBtn').addEventListener('click', function () { openVehicleForm(null) });
+            var grid = document.getElementById('vehiclesGrid');
+            if (!filtered.length) { grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 12h12M3 6h18v6H3z"/></svg><h3>No Vehicles Found</h3><p>Try adjusting your search or add a new vehicle.</p></div>'; return }
+            grid.innerHTML = filtered.map(function (v) { var bc = v.badge ? getBadgeClass(v.badgeClass) : ''; return '<div class="admin-v-card' + (v.available ? '' : ' disabled-card') + '"><div class="admin-v-img"><img src="' + v.heroImg + '" alt="' + v.name + '" onerror="this.style.display=\'none\'"><div class="admin-v-img-overlay"></div>' + (v.badge ? '<span class="admin-v-badge badge ' + bc + '">' + v.badge + '</span>' : '') + '<span class="admin-v-type">' + (TYPE_LABELS[v.type] || v.type) + '</span><span class="admin-v-status badge ' + (v.available ? 'badge-green' : 'badge-red') + '">' + (v.available ? 'Active' : 'Inactive') + '</span></div><div class="admin-v-body"><div class="admin-v-name">' + v.name + '</div><div class="admin-v-slug">' + v.slug + '</div><div class="admin-v-details"><div class="admin-v-detail"><strong>' + v.seats + '</strong> Seats</div><div class="admin-v-detail"><strong>' + v.bags + '</strong> Bags</div><div class="admin-v-detail"><strong>' + v.fuel + '</strong></div><div class="admin-v-detail"><strong>' + v.transmission + '</strong></div></div><div class="admin-v-price">' + formatCurrency(v.pricing.perKm) + ' <span>/ km</span></div><div class="admin-v-actions"><button class="btn btn-sm btn-primary" data-action="view" data-id="' + v.id + '">View</button><button class="btn btn-sm btn-secondary" data-action="edit" data-id="' + v.id + '">Edit</button><button class="btn btn-sm btn-ghost" data-action="toggle" data-id="' + v.id + '">' + (v.available ? 'Disable' : 'Enable') + '</button><button class="btn btn-sm btn-danger" data-action="delete" data-id="' + v.id + '">Delete</button></div></div></div>' }).join('');
+        }
+        document.getElementById('sec-vehicles').addEventListener('click', function (e) { var b = e.target.closest('[data-action]'); if (!b) return; var a = b.dataset.action, id = b.dataset.id; if (a === 'view') openVehiclePanel(id); else if (a === 'edit') openVehicleForm(id); else if (a === 'delete') confirmDeleteVehicle(id); else if (a === 'toggle') toggleVehicle(id) });
+
+        function toggleVehicle(id) { var db = getDB(), v = db.find(function (x) { return x.id === id }); if (!v) return; v.available = !v.available; v.updatedAt = new Date().toISOString(); saveDB(db); renderVehicles(); toast(v.name + ' is now ' + (v.available ? 'active' : 'inactive'), v.available ? 'success' : 'warning') }
+        function confirmDeleteVehicle(id) { var db = getDB(), v = db.find(function (x) { return x.id === id }); if (!v) return; openModal('Delete Vehicle', '<div class="confirm-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div><div class="confirm-text">Delete <strong>' + v.name + '</strong>? This cannot be undone.</div>', '<button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-danger" id="confirmDelVBtn">Delete</button>'); document.getElementById('confirmDelVBtn').addEventListener('click', function () { saveDB(getDB().filter(function (x) { return x.id !== id })); closeModal(); renderVehicles(); toast(v.name + ' deleted', 'error') }) }
+
+        function openVehiclePanel(id) {
+            var db = getDB(), v = db.find(function (x) { return x.id === id }); if (!v) return; var imgs = v.images && v.images.length ? '<img class="panel-img-main" id="panelMainImg" src="' + v.images[0] + '" onerror="this.style.display=\'none\'"><div class="panel-img-thumbs">' + v.images.map(function (img, i) { return '<img src="' + img + '" data-img="' + img + '" onerror="this.style.display=\'none\'"' + (i === 0 ? ' class="active"' : '') + '>' }).join('') + '</div>' : '';
+            var specs = v.specs ? v.specs.map(function (s) { return '<div class="panel-spec-item">' + specIcon(s.icon) + '<span><strong>' + s.label + ':</strong> ' + s.value + '</span></div>' }).join('') : '';
+            var feat = v.features ? v.features.map(function (f) { return '<span class="panel-feature-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' + f + '</span>' }).join('') : '';
+            var routes = v.routes ? v.routes.map(function (r) { return '<span class="panel-route-tag">' + r.icon + ' ' + r.label + '</span>' }).join('') : '';
+            var body = imgs + '<div class="detail-section-title">Vehicle Info</div><div class="detail-row"><span class="detail-label">Name</span><span class="detail-value">' + v.name + '</span></div><div class="detail-row"><span class="detail-label">Brand / Model</span><span class="detail-value">' + v.brand + ' ' + v.model + '</span></div><div class="detail-row"><span class="detail-label">Type</span><span class="detail-value">' + (TYPE_LABELS[v.type] || v.type) + '</span></div><div class="detail-row"><span class="detail-label">Status</span><span class="detail-value"><span class="badge ' + (v.available ? 'badge-green' : 'badge-red') + '">' + (v.available ? 'Active' : 'Inactive') + '</span></span></div><div class="detail-row"><span class="detail-label">Rating</span><span class="detail-value">' + v.rating + ' / 5.0</span></div><div class="detail-row"><span class="detail-label">Trips</span><span class="detail-value">' + v.trips.toLocaleString('en-IN') + '</span></div><div class="detail-section-title">Specifications</div><div class="panel-specs-grid">' + specs + '</div><div class="detail-section-title">Pricing</div><div class="detail-row"><span class="detail-label">Per Km</span><span class="detail-value">' + formatCurrency(v.pricing.perKm) + '</span></div><div class="detail-row"><span class="detail-label">Per Day</span><span class="detail-value">' + formatCurrency(v.pricing.perDay) + '</span></div><div class="detail-row"><span class="detail-label">Min Fare</span><span class="detail-value">' + formatCurrency(v.pricing.minFare) + '</span></div>';
+            if (feat) body += '<div class="detail-section-title">Features</div>' + feat;
+            if (routes) body += '<div class="detail-section-title">Routes</div>' + routes;
+            if (v.description) body += '<div class="detail-section-title">Description</div><p style="font-size:13px;color:var(--text-muted);line-height:1.7">' + v.description + '</p>';
+            body += '<div class="detail-section-title">Meta</div><div class="detail-row"><span class="detail-label">Updated</span><span class="detail-value">' + formatDateTime(v.updatedAt) + '</span></div>';
+            openPanel(v.name, body);
+            setTimeout(function () { document.querySelectorAll('.panel-img-thumbs img').forEach(function (t) { t.addEventListener('click', function () { document.querySelectorAll('.panel-img-thumbs img').forEach(function (x) { x.classList.remove('active') }); t.classList.add('active'); var m = document.getElementById('panelMainImg'); if (m) m.src = t.dataset.img }) }) }, 100);
         }
 
-        // ═══════════════════════════════════════════════════════
-        //  PACKAGES  (unchanged)
-        // ═══════════════════════════════════════════════════════
-        async function renderPackages() {
-            const sec = $('#sec-packages');
-            sec.innerHTML = `
-        <div class="filters-bar">
-          <input type="text" class="filter-input" id="pSearch" placeholder="Search packages...">
-          <select class="filter-select" id="pCategory">
-            <option value="">All Categories</option>
-            <option value="adventure">Adventure</option><option value="pilgrimage">Pilgrimage</option>
-            <option value="beach">Beach</option><option value="hill-station">Hill Station</option>
-            <option value="wildlife">Wildlife</option><option value="heritage">Heritage</option>
-            <option value="honeymoon">Honeymoon</option><option value="family">Family</option>
-          </select>
-          <select class="filter-select" id="pActive">
-            <option value="">All</option>
-            <option value="true">Active</option>
-            <option value="false">Inactive</option>
-          </select>
-          <button class="btn btn-ghost btn-sm" onclick="S.packagePage=1;loadPackages()">🔍 Filter</button>
-          <button class="btn btn-ghost btn-sm" onclick="$('#pSearch').value='';$('#pCategory').value='';$('#pActive').value='';S.packagePage=1;loadPackages()">Clear</button>
-          <div style="margin-left:auto">
-            <button class="btn btn-primary btn-sm" onclick="openPackageForm()">+ Add Package</button>
-          </div>
-        </div>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Destination</th>
-                <th>Duration</th>
-                <th>Price</th>
-                <th>Category</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="packagesBody"></tbody>
-          </table>
-        </div>
-        <div id="packagesPagination"></div>
-      `;
-            loadPackages();
+        // ── VEHICLE FORM (simplified for space — same 4-tab structure) ──
+        function openVehicleForm(id) {
+            var v = id ? getDB().find(function (x) { return x.id === id }) : null; editingVehicleId = id;
+            formState.images = v && v.images && v.images.length ? v.images.slice() : [''];
+            formState.routes = v && v.routes && v.routes.length ? v.routes.map(function (r) { return { icon: r.icon, label: r.label } }) : [{ icon: '\u{1F4CD}', label: '' }];
+            formState.features = v && v.features ? v.features.slice() : [];
+            var body = '<div class="form-tabs" id="formTabs"><button class="form-tab-btn active" data-tab="tab-basic">Basic Info</button><button class="form-tab-btn" data-tab="tab-specs">Specs & Features</button><button class="form-tab-btn" data-tab="tab-routes">Routes & Pricing</button><button class="form-tab-btn" data-tab="tab-media">Media & Display</button></div><div class="form-tab-pane active" id="tab-basic"><div class="form-row"><div class="form-group"><label>Vehicle Name <span class="req">*</span></label><input type="text" class="form-control" id="fv-name" value="' + (v ? v.name : '') + '"><div class="form-error">Required</div></div><div class="form-group"><label>Slug</label><input type="text" class="form-control" id="fv-slug" value="' + (v ? v.slug : '') + '"></div></div><div class="form-row triple"><div class="form-group"><label>Brand <span class="req">*</span></label><input type="text" class="form-control" id="fv-brand" value="' + (v ? v.brand : '') + '"><div class="form-error">Required</div></div><div class="form-group"><label>Model <span class="req">*</span></label><input type="text" class="form-control" id="fv-model" value="' + (v ? v.model : '') + '"><div class="form-error">Required</div></div><div class="form-group"><label>Year</label><input type="number" class="form-control" id="fv-year" value="' + (v ? v.year : 2024) + '" min="2000" max="2030"></div></div><div class="form-row"><div class="form-group"><label>Type <span class="req">*</span></label><select class="form-control" id="fv-type"><option value="">Select</option>' + Object.keys(TYPE_LABELS).map(function (k) { return '<option value="' + k + '"' + (v && v.type === k ? ' selected' : '') + '>' + TYPE_LABELS[k] + '</option>' }).join('') + '</select><div class="form-error">Required</div></div><div class="form-group"><label>Fuel</label><input type="text" class="form-control" id="fv-fuel" value="' + (v ? v.fuel : '') + '"></div></div><div class="form-row full"><div class="form-group"><label>Description</label><textarea class="form-control" id="fv-desc">' + (v ? v.description : '') + '</textarea></div></div></div><div class="form-tab-pane" id="tab-specs"><div class="form-row triple"><div class="form-group"><label>Seats <span class="req">*</span></label><input type="number" class="form-control" id="fv-seats" value="' + (v ? v.seats : 4) + '" min="1"><div class="form-error">Required</div></div><div class="form-group"><label>Bags</label><input type="number" class="form-control" id="fv-bags" value="' + (v ? v.bags : 2) + '" min="0"></div><div class="form-group"><label>AC</label><div class="toggle-wrap" style="margin-top:6px"><div class="toggle-track' + (v && v.ac ? ' on' : '') + '" id="fv-ac"><div class="toggle-thumb"></div></div><span class="toggle-label">' + (v && v.ac ? 'Yes' : 'No') + '</span></div></div></div><div class="form-row"><div class="form-group"><label>Transmission</label><input type="text" class="form-control" id="fv-trans" value="' + (v ? v.transmission : '') + '"></div><div class="form-group"><label>Mileage</label><input type="text" class="form-control" id="fv-mileage" value="' + (v ? v.mileage : '') + '"></div></div><div class="form-group" style="margin-bottom:0"><label style="margin-bottom:12px">Features</label><div class="features-grid" id="featuresGrid"></div></div></div><div class="form-tab-pane" id="tab-routes"><div class="form-group" style="margin-bottom:20px"><label style="margin-bottom:10px">Routes</label><div class="routes-list" id="routesList"></div><button class="btn btn-sm btn-ghost" id="addRouteBtn" style="margin-top:10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Route</button></div><div class="pricing-grid"><div class="form-group"><label>Per Km (' + '\u20B9' + ') <span class="req">*</span></label><input type="number" class="form-control" id="fv-perkm" value="' + (v ? v.pricing.perKm : '') + '" min="0"><div class="form-error">Required</div></div><div class="form-group"><label>Per Day (' + '\u20B9' + ')</label><input type="number" class="form-control" id="fv-perday" value="' + (v ? v.pricing.perDay : '') + '" min="0"></div><div class="form-group"><label>Min Fare (' + '\u20B9' + ')</label><input type="number" class="form-control" id="fv-minfare" value="' + (v ? v.pricing.minFare : '') + '" min="0"></div><div class="form-group"><label>Driver</label><input type="text" class="form-control" id="fv-driver" value="' + (v ? v.pricing.driver : 'Included') + '"></div></div><div class="form-row full" style="margin-top:16px"><div class="form-group"><label>Toll Info</label><input type="text" class="form-control" id="fv-toll" value="' + (v ? v.pricing.toll : 'Extra, stated upfront') + '"></div></div></div><div class="form-tab-pane" id="tab-media"><div class="form-group" style="margin-bottom:20px"><label style="margin-bottom:10px">Images (URLs)</label><div class="img-list" id="imgList"></div><button class="btn btn-sm btn-ghost" id="addImgBtn" style="margin-top:10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Image</button></div><div class="form-row"><div class="form-group"><label>Badge Text</label><input type="text" class="form-control" id="fv-badge" value="' + (v ? v.badge : '') + '"></div><div class="form-group"><label>Badge Style</label><select class="form-control" id="fv-badgeclass"><option value="">None</option><option value="badge-maroon"' + (v && v.badgeClass === 'badge-maroon' ? ' selected' : '') + '>Maroon</option><option value="badge-gold"' + (v && v.badgeClass === 'badge-gold' ? ' selected' : '') + '>Gold</option></select></div></div><div class="form-row"><div class="form-group"><label>Available</label><div class="toggle-wrap" style="margin-top:6px"><div class="toggle-track' + (!v || v.available ? ' on' : '') + '" id="fv-available"><div class="toggle-thumb"></div></div><span class="toggle-label">' + (!v || v.available ? 'Active' : 'Inactive') + '</span></div></div><div class="form-group"><label>Featured</label><div class="toggle-wrap" style="margin-top:6px"><div class="toggle-track' + (v && v.featured ? ' on' : '') + '" id="fv-featured"><div class="toggle-thumb"></div></div><span class="toggle-label">' + (v && v.featured ? 'Yes' : 'No') + '</span></div></div></div></div>';
+            openModal(id ? 'Edit Vehicle' : 'Add Vehicle', body, '<button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" id="saveVehicleBtn">' + (id ? 'Update' : 'Add') + ' Vehicle</button>');
+            document.getElementById('fv-name').addEventListener('input', function () { document.getElementById('fv-slug').value = slugify(this.value) });
+            document.querySelectorAll('.form-tab-btn').forEach(function (b) { b.addEventListener('click', function () { document.querySelectorAll('.form-tab-btn').forEach(function (x) { x.classList.remove('active') }); document.querySelectorAll('.form-tab-pane').forEach(function (x) { x.classList.remove('active') }); b.classList.add('active'); document.getElementById(b.dataset.tab).classList.add('active') }) });
+            setupToggle('fv-ac'); setupToggle('fv-available'); setupToggle('fv-featured');
+            renderFeaturesGrid(); renderRoutesList(); renderImgList();
+            document.getElementById('addRouteBtn').addEventListener('click', function () { formState.routes.push({ icon: '\u{1F4CD}', label: '' }); renderRoutesList() });
+            document.getElementById('addImgBtn').addEventListener('click', function () { formState.images.push(''); renderImgList() });
+            document.getElementById('saveVehicleBtn').addEventListener('click', saveVehicle);
+        }
+        function renderFeaturesGrid() { var g = document.getElementById('featuresGrid'); if (!g) return; g.innerHTML = ALL_FEATURES.map(function (f) { var c = formState.features.indexOf(f) >= 0; return '<div class="feature-check' + (c ? ' checked' : '') + '" data-feature="' + f + '"><input type="checkbox"' + (c ? ' checked' : '') + '>' + f + '</div>' }).join(''); g.querySelectorAll('.feature-check').forEach(function (el) { el.addEventListener('click', function () { var f = el.dataset.feature, idx = formState.features.indexOf(f); if (idx >= 0) { formState.features.splice(idx, 1); el.classList.remove('checked') } else { formState.features.push(f); el.classList.add('checked') } }) }) }
+        function renderRoutesList() { var l = document.getElementById('routesList'); if (!l) return; l.innerHTML = formState.routes.map(function (r, i) { return '<div class="route-item"><select class="form-control" style="width:60px;padding:6px 4px;text-align:center;font-size:16px" data-ri="' + i + '" data-field="icon">' + ROUTE_EMOJIS.map(function (e) { return '<option value="' + e + '"' + (r.icon === e ? ' selected' : '') + '>' + e + '</option>' }).join('') + '</select><input type="text" class="form-control" placeholder="Route label" value="' + r.label + '" data-ri="' + i + '" data-field="label">' + (formState.routes.length > 1 ? '<button class="remove-route" data-ri="' + i + '">&times;</button>' : '') + '</div>' }).join(''); l.querySelectorAll('input[data-field="label"],select[data-field="icon"]').forEach(function (el) { var ev = el.tagName === 'SELECT' ? 'change' : 'input'; el.addEventListener(ev, function () { formState.routes[parseInt(el.dataset.ri)][el.dataset.field] = el.value }) }); l.querySelectorAll('.remove-route').forEach(function (b) { b.addEventListener('click', function () { formState.routes.splice(parseInt(b.dataset.ri), 1); renderRoutesList() }) }) }
+        function renderImgList() { var l = document.getElementById('imgList'); if (!l) return; l.innerHTML = formState.images.map(function (u, i) { return '<div class="img-list-item">' + (u ? '<img src="' + u + '" onerror="this.style.display=\'none\'">' : '<div style="width:64px;height:44px;border-radius:4px;background:var(--light-gray);display:flex;align-items:center;justify-content:center;color:var(--medium-gray);font-size:11px">No img</div>') + '<input type="text" class="form-control" placeholder="Image URL" value="' + u + '" data-ii="' + i + '">' + (formState.images.length > 1 ? '<button class="remove-img" data-ii="' + i + '">&times;</button>' : '') + '</div>' }).join(''); l.querySelectorAll('input[data-ii]').forEach(function (el) { el.addEventListener('input', function () { formState.images[parseInt(el.dataset.ii)] = el.value }) }); l.querySelectorAll('.remove-img').forEach(function (b) { b.addEventListener('click', function () { formState.images.splice(parseInt(b.dataset.ii), 1); renderImgList() }) }) }
+        function saveVehicle() {
+            var name = document.getElementById('fv-name').value.trim(), slug = document.getElementById('fv-slug').value.trim() || slugify(name), brand = document.getElementById('fv-brand').value.trim(), model = document.getElementById('fv-model').value.trim(), year = parseInt(document.getElementById('fv-year').value) || 2024, type = document.getElementById('fv-type').value, fuel = document.getElementById('fv-fuel').value.trim(), desc = document.getElementById('fv-desc').value.trim(), seats = parseInt(document.getElementById('fv-seats').value) || 4, bags = parseInt(document.getElementById('fv-bags').value) || 0, ac = document.getElementById('fv-ac').classList.contains('on'), trans = document.getElementById('fv-trans').value.trim(), mileage = document.getElementById('fv-mileage').value.trim(), perKm = parseFloat(document.getElementById('fv-perkm').value) || 0, perDay = parseFloat(document.getElementById('fv-perday').value) || 0, minFare = parseFloat(document.getElementById('fv-minfare').value) || 0, driver = document.getElementById('fv-driver').value.trim() || 'Included', toll = document.getElementById('fv-toll').value.trim(), badge = document.getElementById('fv-badge').value.trim(), badgeClass = document.getElementById('fv-badgeclass').value, available = document.getElementById('fv-available').classList.contains('on'), featured = document.getElementById('fv-featured').classList.contains('on');
+            var hasErr = false;['fv-name', 'fv-brand', 'fv-model', 'fv-type', 'fv-seats', 'fv-perkm'].forEach(function (id) { var g = document.getElementById(id).closest('.form-group'); if (!document.getElementById(id).value.trim()) { g.classList.add('error'); hasErr = true } else { g.classList.remove('error') } }); if (hasErr) { toast('Fill all required fields', 'warning'); return }
+            var existing = editingVehicleId ? getDB().find(function (x) { return x.id === editingVehicleId }) : null;
+            var veh = { id: editingVehicleId || ('v' + Date.now()), name: name, slug: slug, type: type, brand: brand, model: model, year: year, available: available, featured: featured, badge: badge, badgeClass: badgeClass, seats: seats, bags: bags, fuel: fuel, transmission: trans, mileage: mileage, ac: ac, rating: existing ? existing.rating : 0, trips: existing ? existing.trips : 0, kmLakh: existing ? existing.kmLakh : 0, specs: [{ icon: 'seat', label: 'Seating', value: seats + ' Passengers' }, { icon: 'fuel', label: 'Fuel Type', value: fuel || '\u2014' }, { icon: 'ac', label: 'AC', value: ac ? 'Yes' : 'No' }, { icon: 'luggage', label: 'Luggage', value: bags + ' Bags' }, { icon: 'gearbox', label: 'Transmission', value: trans || '\u2014' }, { icon: 'efficiency', label: 'Mileage', value: mileage || '\u2014' }], features: formState.features.slice(), routes: formState.routes.filter(function (r) { return r.label.trim() }).map(function (r) { return { icon: r.icon, label: r.label } }), pricing: { perKm: perKm, perDay: perDay, minFare: minFare, toll: toll, driver: driver }, description: desc, heroImg: formState.images[0] || '', images: formState.images.filter(function (i) { return i.trim() }), createdAt: existing ? existing.createdAt : new Date().toISOString(), updatedAt: new Date().toISOString() };
+            var db = getDB(); if (editingVehicleId) { var idx = db.findIndex(function (x) { return x.id === editingVehicleId }); if (idx >= 0) db[idx] = veh } else { db.push(veh) } saveDB(db); closeModal(); renderVehicles(); toast((editingVehicleId ? name + ' updated' : name + ' added') + ' successfully', 'success')
         }
 
-        async function loadPackages() {
-            const params = new URLSearchParams();
-            params.set('page', S.packagePage);
-            params.set('limit', 10);
-            const search = $('#pSearch')?.value?.trim();
-            const cat = $('#pCategory')?.value;
-            const active = $('#pActive')?.value;
-            if (search) params.set('search', search);
-            if (cat) params.set('category', cat);
-            if (active) params.set('active', active);
-
-            const res = await API.admin.getPackages(params.toString());
-            if (!res.success) { toast(res.message, 'error'); return; }
-            const { data, pagination } = res;
-            const tbody = $('#packagesBody');
-
-            if (data.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="8"><div class="empty-state" style="padding:40px"><h3>No packages found</h3><p>Add your first package</p></div></td></tr>`;
-            } else {
-                tbody.innerHTML = data.map(p => `<tr>
-          <td>${p.image ? `<img src="${escHtml(p.image)}" style="width:70px;height:45px;object-fit:cover;border-radius:6px" onerror="this.style.display='none'">` : '<div style="width:70px;height:45px;background:var(--ivory);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--medium-gray);font-size:11px">No img</div>'}</td>
-          <td><strong>${escHtml(p.title)}</strong>${p.featured ? ' <span class="badge badge-gold" style="font-size:9px">★ Featured</span>' : ''}</td>
-          <td>${escHtml(p.destination)}${p.state ? `, ${escHtml(p.state)}` : ''}</td>
-          <td style="font-size:12px">${escHtml(p.duration)}</td>
-          <td><strong>${fmtCurrency(p.price)}</strong>${p.discountPrice ? `<br><span style="font-size:11px;color:var(--green);text-decoration:line-through">${fmtCurrency(p.discountPrice)}</span>` : ''}</td>
-          <td><span class="badge badge-blue">${p.category}</span></td>
-          <td>${statusBadge(p.active ? 'active' : 'inactive')}</td>
-          <td>
-            <div class="table-actions">
-              <button class="btn btn-ghost btn-sm" onclick="openPackageForm('${p._id}')">Edit</button>
-              <button class="btn btn-ghost btn-sm" onclick="togglePkgActive('${p._id}')">${p.active ? 'Disable' : 'Enable'}</button>
-              <button class="btn btn-ghost btn-sm" onclick="togglePkgFeatured('${p._id}')">${p.featured ? 'Unfeat' : 'Feature'}</button>
-              <button class="btn btn-danger btn-sm" onclick="deletePackage('${p._id}','${escHtml(p.title)}')">Del</button>
-            </div>
-          </td>
-        </tr>`).join('');
-            }
-            renderPagination('#packagesPagination', pagination, (p) => { S.packagePage = p; loadPackages(); });
+        // ═══ PACKAGES (FULL CRUD) ═══
+        function renderPackages() {
+            var db = getPkgDB(), f = packageFilter;
+            var filtered = db.filter(function (p) { if (f.search && p.name.toLowerCase().indexOf(f.search.toLowerCase()) === -1) return false; if (f.category && p.category !== f.category) return false; if (f.status === 'active' && !p.active) return false; if (f.status === 'inactive' && p.active) return false; return true });
+            var sec = document.getElementById('sec-packages');
+            var co = '<option value="">All Categories</option>'; Object.keys(CAT_LABELS).forEach(function (k) { co += '<option value="' + k + '"' + (f.category === k ? ' selected' : '') + '>' + CAT_LABELS[k] + '</option>' });
+            sec.innerHTML = '<div class="filters-bar"><input type="text" class="filter-input" id="pkgSearch" placeholder="Search packages..." value="' + (f.search || '') + '"><select class="filter-select" id="pkgCat">' + co + '</select><select class="filter-select" id="pkgStatus"><option value="">All Status</option><option value="active"' + (f.status === 'active' ? ' selected' : '') + '>Active</option><option value="inactive"' + (f.status === 'inactive' ? ' selected' : '') + '>Inactive</option></select><div style="flex:1"></div><span style="font-size:13px;color:var(--medium-gray)">' + filtered.length + ' of ' + db.length + '</span><button class="btn btn-primary" id="addPkgBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Package</button></div><div class="pkg-grid" id="pkgGrid"></div>';
+            document.getElementById('pkgSearch').addEventListener('input', function (e) { packageFilter.search = e.target.value; renderPackages() });
+            document.getElementById('pkgCat').addEventListener('change', function (e) { packageFilter.category = e.target.value; renderPackages() });
+            document.getElementById('pkgStatus').addEventListener('change', function (e) { packageFilter.status = e.target.value; renderPackages() });
+            document.getElementById('addPkgBtn').addEventListener('click', function () { openPackageForm(null) });
+            var grid = document.getElementById('pkgGrid');
+            if (!filtered.length) { grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/></svg><h3>No Packages Found</h3><p>Adjust filters or add a new package.</p></div>'; return }
+            grid.innerHTML = filtered.map(function (p) { var catColor = CAT_COLORS[p.category] || 'badge-gray'; var stars = '\u2605'.repeat(Math.floor(p.rating)) + ((p.rating % 1 >= 0.5) ? '\u2606' : ''); return '<div class="admin-pkg-card' + (p.active ? '' : ' disabled-card') + '"><div class="admin-pkg-img"><img src="' + p.image + '" alt="' + p.name + '" onerror="this.style.display=\'none\'"><div class="admin-pkg-img-overlay"></div><span class="admin-pkg-cat badge ' + catColor + '">' + (CAT_LABELS[p.category] || p.category) + '</span><span class="admin-pkg-duration">' + p.duration + '</span>' + (p.popular ? '<span class="admin-pkg-status badge badge-gold">Popular</span>' : '') + (!p.active ? '<span class="admin-pkg-status badge badge-red">Inactive</span>' : '') + '</div><div class="admin-pkg-body"><div class="admin-pkg-name">' + p.name + '</div><div class="admin-pkg-desc">' + p.description + '</div><div class="admin-pkg-includes">' + (p.includes || []).map(function (i) { return '<span class="admin-pkg-include-tag">' + i + '</span>' }).join('') + '</div><div class="admin-pkg-footer"><div class="admin-pkg-price">' + formatCurrency(p.price) + ' <span>/ person</span></div><div class="admin-pkg-rating">' + stars + ' ' + p.rating + '</div></div><div class="admin-pkg-actions"><button class="btn btn-sm btn-primary" data-pkg-action="edit" data-id="' + p.id + '">Edit</button><button class="btn btn-sm btn-ghost" data-pkg-action="toggle" data-id="' + p.id + '">' + (p.active ? 'Disable' : 'Enable') + '</button><button class="btn btn-sm btn-danger" data-pkg-action="delete" data-id="' + p.id + '">Delete</button></div></div></div>' }).join('');
         }
+        document.getElementById('sec-packages').addEventListener('click', function (e) { var b = e.target.closest('[data-pkg-action]'); if (!b) return; var a = b.dataset['pkg-action'], id = b.dataset.id; if (a === 'edit') openPackageForm(id); else if (a === 'delete') confirmDeletePackage(id); else if (a === 'toggle') togglePackage(id) });
+
+        function togglePackage(id) { var db = getPkgDB(), p = db.find(function (x) { return x.id === id }); if (!p) return; p.active = !p.active; p.updatedAt = new Date().toISOString(); savePkgDB(db); renderPackages(); toast(p.name + (p.active ? ' activated' : ' deactivated'), p.active ? 'success' : 'warning') }
+        function confirmDeletePackage(id) { var db = getPkgDB(), p = db.find(function (x) { return x.id === id }); if (!p) return; openModal('Delete Package', '<div class="confirm-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div><div class="confirm-text">Delete <strong>' + p.name + '</strong>? This cannot be undone.</div>', '<button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-danger" id="confirmDelPkgBtn">Delete</button>'); document.getElementById('confirmDelPkgBtn').addEventListener('click', function () { savePkgDB(getPkgDB().filter(function (x) { return x.id !== id })); closeModal(); renderPackages(); toast(p.name + ' deleted', 'error') }) }
 
         function openPackageForm(id) {
-            const isEdit = !!id;
-            let p = {};
-            const fillForm = async () => {
-                if (isEdit) {
-                    const res = await API.admin.getPackage(id);
-                    if (!res.success) { toast(res.message, 'error'); return; }
-                    p = res.data;
-                }
-                openModal(isEdit ? 'Edit Package' : 'Add Package', `
-          <div class="form-row">
-            <div class="form-group"><label>Title <span class="req">*</span></label><input class="form-control" id="pfTitle" value="${escHtml(p.title || '')}"></div>
-            <div class="form-group"><label>Destination <span class="req">*</span></label><input class="form-control" id="pfDest" value="${escHtml(p.destination || '')}"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>State</label><input class="form-control" id="pfState" value="${escHtml(p.state || '')}"></div>
-            <div class="form-group"><label>Duration <span class="req">*</span></label><input class="form-control" id="pfDuration" value="${escHtml(p.duration || '')}" placeholder="e.g. 5 Days 4 Nights"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Days</label><input class="form-control" type="number" id="pfDays" value="${p.durationDays || ''}"></div>
-            <div class="form-group"><label>Nights</label><input class="form-control" type="number" id="pfNights" value="${p.durationNights || ''}"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Price <span class="req">*</span></label><input class="form-control" type="number" id="pfPrice" value="${p.price || ''}"></div>
-            <div class="form-group"><label>Discount Price</label><input class="form-control" type="number" id="pfDisc" value="${p.discountPrice || ''}"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Category <span class="req">*</span></label>
-              <select class="form-control" id="pfCat">
-                ${['adventure', 'pilgrimage', 'beach', 'hill-station', 'wildlife', 'heritage', 'honeymoon', 'family'].map(c => `<option value="${c}" ${p.category === c ? 'selected' : ''}>${c.charAt(0).toUpperCase() + c.slice(1)}</option>`).join('')}
-              </select>
-            </div>
-            <div class="form-group"><label>Difficulty</label>
-              <select class="form-control" id="pfDiff">
-                ${['easy', 'moderate', 'hard'].map(d => `<option value="${d}" ${p.difficulty === d ? 'selected' : ''}>${d.charAt(0).toUpperCase() + d.slice(1)}</option>`).join('')}
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Max People</label><input class="form-control" type="number" id="pfMax" value="${p.maxPeople || 10}"></div>
-            <div class="form-group"><label>Min People</label><input class="form-control" type="number" id="pfMin" value="${p.minPeople || 1}"></div>
-          </div>
-          <div class="form-row full">
-            <div class="form-group"><label>Image URL</label><input class="form-control" id="pfImage" value="${escHtml(p.image || '')}" placeholder="https://..."></div>
-          </div>
-          <div class="form-row full">
-            <div class="form-group"><label>Description <span class="req">*</span></label><textarea class="form-control" id="pfDesc">${escHtml(p.description || '')}</textarea></div>
-          </div>
-          <div class="form-row full">
-            <div class="form-group"><label>Includes (comma-separated)</label><input class="form-control" id="pfIncludes" value="${(p.includes || []).join(', ')}"></div>
-          </div>
-          <div class="form-row full">
-            <div class="form-group"><label>Excludes (comma-separated)</label><input class="form-control" id="pfExcludes" value="${(p.excludes || []).join(', ')}"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Featured</label><select class="form-control" id="pfFeatured"><option value="true" ${p.featured ? 'selected' : ''}>Yes</option><option value="false" ${!p.featured ? 'selected' : ''}>No</option></select></div>
-            <div class="form-group"><label>Active</label><select class="form-control" id="pfActive"><option value="true" ${p.active !== false ? 'selected' : ''}>Yes</option><option value="false" ${p.active === false ? 'selected' : ''}>No</option></select></div>
-          </div>
-        `, `
-          <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-          <button class="btn btn-primary" onclick="savePackage('${id || ''}')">${isEdit ? 'Update' : 'Create'}</button>
-        `);
-            };
-            fillForm();
+            var p = id ? getPkgDB().find(function (x) { return x.id === id }) : null; editingPackageId = id;
+            pkgFormState.includes = p && p.includes && p.includes.length ? p.includes.slice() : [''];
+            var catOpts = Object.keys(CAT_LABELS).map(function (k) { return '<option value="' + k + '"' + (p && p.category === k ? ' selected' : '') + '>' + CAT_LABELS[k] + '</option>' }).join('');
+            var body = '<div class="form-row"><div class="form-group"><label>Package Name <span class="req">*</span></label><input type="text" class="form-control" id="fp-name" value="' + (p ? p.name : '') + '"><div class="form-error">Required</div></div><div class="form-group"><label>Slug</label><input type="text" class="form-control" id="fp-slug" value="' + (p ? p.slug : '') + '"></div></div><div class="form-row triple"><div class="form-group"><label>Category <span class="req">*</span></label><select class="form-control" id="fp-cat"><option value="">Select</option>' + catOpts + '</select><div class="form-error">Required</div></div><div class="form-group"><label>Duration</label><input type="text" class="form-control" id="fp-dur" placeholder="e.g. 3 Days / 2 Nights" value="' + (p ? p.duration : '') + '"></div></div><div class="form-row full"><div class="form-group"><label>Image URL <span class="req">*</span></label><input type="text" class="form-control" id="fp-img" placeholder="https://..." value="' + (p ? p.image : '') + '"><div class="form-error">Required</div></div></div><div class="form-row full"><div class="form-group"><label>Description</label><textarea class="form-control" id="fp-desc">' + (p ? p.description : '') + '</textarea></div></div><div class="form-row"><div class="form-group"><label>Price per Person (' + '\u20B9' + ') <span class="req">*</span></label><input type="number" class="form-control" id="fp-price" value="' + (p ? p.price : '') + '" min="0"><div class="form-error">Required</div></div><div class="form-group"><label>Vehicle Type</label><input type="text" class="form-control" id="fp-vehicle" placeholder="e.g. Sedan / SUV" value="' + (p ? p.vehicle : '') + '"></div></div><div class="form-row triple"><div class="form-group"><label>Rating</label><input type="number" class="form-control" id="fp-rating" value="' + (p ? p.rating : 0) + '" min="0" max="5" step="0.1"></div><div class="form-group"><label>Reviews Count</label><input type="number" class="form-control" id="fp-reviews" value="' + (p ? p.reviews : 0) + '" min="0"></div></div><div class="form-group" style="margin-bottom:16px"><label style="margin-bottom:10px">Includes</label><div class="includes-list" id="includesList"></div><button class="btn btn-sm btn-ghost" id="addIncludeBtn" style="margin-top:10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Include</button></div><div class="form-row"><div class="form-group"><label>Active</label><div class="toggle-wrap" style="margin-top:6px"><div class="toggle-track' + (!p || p.active ? ' on' : '') + '" id="fp-active"><div class="toggle-thumb"></div></div><span class="toggle-label">' + (!p || p.active ? 'Active' : 'Inactive') + '</span></div></div><div class="form-group"><label>Popular</label><div class="toggle-wrap" style="margin-top:6px"><div class="toggle-track' + (p && p.popular ? ' on' : '') + '" id="fp-popular"><div class="toggle-thumb"></div></div><span class="toggle-label">' + (p && p.popular ? 'Yes' : 'No') + '</span></div></div><div class="form-group"><label>Featured</label><div class="toggle-wrap" style="margin-top:6px"><div class="toggle-track' + (p && p.featured ? ' on' : '') + '" id="fp-featured"><div class="toggle-thumb"></div></div><span class="toggle-label">' + (p && p.featured ? 'Yes' : 'No') + '</span></div></div></div>';
+            openModal(id ? 'Edit Package' : 'Add Package', body, '<button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" id="savePkgBtn">' + (id ? 'Update' : 'Add') + ' Package</button>');
+            document.getElementById('fp-name').addEventListener('input', function () { document.getElementById('fp-slug').value = slugify(this.value) });
+            setupToggle('fp-active'); setupToggle('fp-popular'); setupToggle('fp-featured');
+            renderIncludesList();
+            document.getElementById('addIncludeBtn').addEventListener('click', function () { pkgFormState.includes.push(''); renderIncludesList() });
+            document.getElementById('savePkgBtn').addEventListener('click', savePackage);
+        }
+        function renderIncludesList() { var l = document.getElementById('includesList'); if (!l) return; l.innerHTML = pkgFormState.includes.map(function (v, i) { return '<div class="includes-item"><input type="text" class="form-control" placeholder="e.g. Breakfast, Hotel, Guide..." value="' + v + '" data-ii="' + i + '">' + (pkgFormState.includes.length > 1 ? '<button class="remove-include" data-ii="' + i + '">&times;</button>' : '') + '</div>' }).join(''); l.querySelectorAll('input[data-ii]').forEach(function (el) { el.addEventListener('input', function () { pkgFormState.includes[parseInt(el.dataset.ii)] = el.value }) }); l.querySelectorAll('.remove-include').forEach(function (b) { b.addEventListener('click', function () { pkgFormState.includes.splice(parseInt(b.dataset.ii), 1); renderIncludesList() }) }) }
+        function savePackage() {
+            var name = document.getElementById('fp-name').value.trim(), slug = document.getElementById('fp-slug').value.trim() || slugify(name), cat = document.getElementById('fp-cat').value, dur = document.getElementById('fp-dur').value.trim(), img = document.getElementById('fp-img').value.trim(), desc = document.getElementById('fp-desc').value.trim(), price = parseFloat(document.getElementById('fp-price').value) || 0, vehicle = document.getElementById('fp-vehicle').value.trim(), rating = parseFloat(document.getElementById('fp-rating').value) || 0, reviews = parseInt(document.getElementById('fp-reviews').value) || 0, active = document.getElementById('fp-active').classList.contains('on'), popular = document.getElementById('fp-popular').classList.contains('on'), featured = document.getElementById('fp-featured').classList.contains('on');
+            var hasErr = false;['fp-name', 'fp-cat', 'fp-img', 'fp-price'].forEach(function (id) { var g = document.getElementById(id).closest('.form-group'); if (!document.getElementById(id).value.trim()) { g.classList.add('error'); hasErr = true } else { g.classList.remove('error') } }); if (hasErr) { toast('Fill all required fields', 'warning'); return }
+            var existing = editingPackageId ? getPkgDB().find(function (x) { return x.id === editingPackageId }) : null;
+            var pkg = { id: editingPackageId || ('p' + Date.now()), name: name, slug: slug, category: cat, duration: dur, image: img, description: desc, price: price, vehicle: vehicle, rating: Math.min(5, Math.max(0, rating)), reviews: Math.max(0, reviews), includes: pkgFormState.includes.filter(function (x) { return x.trim() }), active: active, popular: popular, featured: featured, createdAt: existing ? existing.createdAt : new Date().toISOString(), updatedAt: new Date().toISOString() };
+            var db = getPkgDB(); if (editingPackageId) { var idx = db.findIndex(function (x) { return x.id === editingPackageId }); if (idx >= 0) db[idx] = pkg } else { db.push(pkg) } savePkgDB(db); closeModal(); renderPackages(); toast((editingPackageId ? name + ' updated' : name + ' added') + ' successfully', 'success')
         }
 
-        async function savePackage(id) {
-            const data = {
-                title: $('#pfTitle').value.trim(),
-                destination: $('#pfDest').value.trim(),
-                state: $('#pfState').value.trim() || undefined,
-                duration: $('#pfDuration').value.trim(),
-                durationDays: parseInt($('#pfDays').value) || undefined,
-                durationNights: parseInt($('#pfNights').value) || undefined,
-                price: parseFloat($('#pfPrice').value),
-                discountPrice: parseFloat($('#pfDisc').value) || undefined,
-                category: $('#pfCat').value,
-                difficulty: $('#pfDiff').value,
-                maxPeople: parseInt($('#pfMax').value) || 10,
-                minPeople: parseInt($('#pfMin').value) || 1,
-                image: $('#pfImage').value.trim() || undefined,
-                description: $('#pfDesc').value.trim(),
-                includes: $('#pfIncludes').value.split(',').map(s => s.trim()).filter(Boolean),
-                excludes: $('#pfExcludes').value.split(',').map(s => s.trim()).filter(Boolean),
-                featured: $('#pfFeatured').value === 'true',
-                active: $('#pfActive').value === 'true'
-            };
-            if (!data.title || !data.destination || !data.duration || !data.price || !data.category || !data.description) {
-                toast('Title, Destination, Duration, Price, Category and Description are required.', 'error');
-                return;
-            }
-            const res = id ? await API.admin.updatePackage(id, data) : await API.admin.createPackage(data);
-            if (res.success) { toast(res.message, 'success'); closeModal(); loadPackages(); }
-            else { toast(res.message, 'error'); }
-        }
+        // ═══ BOOKINGS ═══
+        function renderBookings() { var sc = { confirmed: 'badge-green', pending: 'badge-orange', completed: 'badge-blue', cancelled: 'badge-red' }; var sec = document.getElementById('sec-bookings'); var rows = MOCK_BOOKINGS.map(function (b) { return '<tr><td><strong>' + b.id + '</strong></td><td>' + b.customer + '<br><span style="font-size:11px;color:var(--medium-gray)">' + b.phone + '</span></td><td>' + b.vehicle + '</td><td>' + b.from + ' \u2192 ' + b.to + '</td><td>' + formatDate(b.date) + '</td><td>' + formatCurrency(b.amount) + '</td><td><span class="badge ' + (sc[b.status] || 'badge-gray') + '">' + b.status.charAt(0).toUpperCase() + b.status.slice(1) + '</span></td></tr>' }).join(''); sec.innerHTML = '<div class="filters-bar"><select class="filter-select" id="bkStatus"><option value="">All Status</option><option value="confirmed">Confirmed</option><option value="pending">Pending</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option></select><div style="flex:1"></div><span style="font-size:13px;color:var(--medium-gray)">' + MOCK_BOOKINGS.length + ' bookings</span></div><div class="data-table-wrap"><div class="table-responsive"><table class="data-table"><thead><tr><th>ID</th><th>Customer</th><th>Vehicle</th><th>Route</th><th>Date</th><th>Amount</th><th>Status</th></tr></thead><tbody id="bkBody">' + rows + '</tbody></table></div></div>'; document.getElementById('bkStatus').addEventListener('change', function (e) { var v = e.target.value, f = v ? MOCK_BOOKINGS.filter(function (b) { return b.status === v }) : MOCK_BOOKINGS; document.getElementById('bkBody').innerHTML = f.map(function (b) { return '<tr><td><strong>' + b.id + '</strong></td><td>' + b.customer + '</td><td>' + b.vehicle + '</td><td>' + b.from + ' \u2192 ' + b.to + '</td><td>' + formatDate(b.date) + '</td><td>' + formatCurrency(b.amount) + '</td><td><span class="badge ' + (sc[b.status] || 'badge-gray') + '">' + b.status.charAt(0).toUpperCase() + b.status.slice(1) + '</span></td></tr>' }).join('') || '<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--medium-gray)">No bookings</td></tr>' }) }
 
-        function deletePackage(id, name) {
-            confirmDelete(name, async () => {
-                const res = await API.admin.deletePackage(id);
-                if (res.success) { toast(res.message, 'success'); loadPackages(); }
-                else { toast(res.message, 'error'); }
-            });
-        }
+        // ═══ USERS ═══
+        function renderUsers() { var rc = { Customer: 'badge-blue', Driver: 'badge-green', Manager: 'badge-gold' }, sc = { active: 'badge-green', inactive: 'badge-gray', blocked: 'badge-red' }; var sec = document.getElementById('sec-users'); var rows = MOCK_USERS.map(function (u) { return '<tr><td><strong>' + u.name + '</strong></td><td>' + u.email + '</td><td>' + u.phone + '</td><td><span class="badge ' + (rc[u.role] || 'badge-gray') + '">' + u.role + '</span></td><td>' + u.bookings + '</td><td>' + formatDate(u.joined) + '</td><td><span class="badge ' + (sc[u.status] || 'badge-gray') + '">' + u.status.charAt(0).toUpperCase() + u.status.slice(1) + '</span></td></tr>' }).join(''); sec.innerHTML = '<div class="filters-bar"><select class="filter-select" id="uRole"><option value="">All Roles</option><option value="Customer">Customer</option><option value="Driver">Driver</option><option value="Manager">Manager</option></select><select class="filter-select" id="uStatus"><option value="">All Status</option><option value="active">Active</option><option value="inactive">Inactive</option><option value="blocked">Blocked</option></select><div style="flex:1"></div><span style="font-size:13px;color:var(--medium-gray)">' + MOCK_USERS.length + ' users</span></div><div class="data-table-wrap"><div class="table-responsive"><table class="data-table"><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Bookings</th><th>Joined</th><th>Status</th></tr></thead><tbody id="uBody">' + rows + '</tbody></table></div></div>'; function fU() { var r = document.getElementById('uRole').value, s = document.getElementById('uStatus').value, fl = MOCK_USERS.filter(function (u) { if (r && u.role !== r) return false; if (s && u.status !== s) return false; return true }); document.getElementById('uBody').innerHTML = fl.map(function (u) { return '<tr><td><strong>' + u.name + '</strong></td><td>' + u.email + '</td><td>' + u.phone + '</td><td><span class="badge ' + (rc[u.role] || 'badge-gray') + '">' + u.role + '</span></td><td>' + u.bookings + '</td><td>' + formatDate(u.joined) + '</td><td><span class="badge ' + (sc[u.status] || 'badge-gray') + '">' + u.status.charAt(0).toUpperCase() + u.status.slice(1) + '</span></td></tr>' }).join('') || '<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--medium-gray)">No users</td></tr>' } document.getElementById('uRole').addEventListener('change', fU); document.getElementById('uStatus').addEventListener('change', fU) }
 
-        async function togglePkgActive(id) {
-            const res = await API.admin.togglePackage(id);
-            if (res.success) { toast(res.message, 'success'); loadPackages(); }
-            else { toast(res.message, 'error'); }
-        }
-
-        async function togglePkgFeatured(id) {
-            const res = await API.admin.toggleFeatured(id);
-            if (res.success) { toast(res.message, 'success'); loadPackages(); }
-            else { toast(res.message, 'error'); }
-        }
-
-        // ═══════════════════════════════════════════════════════
-        //  USERS (Placeholder)
-        // ═══════════════════════════════════════════════════════
-        function renderUsers() {
-            $('#sec-users').innerHTML = `
-        <div class="empty-state">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
-          </svg>
-          <h3>User Management</h3>
-          <p>This section is coming soon. Customer data is currently managed through bookings and contacts.</p>
-        </div>
-      `;
-        }
-
-        // ═══════════════════════════════════════════════════════
-        //  PAYMENTS (Derived from Bookings)
-        // ═══════════════════════════════════════════════════════
-        async function renderPayments() {
-            const sec = $('#sec-payments');
-            sec.innerHTML = `<div style="text-align:center;padding:60px;color:var(--medium-gray)">Loading payments...</div>`;
-
-            const res = await API.admin.getBookings('limit=50');
-            if (!res.success) {
-                sec.innerHTML = `<div class="empty-state"><h3>Failed to load</h3><p>${res.message}</p></div>`;
-                return;
-            }
-
-            const bookings = res.data;
-            const totalRevenue = bookings.reduce((s, b) => s + (b.totalPrice || 0), 0);
-            const totalPaid = bookings.reduce((s, b) => s + (b.advancePaid || 0), 0);
-            const pending = bookings.filter(b => b.paymentStatus === 'pending').length;
-            const paid = bookings.filter(b => b.paymentStatus === 'paid').length;
-
-            sec.innerHTML = `
-        <div class="stats-grid" style="margin-bottom:24px">
-          <div class="stat-card">
-            <div class="stat-top"><div class="stat-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div></div>
-            <div class="stat-label">Total Revenue</div>
-            <div class="stat-value">${fmtCurrency(totalRevenue)}</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-top"><div class="stat-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div>
-            <div class="stat-label">Amount Collected</div>
-            <div class="stat-value">${fmtCurrency(totalPaid)}</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-top"><div class="stat-icon orange"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div>
-            <div class="stat-label">Pending Payments</div>
-            <div class="stat-value">${pending}</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-top"><div class="stat-icon maroon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div></div>
-            <div class="stat-label">Fully Paid</div>
-            <div class="stat-value">${paid}</div>
-          </div>
-        </div>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead><tr><th>Booking ID</th><th>Customer</th><th>Type</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th></tr></thead>
-            <tbody>
-              ${bookings.length === 0 ? '<tr><td colspan="7"><div class="empty-state" style="padding:40px"><p>No payment records</p></div></td></tr>' :
-                    bookings.map(b => `<tr>
-                  <td><strong style="color:var(--maroon);font-size:12px">${escHtml((b.bookingId || b._id).slice(-8).toUpperCase())}</strong></td>
-                  <td>${escHtml(b.name)}</td>
-                  <td><span class="badge ${b.bookingType === 'vehicle' ? 'badge-blue' : 'badge-gold'}">${b.bookingType}</span></td>
-                  <td><strong>${fmtCurrency(b.totalPrice)}</strong></td>
-                  <td style="color:var(--green)">${fmtCurrency(b.advancePaid || 0)}</td>
-                  <td style="color:var(--red)">${fmtCurrency((b.totalPrice || 0) - (b.advancePaid || 0))}</td>
-                  <td>${statusBadge(b.paymentStatus || 'pending')}</td>
-                </tr>`).join('')}
-            </tbody>
-          </table>
-        </div>
-      `;
-        }
-
-        // ═══════════════════════════════════════════════════════
-        //  SETTINGS
-        // ═══════════════════════════════════════════════════════
+        // ═══ SETTINGS ═══
         function renderSettings() {
-            $('#sec-settings').innerHTML = `
-        <div class="settings-card">
-          <h3>Change Password</h3>
-          <div class="form-group" style="margin-bottom:16px">
-            <label>Current Password <span class="req">*</span></label>
-            <input class="form-control" type="password" id="setCurrPass" placeholder="Enter current password">
-          </div>
-          <div class="form-group" style="margin-bottom:16px">
-            <label>New Password <span class="req">*</span></label>
-            <input class="form-control" type="password" id="setNewPass" placeholder="Enter new password">
-          </div>
-          <div class="form-group" style="margin-bottom:20px">
-            <label>Confirm New Password <span class="req">*</span></label>
-            <input class="form-control" type="password" id="setConfPass" placeholder="Confirm new password">
-          </div>
-          <button class="btn btn-primary" onclick="changePassword()">Update Password</button>
-        </div>
-        <div class="settings-card" style="margin-top:20px">
-          <h3>Session Info</h3>
-          <div class="detail-row"><span class="detail-label">Status</span><span class="detail-value">${API.getToken() ? statusBadge('active') : statusBadge('inactive')}</span></div>
-          <div class="detail-row"><span class="detail-label">Storage</span><span class="detail-value">${localStorage.getItem('voyago_token') ? 'Local (Remember me)' : 'Session'}</span></div>
-        </div>
-      `;
+            var s = getSettings(); var sec = document.getElementById('sec-settings'); sec.innerHTML = '<div class="settings-card"><h3>General Information</h3><div class="form-row"><div class="form-group"><label>Site Name</label><input type="text" class="form-control" id="s-name" value="' + s.siteName + '"></div><div class="form-group"><label>Contact Email</label><input type="email" class="form-control" id="s-email" value="' + s.email + '"></div></div><div class="form-row"><div class="form-group"><label>Phone</label><input type="text" class="form-control" id="s-phone" value="' + s.phone + '"></div><div class="form-group"><label>WhatsApp</label><input type="text" class="form-control" id="s-whatsapp" value="' + s.whatsapp + '"></div></div><div class="form-row"><div class="form-group"><label>GST Number</label><input type="text" class="form-control" id="s-gst" value="' + s.gst + '"></div><div class="form-group"><label>Address</label><input type="text" class="form-control" id="s-address" value="' + s.address + '"></div></div></div><div class="settings-card"><h3>Preferences</h3><div class="settings-row"><div class="settings-row-info"><h4>Online Booking</h4><p>Allow customers to book from the website</p></div><div class="toggle-wrap"><div class="toggle-track' + (s.onlineBooking ? ' on' : '') + '" id="s-online"><div class="toggle-thumb"></div></div></div></div><div class="settings-row"><div class="settings-row-info"><h4>Phone Verification</h4><p>Require OTP for new bookings</p></div><div class="toggle-wrap"><div class="toggle-track' + (s.phoneVerify ? ' on' : '') + '" id="s-phonev"><div class="toggle-thumb"></div></div></div></div><div class="settings-row"><div class="settings-row-info"><h4>Auto-Confirm</h4><p>Confirm bookings without manual review</p></div><div class="toggle-wrap"><div class="toggle-track' + (s.autoConfirm ? ' on' : '') + '" id="s-auto"><div class="toggle-thumb"></div></div></div></div></div><div style="display:flex;gap:12px;margin-bottom:24px"><button class="btn btn-primary" id="saveSettingsBtn">Save Settings</button><button class="btn btn-danger" id="resetDataBtn">Reset All Data</button></div>';
+            setupToggle('s-online'); setupToggle('s-phonev'); setupToggle('s-auto');
+            document.getElementById('saveSettingsBtn').addEventListener('click', function () { saveSettings({ siteName: document.getElementById('s-name').value.trim(), email: document.getElementById('s-email').value.trim(), phone: document.getElementById('s-phone').value.trim(), whatsapp: document.getElementById('s-whatsapp').value.trim(), gst: document.getElementById('s-gst').value.trim(), address: document.getElementById('s-address').value.trim(), onlineBooking: document.getElementById('s-online').classList.contains('on'), phoneVerify: document.getElementById('s-phonev').classList.contains('on'), autoConfirm: document.getElementById('s-auto').classList.contains('on') }); toast('Settings saved', 'success') });
+            document.getElementById('resetDataBtn').addEventListener('click', function () { openModal('Reset All Data', '<div class="confirm-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.2"/></svg></div><div class="confirm-text">This will <strong>delete all vehicle AND package data</strong> and restore defaults.</div>', '<button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-danger" id="confirmResetBtn">Reset All</button>'); document.getElementById('confirmResetBtn').addEventListener('click', function () { localStorage.removeItem(DB_KEY); localStorage.removeItem(PKG_KEY); closeModal(); toast('All data reset to defaults', 'warning'); navigateTo(currentSection) }) });
         }
 
-        async function changePassword() {
-            const current = $('#setCurrPass').value;
-            const newPass = $('#setNewPass').value;
-            const confirm = $('#setConfPass').value;
-            if (!current || !newPass || !confirm) { toast('All fields are required.', 'error'); return; }
-            if (newPass !== confirm) { toast('New passwords do not match.', 'error'); return; }
-            if (newPass.length < 6) { toast('Password must be at least 6 characters.', 'error'); return; }
+        // ═══ EVENT LISTENERS ═══
+        document.querySelectorAll('.nav-item').forEach(function (b) { b.addEventListener('click', function () { navigateTo(b.dataset.section) }) });
+        document.getElementById('hamburgerBtn').addEventListener('click', openSidebar);
+        document.getElementById('sidebarClose').addEventListener('click', closeSidebar);
+        document.getElementById('sidebarOverlay').addEventListener('click', closeSidebar);
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        document.getElementById('modalBackdrop').addEventListener('click', function (e) { if (e.target === this) closeModal() });
+        document.getElementById('panelClose').addEventListener('click', closePanel);
+        document.getElementById('panelOverlay').addEventListener('click', closePanel);
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { if (document.getElementById('modalBackdrop').classList.contains('active')) closeModal(); else if (document.getElementById('slidePanel').classList.contains('active')) closePanel() } });
 
-            const res = await API.admin.changePassword({ currentPassword: current, newPassword: newPass });
-            if (res.success) {
-                toast(res.message, 'success');
-                $('#setCurrPass').value = '';
-                $('#setNewPass').value = '';
-                $('#setConfPass').value = '';
-            } else {
-                toast(res.message, 'error');
-            }
-        }
-
-        // ═══════════════════════════════════════════════════════
-        //  PAGINATION HELPER
-        // ═══════════════════════════════════════════════════════
-        function renderPagination(sel, pag, onPageChange) {
-            const el = $(sel);
-            if (!el || !pag || pag.pages <= 1) { if (el) el.innerHTML = ''; return; }
-            let btns = '';
-            for (let i = 1; i <= pag.pages; i++) {
-                btns += `<button class="btn btn-sm ${i === pag.page ? 'btn-primary' : 'btn-ghost'}" onclick="void(0)" data-page="${i}">${i}</button>`;
-            }
-            el.innerHTML = `
-        <span style="font-size:13px;color:var(--medium-gray)">Showing ${(pag.page - 1) * pag.limit + 1}–${Math.min(pag.page * pag.limit, pag.total)} of ${pag.total}</span>
-        <div style="display:flex;gap:6px">
-          <button class="btn btn-ghost btn-sm" ${pag.page <= 1 ? 'disabled' : ''} data-page="${pag.page - 1}">← Prev</button>
-          ${btns}
-          <button class="btn btn-ghost btn-sm" ${pag.page >= pag.pages ? 'disabled' : ''} data-page="${pag.page + 1}">Next →</button>
-        </div>
-      `;
-            el.querySelectorAll('[data-page]').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const p = parseInt(btn.dataset.page);
-                    if (p >= 1 && p <= pag.pages) onPageChange(p);
-                });
-            });
-        }
-
-        // ═══════════════════════════════════════════════════════
-        //  EVENT LISTENERS & INIT
-        // ═══════════════════════════════════════════════════════
-        document.addEventListener('DOMContentLoaded', async () => {
-            /* FIXED: validate token with server before rendering */
-            const authed = await checkAuth();
-            if (!authed) return;
-
-            // Navigation
-            $$('.nav-item').forEach(btn => {
-                btn.addEventListener('click', () => navigate(btn.dataset.section));
-            });
-
-            // Sidebar mobile
-            $('#hamburgerBtn').addEventListener('click', () => {
-                $('#sidebar').classList.add('open');
-                $('#sidebarOverlay').classList.add('active');
-            });
-            $('#sidebarClose').addEventListener('click', () => {
-                $('#sidebar').classList.remove('open');
-                $('#sidebarOverlay').classList.remove('active');
-            });
-            $('#sidebarOverlay').addEventListener('click', () => {
-                $('#sidebar').classList.remove('open');
-                $('#sidebarOverlay').classList.remove('active');
-            });
-
-            // Modal close
-            $('#modalClose').addEventListener('click', closeModal);
-            $('#modalBackdrop').addEventListener('click', (e) => { if (e.target === $('#modalBackdrop')) closeModal(); });
-
-            // Panel close
-            $('#panelClose').addEventListener('click', closePanel);
-            $('#panelOverlay').addEventListener('click', closePanel);
-
-            // Dropdown
-            $('#moreBtn').addEventListener('click', (e) => {
-                e.stopPropagation();
-                $('#moreDropdown').classList.toggle('active');
-            });
-            document.addEventListener('click', () => $('#moreDropdown').classList.remove('active'));
-
-            // Notification button -> go to bookings
-            $('#notifBtn').addEventListener('click', () => navigate('bookings'));
-
-            // Header time
-            updateHeaderTime();
-            setInterval(updateHeaderTime, 30000);
-
-            // Keyboard shortcuts
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') { closeModal(); closePanel(); }
-            });
-
-            // Load dashboard
-            navigate('dashboard');
-        });
+        // ═══ INIT ═══
+        function init() { updateTime(); setInterval(updateTime, 1000); getDB(); getPkgDB(); renderDashboard() }
+        init();
     </script>
 </body>
 
